@@ -1,13 +1,17 @@
 # technocore-measured
 
-Reproducible measurements of the [technocore.chat](https://technocore.chat) agent network — the method, the numbers, and the scripts that produced them.
+A directory of what the community around [technocore.chat](https://technocore.chat) has built, and a set of reproducible measurements of the network itself.
 
-Not a monitor and not a dashboard. Those already exist and they tell you what is happening right now. This repository answers **fixed questions with a stated method**, so the numbers can be argued with and re-run months later. Every figure below came from the live service, every script is in [`scripts/`](scripts/), and each measurement states what it does not establish.
+Two halves, and the second is why the first is worth trusting. Plenty of lists can tell you which repositories exist. This one also states **how the list was filtered**, and is kept next to measurements that were taken against the live service with the method written down — so when something here says "roughly 131,000 identity notes" or "a nine-second read horizon", you can re-run it and argue with it.
 
-All timestamps are UTC.
+Every figure came from the live service, every script is in [`scripts/`](scripts/), and each measurement states what it does **not** establish. All timestamps are UTC.
 
 ## Contents
 
+**The directory**
+- [Community projects](#community-projects)
+
+**The measurements**
 - [The `since` trap](#the-since-trap)
 - [How far back a reader can see](#how-far-back-a-reader-can-see)
 - [What is in the capped `did/` namespace](#what-is-in-the-capped-did-namespace)
@@ -18,6 +22,108 @@ All timestamps are UTC.
 - [A reader that avoids all three](#a-reader-that-avoids-all-three)
 - [Running these yourself](#running-these-yourself)
 - [What this is not](#what-this-is-not)
+
+## Community projects
+
+The service is three weeks old and there are already 140 repositories around it, most of them from the last few days. This is a filtered view, not a dump.
+
+**What is in here:** created on or after 2026-08-13 (the day `technocore-chat` was published, so a name collision with an older project cannot slip in), has a description, is not a fork, and has more than 5 KB of content. Anything that passed those four and is not listed below was cut for space, not for quality — the sections keep the twelve highest-signal entries each.
+
+**What is not:** repositories whose only content is a README claiming participation. This list is for things you can run or read.
+
+### Official
+
+- [flop-labs/technocore-chat](https://github.com/flop-labs/technocore-chat) — The server, Apache-2.0. Self-hosting is one `docker run`.
+- [llms.txt](https://technocore.chat/llms.txt) — The complete protocol reference; the prose there is the authority.
+- [skill.md](https://technocore.chat/skill.md) · [patterns.md](https://technocore.chat/patterns.md) · [auth.md](https://technocore.chat/auth.md) — Onboarding skill, worked patterns, the signed lane.
+- [agent.json](https://technocore.chat/.well-known/agent.json) — The limits this deployment actually enforces, machine-readable.
+
+### Getting started
+
+- [Nassami1/technocore-easy](https://github.com/Nassami1/technocore-easy) — One-command guided setup for technocore-did-starter - made for non-technical users.
+- [mrchandu1462-ux/technocore-windows-guide](https://github.com/mrchandu1462-ux/technocore-windows-guide) — A reproducible Windows guide and compatibility report for creating a did:key and publishing signed messages to…
+- [omerbek/technoscore-did-starter](https://github.com/omerbek/technoscore-did-starter) — Bilingual Technocore DID starter with generated visual assets and signed contribution workflow.
+- [bulliscoming/technocore-guide](https://github.com/bulliscoming/technocore-guide) — A practical guide to Technocore and agent communication.
+- [Gmhax/technocore-one-command](https://github.com/Gmhax/technocore-one-command) — One-command Technocore DID setup for GitHub Codespaces.
+- [nhutqui23091/technocore-agent-vi](https://github.com/nhutqui23091/technocore-agent-vi) — Onboard a did:key agent onto Technocore (Flop Labs). Bilingual VI/EN guide + script.
+- [Shahzuby/flop-agent-one-click](https://github.com/Shahzuby/flop-agent-one-click) — One-click Linux VPS installer and interactive toolkit for the FLOP network (Technocore). Set up your agent DID…
+- [ghoundzt/FLOP-Labs-Technocore-Agent-Guide](https://github.com/ghoundzt/FLOP-Labs-Technocore-Agent-Guide) — Step-by-step guide to setup an Autonomous AI Agent with did:key for FLOP Labs Technocore airdrop snapshot.
+- [surixbt/technocore-did-guide](https://github.com/surixbt/technocore-did-guide) — Flop technocore-did-starter guide.
+- [purnomo08/technocore-environment-checker](https://github.com/purnomo08/technocore-environment-checker) — A beginner-friendly tool and tutorial for checking a Python environment before starting Technocore development.
+- [encoderrrr/flop-agent](https://github.com/encoderrrr/flop-agent) — Beginner-friendly bilingual guide and setup files for the Technocore FLOP agent.
+- [solotop999/technocore-onboard](https://github.com/solotop999/technocore-onboard) — Technocore-onboard.
+
+### Agent toolkits and CLIs
+
+- [d4ncboz/technocore](https://github.com/d4ncboz/technocore) — Decentralized Ed25519 Cryptographic Identity, Signed Message Bus, and Proof-of-Contribution Framework for AI…
+- [dizcorvus/flop-airdrop-skill](https://github.com/dizcorvus/flop-airdrop-skill) — Autonomous AI agent skill to position for the $FLOP airdrop. Install in your agent and prompt 'Help me with the…
+- [norbert351/technocore-console](https://github.com/norbert351/technocore-console) — Technocore Console — browser-first web client for the FLOP Labs technocore-chat layer. did:key identity, signed…
+- [stupeterwilliams-ui/technocore-sdk](https://github.com/stupeterwilliams-ui/technocore-sdk) — Unofficial third-party Python client and LangChain/LangGraph tools for technocore.chat — the did:key signed…
+- [frianowzki/technocore-DID-studio](https://github.com/frianowzki/technocore-DID-studio) — A website to record your introduction and contribution to technocore/flop labs.
+- [nxrskyaa/flop-airdrop-skill](https://github.com/nxrskyaa/flop-airdrop-skill) — Universal AI agent skill that automates the $FLOP airdrop flow on Flop Labs Technocore — DID generation, signed…
+- [dharmanan/technocore-agent-console](https://github.com/dharmanan/technocore-agent-console) — A web console for Technocore DID identity, signed agent activity, mailbox management, contribution proofs, and…
+- [hexitlabs/technocore-signed-agent](https://github.com/hexitlabs/technocore-signed-agent) — Signed Technocore agent: Ed25519 did:key, DID notes, independent verify, Grok skill for the signed lane.
+- [agalunov/technocore-py](https://github.com/agalunov/technocore-py) — Minimal Technocore client for the FLOP ecosystem.
+- [rjuliant/technocore-client](https://github.com/rjuliant/technocore-client) — Non-interactive Python client for the Technocore/FLOP agent protocol (DID create, sign, post, read).
+- [dcpf1/technocore-py](https://github.com/dcpf1/technocore-py) — Client, MCP server and Claude Code skill for technocore.chat - HTTP-native chat and notes for AI agents. Gets…
+- [BambooTuna/technocore-did](https://github.com/BambooTuna/technocore-did) — Zero-dependency did:key (Ed25519) CLI for technocore.chat — keygen, signed room posts, contribution ledger.
+
+### Clients and libraries
+
+- [HyperliquidIsGod/technocore-agent-node](https://github.com/HyperliquidIsGod/technocore-agent-node) — Node.js agent for technocore.chat — did:key identity, Ed25519 signed writes, no Python required.
+- [pookiebear57/technocore-agent-sdk](https://github.com/pookiebear57/technocore-agent-sdk) — Wire any LLM into technocore.chat rooms — a minimal, provider-agnostic agent loop with did:key identities.
+- [Dalbybo/technocore-unity](https://github.com/Dalbybo/technocore-unity) — A Unity package that lets in-game agents talk over technocore.chat rooms (did:key + UnityWebRequest).
+- [shaonturaj/TechnocoreKit](https://github.com/shaonturaj/TechnocoreKit) — A Swift Package for technocore.chat — did:key identities and Ed25519 signed messages (iOS/macOS/Linux).
+- [pucedoteth/technocore-node-signer](https://github.com/pucedoteth/technocore-node-signer) — Zero-dependency Node.js Ed25519 signer for technocore.chat — sign, post, verify offline, and manage DID notes…
+- [oppussjp/flop-agent](https://github.com/oppussjp/flop-agent) — Zero-dependency did:key identity and signed-message tooling for technocore.chat (FLOP Labs). Node 22, no deps.
+- [stealths1907/isg-technocore-bridge](https://github.com/stealths1907/isg-technocore-bridge) — Technocore isg-technocore-bridge.
+- [yourpoookie/technocore-webhooks](https://github.com/yourpoookie/technocore-webhooks) — Bridge technocore.chat rooms to webhooks — long-poll a room, forward new messages to Slack/Discord/HTTP.
+
+### Observability and analysis
+
+- [mrchandu1462-ux/technocore-tester](https://github.com/mrchandu1462-ux/technocore-tester) — Independent conformance tester for the Technocore signed message lane.
+- [spacerug/technocore-agent-dashboard](https://github.com/spacerug/technocore-agent-dashboard) — Beginner-friendly Windows dashboard for safe, signed Technocore DID messages and Weekly Automated Checkins.
+- [cybersamrai/technocore-playbook](https://github.com/cybersamrai/technocore-playbook) — Autonomous multi-agent coordination, room vitality analytics, and failure-tolerant task leases for Technocore…
+- [Mariukasfak/flop-evidence-scout](https://github.com/Mariukasfak/flop-evidence-scout) — Two autonomous AI agents running continuously on technocore.chat with W3C Ed25519 did:key identities — plus a…
+- [stacydav99/flop-monitor](https://github.com/stacydav99/flop-monitor) — FLOP Monitor — signed chat terminal client for Technocore.
+- [Farukest/technocore-did-slot-watcher](https://github.com/Farukest/technocore-did-slot-watcher) — Technocore.chat's /kv/did namespace is at its 5120-note cap, so new DID publishes fail with 400. Finding,…
+- [adityaypz/technocore-lens](https://github.com/adityaypz/technocore-lens) — Read-only health & signal analyzer for Technocore rooms - separates real discussion from $FLOP farming noise.…
+- [2TheMoom/technocore-archiver](https://github.com/2TheMoom/technocore-archiver) — Verify-then-archive watcher for technocore.chat rooms: catches messages before they age out of the read window,…
+- [Asadlee24/technocore-explorer](https://github.com/Asadlee24/technocore-explorer) — A human-friendly real-time explorer and activity dashboard for the Technocore agent network.
+- [Xelp66/technocore-safelens](https://github.com/Xelp66/technocore-safelens) — Read-only safety inspector for Technocore rooms and AI agents.
+- [posaune0423/flop-agent](https://github.com/posaune0423/flop-agent) — Minimal Deno agent for secure Technocore DID onboarding, mailbox monitoring, and future FLOP task adapters.
+- [Leknaatx/technocore-roomscan](https://github.com/Leknaatx/technocore-roomscan) — Read-only signal-to-noise analyzer for technocore.chat rooms — measures signed-vs-costume ratio, coordinated…
+
+### Security and key handling
+
+Your `did:key` seed signs writes today and is the only thing that proves the identity is yours. Never put it in a repository, a chat message, or a room.
+
+- [zunmax/technocore-did-starter](https://github.com/zunmax/technocore-did-starter) — Simple tutorial for creating an encrypted Ed25519 DID, publishing signed Technocore messages, and documenting…
+- [zakazaka95/technocore-node-helper](https://github.com/zakazaka95/technocore-node-helper) — Zero-dependency Node.js helper for encrypted Technocore did:key identities and signed messages.
+- [mystiquemide/technocore-onboarding-safety-kit](https://github.com/mystiquemide/technocore-onboarding-safety-kit) — A safe, beginner-friendly Technocore onboarding guide and read-only signed-message verifier.
+- [muhtalip01/technocore-memory-mcp](https://github.com/muhtalip01/technocore-memory-mcp) — Encrypted, DID-signed cross-session memory for MCP agents over FLOP Labs Technocore.
+- [Agozie180/flop-did-beginner-guide](https://github.com/Agozie180/flop-did-beginner-guide) — Basic beginner guide on Flop DID — create your own did:key for the Technocore / $FLOP ecosystem (educational,…
+- [danenright/technocore-contributor-onboarding](https://github.com/danenright/technocore-contributor-onboarding) — Safe one-DID onboarding and attributable contribution workflow for FLOP Labs Technocore agents.
+- [Nerevarine22/technocore](https://github.com/Nerevarine22/technocore) — A secure local Python agent for sending Ed25519 did:key-signed messages to Technocore.chat.
+- [peaceofheaven777/technocore-safe-write](https://github.com/peaceofheaven777/technocore-safe-write) — Post a Technocore message exactly once, even when the origin is flaky. Idempotent signed writes for did:key…
+- [oxz888/technocore-security-field-guide](https://github.com/oxz888/technocore-security-field-guide) — Independent reproducible security review and safe-use guide for FLOP Labs Technocore Chat.
+- [raheelnaziir/flop-technocore-did](https://github.com/raheelnaziir/flop-technocore-did) — Simple tutorial for creating an encrypted Ed25519 DID for flop, publishing signed Technocore messages.
+- [bdunn77/technocore-signed-client](https://github.com/bdunn77/technocore-signed-client) — Security-focused companion client for persistent Ed25519 identities and signed Technocore operations.
+- [undefinedquillharbor3417/technocore-client](https://github.com/undefinedquillharbor3417/technocore-client) — Zero-dependency, gap-safe Python client for technocore.chat (did:key signing, backlog-safe polling).
+
+### Guides by language
+
+- [RyoSAKu610/technocore-jp-kit](https://github.com/RyoSAKu610/technocore-jp-kit) — MacOS / 日本語向け Technocore 公式プロトコル準拠キット。CJK は POST 署名、DID は sharded note、公開レコードを verify する。.
+- [agent-555/technocore-jp-field-guide](https://github.com/agent-555/technocore-jp-field-guide) — Japanese security-first field guide for Technocore DID onboarding and safe FLOP participation.
+- [aethertale/technocore-identity-tool](https://github.com/aethertale/technocore-identity-tool) — Bikin DID Ed25519 langsung di browser untuk Technocore & potensi $FLOP. Client-side, kunci tidak pernah…
+- [wrvnnull/technocore-guide-id](https://github.com/wrvnnull/technocore-guide-id) — Panduan aman & step-by-step Technocore + $FLOP airdrop (Bahasa Indonesia).
+- [harsharock/cryptotelugu_flop](https://github.com/harsharock/cryptotelugu_flop) — Cryptotelugu-technocore-flop page.
+- [harsharock/cryptotelugu-flop](https://github.com/harsharock/cryptotelugu-flop) — Cryptotelugu-technocore-flop page.
+- [zengjingsi/technocore-did-starter](https://github.com/zengjingsi/technocore-did-starter) — Technocore DID starter - encrypted Ed25519 identity, signed messages, and a Chinese contribution guide for the…
+- [klopp78/technocore-flop-did-guide](https://github.com/klopp78/technocore-flop-did-guide) — Chinese Technocore DID guide and FLOP contribution proof with a reusable menu script.
+- [mehmetkr-31/technocore-turkce-rehber](https://github.com/mehmetkr-31/technocore-turkce-rehber) — Technocore (Flop Labs) icin Turkce rehber: kendi makinende sifreli Ed25519 DID olustur, imzali mesaj gonder.…
+
+### Other curated lists
 
 ## The `since` trap
 
