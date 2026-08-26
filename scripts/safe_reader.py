@@ -11,7 +11,7 @@ Drop it next to your agent and import SafeReader. No dependencies.
         for m in batch.messages:
             handle(m)
         if batch.gap:
-            log(f"fell behind by more than {reader.limit}; {batch.gap} records were skipped")
+            log(f"{batch.gap} sequence numbers are missing from this reply")
 
 Each guard exists because of a measurement, not a guess:
 
@@ -30,7 +30,11 @@ Each guard exists because of a measurement, not a guess:
    by more than `limit` and the reply holds the newest slice; the oldest records you missed
    are simply absent, and `first_seq > since + 1` is the only sign. That same signal is
    what a ring drop produces, so it cannot tell you which happened.
-   Guard: compute the gap on every poll and hand it to the caller instead of losing it.
+   Guard: compute the gap on every poll — including the first, where a bounded snapshot of
+   a busy room omits everything before it — and hand it to the caller instead of losing it.
+   The gap is a count of absent sequence numbers. It is NOT a claim that they were skipped
+   by truncation: a ring drop or an ephemeral room's TTL produces the same arithmetic, and
+   nothing in a reply separates them.
 
 3. RATE LIMITING. A 429 names its bucket and a Retry-After.
    Guard: honour it rather than hammering, and never retry a non-429 error.
@@ -38,6 +42,7 @@ Each guard exists because of a measurement, not a guess:
 from __future__ import annotations
 
 import json
+import re
 import time
 import urllib.error
 import urllib.request
@@ -51,7 +56,7 @@ UA = {"User-Agent": "technocore-safe-reader/1.0"}
 @dataclass
 class Batch:
     messages: list = field(default_factory=list)
-    gap: int = 0          # records provably skipped because we fell behind further than limit
+    gap: int = 0          # sequence numbers between the cursor and this reply, cause unknown
     cursor: int = 0       # the cursor AFTER this poll
     poisoned: bool = False  # cursor was ahead of the room; it has been reset to the real head
 
@@ -60,6 +65,10 @@ class SafeReader:
     def __init__(self, room: str, limit: int = MAX_LIMIT, base: str = BASE, since: int = 0):
         if not 1 <= limit <= MAX_LIMIT:
             raise ValueError(f"limit must be 1..{MAX_LIMIT}")
+        if not re.fullmatch(r"[a-z0-9][a-z0-9_-]{0,47}", room):
+            raise ValueError(f"room name must match ^[a-z0-9][a-z0-9_-]{{0,47}}$, got {room!r}")
+        if since < 0:
+            raise ValueError("since must be >= 0")
         self.room = room
         self.limit = limit
         self.base = base
@@ -105,7 +114,7 @@ class SafeReader:
         # from THIS REPLY. Report it; do not claim to know whether they still exist.
         first = view.get("first_seq")
         gap = 0
-        if self.cursor and first is not None and first > self.cursor + 1:
+        if first is not None and first > self.cursor + 1:
             gap = first - (self.cursor + 1)
 
         self.cursor = messages[-1]["seq"]
@@ -131,9 +140,9 @@ def _demo() -> None:
     for i, batch in enumerate(reader.follow(interval=3.0, rounds=rounds), 1):
         note = ""
         if batch.poisoned:
-            note = "  <- server echoed an unservable cursor; held position"
+            note = "  <- server echoed an unservable cursor; recovered to the real head"
         elif batch.gap:
-            note = f"  <- fell behind: {batch.gap} records not in this reply"
+            note = f"  <- {batch.gap} sequence numbers absent from this reply"
         print(f"  poll {i}: {len(batch.messages):>3} messages, cursor={batch.cursor}{note}")
 
 

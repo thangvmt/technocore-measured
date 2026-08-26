@@ -97,9 +97,11 @@ Filed as [#199](https://github.com/flop-labs/technocore-chat/issues/199). Script
 | Sharded slots, extrapolated | ~90,400 |
 | Legacy slots also present in the sharded path | **0 of 50 checked** |
 
-With no overlap observed, the two namespaces look like disjoint populations and the totals are close to additive — plausibly because legacy filled and stayed full, so later agents could only write sharded. That gives roughly **131,000 identity notes**, with the defensible interval running from ~90,400 (if every legacy slot were also sharded) to ~131,400 (if none is). The measurement puts it at the top of that range.
+No overlap was observed, which points at two largely disjoint populations — plausibly because legacy filled and stayed full, so later agents could only write sharded. That would put identity notes near **131,000**, the top of an interval running from ~90,400 (if every legacy slot were also sharded) to ~131,400 (if none is).
 
-**Does not establish:** the reverse direction — a sharded-only identity never appears in a legacy sample, so this bounds double-counting, not the population. Nor does it establish how many are *active*, or how many operators are behind them: [#149](https://github.com/flop-labs/technocore-chat/issues/149) documents fleets minting keys per burst, so note count is an upper bound on participants by an unknown margin. And 0 of 50 is not 0 of 40,960 — the 95% interval on that sample alone reaches about 7%.
+Treat that as a direction, not a calibrated figure. The 50 checked slots are spread evenly across the 300-row sample, but that sample is itself a systematic stride over the legacy key space, so this is a stride within a stride rather than a random draw — enough to say overlap is not common, not enough to attach a confidence interval to.
+
+**Does not establish:** the reverse direction — a sharded-only identity never appears in a legacy sample, so this bounds double-counting, not the population. Nor how many are *active*, or how many operators are behind them: [#149](https://github.com/flop-labs/technocore-chat/issues/149) documents fleets minting keys per burst, so note count is an upper bound on participants by an unknown margin.
 
 Scripts: [`scripts/identity_census.py`](scripts/identity_census.py), [`scripts/legacy_shard_overlap.py`](scripts/legacy_shard_overlap.py)
 
@@ -187,7 +189,7 @@ while True:
 | Guard | Trap it comes from |
 |---|---|
 | Never advances the cursor from an empty reply; asks the room for its real head and resets to it if the cursor is ahead | the stranded cursor above |
-| Reports `batch.gap` whenever `first_seq > since + 1`, instead of losing the count silently | `since`/`limit` truncation |
+| Reports `batch.gap` whenever `first_seq > since + 1` — including on the very first poll, where a bounded snapshot of a busy room omits everything before it | `since`/`limit` truncation |
 | Honours `Retry-After` on 429 and never retries anything else | the documented rate limit |
 
 Tested against the live service: a reader started at `since=99999999` detects the strand,
@@ -195,8 +197,7 @@ recovers to the real head and reads normally on the next poll, while a quiet roo
 reports no false alarm. With `limit=5` on `/r/lobby`, a 12-second pause produced a reported gap
 of 278 records — records a naive reader drops without noticing.
 
-The gap is reported, never interpreted. This library does not tell you the records were deleted,
-because from here nothing can.
+The gap is a count of absent sequence numbers, reported and never interpreted. It is not a claim that they were truncated: a ring drop or an ephemeral room's TTL produces identical arithmetic, and no reply separates them.
 
 ## Running these yourself
 
@@ -214,7 +215,16 @@ python3 legacy_shard_overlap.py 50      # needs did_audit.json from the line abo
 python3 safe_reader.py lobby 3          # the reader, as a demo
 ```
 
-Every script sleeps a fixed floor between requests, which bounds it regardless of how fast the service answers — the DID audit at 0.6 s is at most ~100 reads/min against a 600/min budget — and honours `Retry-After` on 429. All of them only ever read. None of them writes to the service, and none of them wants your private key.
+All of them only ever read. Pacing differs by script, so here it is exactly rather than as one claim:
+
+| Script | Request floor | On 429 |
+|---|---|---|
+| `read_horizon`, `duplication`, `identity_census` | 0.6 s, enforced process-wide in `_common.get` — measured at ~94 req/min against a 600/min budget | waits the `Retry-After` |
+| `did_namespace_audit` | 0.6 s, its own (it ships standalone in an upstream issue) | waits the `Retry-After` |
+| `legacy_shard_overlap` | 0.6 s, its own, `--delay` refuses anything under 0.1 s | waits the `Retry-After` |
+| `safe_reader` | none — a library must not decide the caller's polling interval | waits the `Retry-After` |
+
+A per-call `sleep()` does not bound a client, because it ignores the time the request itself took; `_common` measures from the start of the previous request instead. None of them writes to the service, and none of them wants your private key.
 
 Numbers will differ from the ones above — that is the point of publishing the method rather than only the result.
 
