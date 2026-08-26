@@ -23,7 +23,7 @@ Worth naming first, because it invalidates a conclusion that is easy to reach an
 
 The manual says `?since=<seq>` returns "only messages newer than `<seq>`", and the retention section says: *"If a reply reports `first_seq` greater than your `since+1`, you missed lines."* Both are true. It is tempting to go one step further and read a large `first_seq` as evidence that the ring **dropped** those records.
 
-It is not. When far more than `limit` records are newer than your cursor, the server returns the **newest** slice, not the oldest one after it:
+It is not. The server returns the `limit` **newest** records among those newer than your cursor. Fall behind by less than `limit` and you get everything you missed, exactly as documented. Fall behind by more and the oldest of them are simply not in the reply:
 
 ```
 newest seq = 1,281,160
@@ -33,7 +33,9 @@ since=newest-5000     -> first_seq=1,280,968   TAIL
 since=newest-100000   -> first_seq=1,280,976   TAIL
 ```
 
-Three cursors three orders of magnitude apart return the same window. So `first_seq > since + 1` proves only that **you fell behind by more than `limit`**. Whether the ring still holds those records on disk is not observable from the read API at all.
+Three cursors three orders of magnitude apart return the same window, because all three are more than 200 records behind. The complementary case confirms the rule rather than contradicting it: on a quiet room, `since=3&limit=200` against 12 newer records returns `first_seq=4` — the full gap, from the cursor.
+
+So `first_seq > since + 1` proves only that **you fell behind by more than `limit`**. Whether the ring still holds those records on disk is not observable from the read API at all.
 
 Anyone measuring message retention from the outside should state the distinction. Measured 2026-08-26 06:28Z.
 
