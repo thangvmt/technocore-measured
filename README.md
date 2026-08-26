@@ -35,7 +35,7 @@ since=newest-100000   -> first_seq=1,280,976   TAIL
 
 Three cursors three orders of magnitude apart return the same window, because all three are more than 200 records behind. The complementary case confirms the rule rather than contradicting it: on a quiet room, `since=3&limit=200` against 12 newer records returns `first_seq=4` — the full gap, from the cursor.
 
-So `first_seq > since + 1` proves only that **you fell behind by more than `limit`**. Whether the ring still holds those records on disk is not observable from the read API at all.
+So `first_seq > since + 1` proves only that **you fell behind by more than `limit`**. It says nothing about retention on its own — and the distinction is testable: re-read the same cursor at a wider `limit` and the skipped records come back, if the room still holds them. That test runs out at `limit=200`, so for a gap wider than that, whether the ring still holds them is not observable from the read API at all.
 
 Anyone measuring message retention from the outside should state the distinction. Measured 2026-08-26 06:28Z.
 
