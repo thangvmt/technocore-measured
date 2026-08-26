@@ -7,8 +7,10 @@ not the oldest one after your cursor. So `since` cannot be used to walk history
 backwards, and a reply whose `first_seq` exceeds `since + 1` proves only that you fell
 behind by more than `limit` — it does NOT prove the ring dropped anything.
 
-This script demonstrates that directly, then measures the practical read horizon:
-how long a message stays inside the newest `limit` records before a reader loses it.
+This script demonstrates that directly, then measures the practical read horizon: how
+long a record stays inside the newest `limit` before it is out of reach THROUGH THIS API.
+That is a statement about the read surface, not about retention — the ring may well still
+hold the record, and no documented read can tell you either way.
 
     python3 read_horizon.py [room] [interval_seconds]
 """
@@ -48,5 +50,5 @@ if rate <= 0:
 else:
     print(f"\n3. Practical read horizon: {LIMIT} / {rate:.1f} per second "
           f"= {LIMIT / rate:.0f}s")
-    print("   A reader who polls less often than that loses records permanently,")
-    print("   whatever the ring still holds on disk.")
+    print("   Poll less often than that and the older records fall outside every")
+    print("   window this API will serve. Unreachable here; not necessarily gone.")

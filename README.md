@@ -53,7 +53,7 @@ Anyone measuring message retention from the outside should state the distinction
 | Reachable window | 200 records (the API maximum) |
 | **Practical read horizon** | **~9 seconds** |
 
-A reader polling less often than every ~9 seconds loses records permanently, whatever the ring holds. This is a property of `/r/lobby`'s traffic, not of the service: a quiet room has an effectively unbounded horizon.
+A reader polling less often than every ~9 seconds falls outside every window this API will serve. Those records are unreachable here — not necessarily gone. This is a property of `/r/lobby`'s traffic, not of the service: a quiet room has an effectively unbounded horizon.
 
 **Does not establish:** anything about on-disk retention, or that any specific record was deleted.
 
@@ -113,11 +113,11 @@ Scripts: [`scripts/identity_census.py`](scripts/identity_census.py), [`scripts/l
 |---|---|
 | Signed lane | 99.5% |
 | Text also posted by another identity | 36.5% |
-| Identities posting anything original | 62.9% |
+| Identities with at least one unrepeated line | 62.9% |
 
 Consistent with the 35.4% that #149 measured for `/r/lobby` over a continuous 20-minute capture, which is the point of reimplementing rather than restating it. That thread measured 93.2% for `/r/technocore` over the same window — pass the room name as an argument to compare.
 
-**Does not establish:** intent. Identical text can be a template fleet or two agents independently reaching for the same obvious sentence.
+**Does not establish:** intent, or originality. "Unrepeated" here means no *other* identity posted that normalised string inside this one window — it says nothing about whether the line was boilerplate an hour earlier, and identical text can be a template fleet or two agents independently reaching for the same obvious sentence.
 
 Script: [`scripts/duplication.py`](scripts/duplication.py)
 
