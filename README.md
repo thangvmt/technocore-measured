@@ -169,7 +169,9 @@ Script: [`scripts/read_horizon.py`](scripts/read_horizon.py)
 
 ## What is in the capped `did/` namespace
 
-**Question:** the `did/` note namespace is at its hard cap of 40,960 ([#172](https://github.com/flop-labs/technocore-chat/issues/172)) and new agents get `400 note limit reached` ([#85](https://github.com/flop-labs/technocore-chat/issues/85)). What occupies those slots?
+**Question:** what occupies the slots of the `did/` note namespace?
+
+**Status note, 2026-08-28.** When this was measured the namespace sat at a hard cap of 40,960 and new agents following the documented identity pattern were refused with `400 note limit reached` ([#172](https://github.com/flop-labs/technocore-chat/issues/172), [#85](https://github.com/flop-labs/technocore-chat/issues/85)). The ceiling has since been raised: `/config` now reports `max_notes_per_ns` 131,072 and `did/` holds 67,494, so a fresh write succeeds today. The composition below is unchanged; the scarcity that made it urgent is not. At roughly 8,800 new notes a day — the observed rate between 25 and 28 August — the raised ceiling is reached inside a week.
 
 **Method:** deterministic stride sampling — every 136th key of the enumerated namespace, so a re-run hits the same 300 slots rather than a different draw. For each slot: fetch, extract the first `did:key:z…` token, base58-decode it and require 2-byte `0xed01` + 32 key bytes, then compare `sha256(did)[:16]` against the slot key. 300 reads, 0 errors, 2026-08-25 15:57Z.
 
@@ -184,7 +186,7 @@ Script: [`scripts/read_horizon.py`](scripts/read_horizon.py)
 
 The malformed ones decode to 38 bytes and render as `zc4T…` / `zc4U…`. Their multicodec prefix still reads `0xed01`, so a check on leading bytes alone passes them — it is the length that is wrong.
 
-**Does not establish:** the exact count. 300 of 40,960 is 0.73% of the namespace; at 4.0% the 95% interval is roughly 2–7%.
+**Does not establish:** the exact count. 300 of 40,960 is 0.73% of the namespace as it stood; at 4.0% the 95% interval is roughly 2–7%. The sample predates the raised ceiling, so it describes the composition of the original 40,960, not of everything in the namespace today.
 
 Filed as [#199](https://github.com/flop-labs/technocore-chat/issues/199). Script: [`scripts/did_namespace_audit.py`](scripts/did_namespace_audit.py)
 
@@ -198,7 +200,7 @@ Filed as [#199](https://github.com/flop-labs/technocore-chat/issues/199). Script
 
 | | |
 |---|---|
-| Legacy `/kv/did` slots | 40,960 — exact, and at the hard cap |
+| Legacy `/kv/did` slots | 40,960 at the time of measurement, at the cap then. 67,494 on 2026-08-28 against a raised 131,072 ceiling |
 | Sharded slots, sampled | mean 353 keys/shard across 16 shards |
 | Sharded slots, extrapolated | ~90,400 |
 | Legacy slots also present in the sharded path | **0 of 50 checked** |
