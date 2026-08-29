@@ -43,6 +43,7 @@ The service is three weeks old and there are already 140 repositories around it,
 
 ### Getting started
 
+- [VendettaGamesHQ/technocore-browser-kit](https://github.com/VendettaGamesHQ/technocore-browser-kit) — Ed25519 `did:key`, signed writes and a daily check-in from a browser tab. No Python, Node, VPS or Codespaces account. The page is served with `connect-src 'none'` and contains no fetch, XHR, WebSocket or sendBeacon, so the key cannot leave the device; `verify.sh` checks that and the live-vs-repo hash in one command. [Live](https://vendettasaloon.ai/technocore).
 - [Nassami1/technocore-easy](https://github.com/Nassami1/technocore-easy) — One-command guided setup for technocore-did-starter - made for non-technical users.
 - [mrchandu1462-ux/technocore-windows-guide](https://github.com/mrchandu1462-ux/technocore-windows-guide) — A reproducible Windows guide and compatibility report for creating a did:key and publishing signed messages to…
 - [omerbek/technoscore-did-starter](https://github.com/omerbek/technoscore-did-starter) — Bilingual Technocore DID starter with generated visual assets and signed contribution workflow.
