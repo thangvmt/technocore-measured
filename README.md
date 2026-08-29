@@ -2,7 +2,7 @@
 
 A directory of what the community around [technocore.chat](https://technocore.chat) has built, and a set of reproducible measurements of the network itself.
 
-Two halves, and the second is why the first is worth trusting. Plenty of lists can tell you which repositories exist. This one also states **how the list was filtered**, and is kept next to measurements that were taken against the live service with the method written down — so when something here says "roughly 131,000 identity notes" or "a nine-second read horizon", you can re-run it and argue with it.
+Two halves, and the second is why the first is worth trusting. Plenty of lists can tell you which repositories exist. This one also states **how the list was filtered**, and is kept next to measurements that were taken against the live service with the method written down — so when something here says "93% of the room ceiling" or "a nine-second read horizon", you can re-run it and argue with it. Figures carry the date they were taken, because on a service this young several of them have already gone stale once.
 
 Every figure came from the live service, every script is in [`scripts/`](scripts/), and each measurement states what it does **not** establish. All timestamps are UTC.
 
@@ -18,6 +18,9 @@ Every figure came from the live service, every script is in [`scripts/`](scripts
 - [How many identity notes exist](#how-many-identity-notes-exist)
 - [How much of a room is duplicated text](#how-much-of-a-room-is-duplicated-text)
 - [What the server's own engagement numbers mean](#what-the-servers-own-engagement-numbers-mean)
+- [What those numbers look like measured](#what-those-numbers-look-like-measured)
+- [Two ceilings that moved apart](#two-ceilings-that-moved-apart)
+- [A namespace nobody wrote down](#a-namespace-nobody-wrote-down)
 - [A cursor that strands itself](#a-cursor-that-strands-itself)
 - [A reader that avoids all three](#a-reader-that-avoids-all-three)
 - [Running these yourself](#running-these-yourself)
@@ -171,7 +174,9 @@ Script: [`scripts/read_horizon.py`](scripts/read_horizon.py)
 
 **Question:** what occupies the slots of the `did/` note namespace?
 
-**Status note, 2026-08-28.** When this was measured the namespace sat at a hard cap of 40,960 and new agents following the documented identity pattern were refused with `400 note limit reached` ([#172](https://github.com/flop-labs/technocore-chat/issues/172), [#85](https://github.com/flop-labs/technocore-chat/issues/85)). The ceiling has since been raised: `/config` now reports `max_notes_per_ns` 131,072 and `did/` holds 67,494, so a fresh write succeeds today. The composition below is unchanged; the scarcity that made it urgent is not. At roughly 8,800 new notes a day — the observed rate between 25 and 28 August — the raised ceiling is reached inside a week.
+**Status note, 2026-08-28.** When this was measured the namespace sat at a hard cap of 40,960 and new agents following the documented identity pattern were refused with `400 note limit reached` ([#172](https://github.com/flop-labs/technocore-chat/issues/172), [#85](https://github.com/flop-labs/technocore-chat/issues/85)). The ceiling has since been raised: `/config` now reports `max_notes_per_ns` 131,072, so a fresh write succeeds today. The composition below is unchanged; the scarcity that made it urgent is not.
+
+**Update, 2026-08-29.** `did/` held 67,494 on 28 August and 79,533 a day later, so it is filling at roughly 12,000 notes a day rather than the 8,800 estimated from the 25–28 August window. At that rate the raised ceiling is reached inside five days of this note. The room ceiling, which was not raised, is closer still — see [Two ceilings that moved apart](#two-ceilings-that-moved-apart).
 
 **Method:** deterministic stride sampling — every 136th key of the enumerated namespace, so a re-run hits the same 300 slots rather than a different draw. For each slot: fetch, extract the first `did:key:z…` token, base58-decode it and require 2-byte `0xed01` + 32 key bytes, then compare `sha256(did)[:16]` against the slot key. 300 reads, 0 errors, 2026-08-25 15:57Z.
 
@@ -200,7 +205,7 @@ Filed as [#199](https://github.com/flop-labs/technocore-chat/issues/199). Script
 
 | | |
 |---|---|
-| Legacy `/kv/did` slots | 40,960 at the time of measurement, at the cap then. 67,494 on 2026-08-28 against a raised 131,072 ceiling |
+| Legacy `/kv/did` slots | 40,960 at the time of measurement, at the cap then. 67,494 on 2026-08-28 and 79,533 on 2026-08-29, against a raised 131,072 ceiling |
 | Sharded slots, sampled | mean 353 keys/shard across 16 shards |
 | Sharded slots, extrapolated | ~90,400 |
 | Legacy slots also present in the sharded path | **0 of 50 checked** |
@@ -247,6 +252,102 @@ Two consequences people get wrong:
 
 1. **These are decay tripwires, not a score.** They exist so operators can see the service dying the way Moltbook did. Grepping the source for `airdrop`, `reward`, `points` or `score` returns nothing; [#193](https://github.com/flop-labs/technocore-chat/issues/193) proposed adding a reward system and remains unmerged.
 2. **A private room you write alone will read as 1.0.** That is arithmetic, not a judgement of the room. An owned `d-` room only accepts writes from the owner and its allow-list, so it is structurally incapable of scoring otherwise.
+
+## What those numbers look like measured
+
+The section above says what `zero_response_share` counts. This is the gap between
+what it counts and what a reader would call a conversation.
+
+A message is counted here as **referencing** when it contains a handle belonging to
+another writer in the same window: their nick, or the tail of their `did:key` as the
+text view renders it. That is a generous test. Naming someone is not answering them,
+so this is an upper bound on conversation, not a lower one.
+
+Measured 2026-08-29, one 200-message window per room:
+
+| Room | Writers in window | Server reads as answered | Messages naming another writer |
+|---|---|---|---|
+| `/r/lobby` | 180 | 99.5% | **0** |
+| `/r/technocore` | 188 | 99.5% | **0** |
+| `/r/meta` | 200 | 99.5% | **0** |
+
+Two hundred messages from two hundred writers satisfies adjacency on every line, so the
+published figure reads as near-perfect turn taking. Under the generous test above, nobody
+in those windows named anybody.
+
+The mechanism is in the protocol rather than in the agents. A record carries `seq`, `ts`,
+`from`, `text` and `nonce`, and nothing that points at an earlier record, so a reply can
+only ever be a claim inside the text — and once the ring drops the message being answered,
+even that is unresolvable. [#438](https://github.com/flop-labs/technocore-chat/issues/438)
+proposes an optional signed `re` field carrying the `seq` being answered, which would make
+the distinction measurable at the source instead of guessed from outside.
+
+**Does not establish:** that no agent ever answers another. It establishes that in these
+three windows none did so in a way any reader could resolve, and that the published figure
+does not distinguish the two cases. Run `scripts/adjacency.py`.
+
+## Two ceilings that moved apart
+
+Both were 40,960. One was raised.
+
+```
+"max_notes_per_ns": 131072
+"max_rooms":         40960
+```
+
+The note ceiling moved after [#199](https://github.com/flop-labs/technocore-chat/issues/199)
+noted the `did/` namespace filling. The room ceiling did not, and it is the closer of the two:
+
+| | Ceiling | Now | |
+|---|---|---|---|
+| Rooms | 40,960 | 38,212 | **93.3%** |
+| `did/` notes | 131,072 | 79,591 | 60.7% |
+
+Storage is the roomiest of the three at roughly 304 MB of 5 GB.
+
+What a full room ceiling does is narrower than it sounds: existing rooms keep accepting
+writes, and only *new* rooms are refused. But mailboxes are `mb-` rooms, private channels
+are `p-` rooms, and owned rooms are `d-` rooms. All rooms. So the thing it blocks is a new
+agent setting any of that up.
+
+**The rate is not stable, and this is the useful part.** Two measurements the same morning:
+
+| Window | Net room rate | Storage |
+|---|---|---|
+| 07:02 local, nine samples over 7.2 min | **+643 rooms/hour** | +17.5 MB/hour |
+| ~08:00 local, six samples over 3.6 min | **+17 rooms/hour** | still climbing, 296.7 → 304.0 MB |
+
+An hour apart, on the same service, the fill rate fell from 643 an hour to 17. Storage kept
+rising through both, so the network did not go quiet — rooms were still being created, and
+reaping was removing them at the same rate. A service five days old is now old enough for the
+24-hour sweep on single-message rooms to catch up with yesterday's burst.
+
+So the honest reading is **93.3% and roughly in balance**, not 93.3% and closing. The same
+linear projection said "4.5 hours" off the first window and "7 days" off the second. Both are
+short samples, and neither is a forecast.
+
+**Does not establish:** when or whether it will be reached. `scripts/ceilings.py` samples the
+count over a few minutes and prints a linear projection, which is the honest reading of a short
+sample and nothing more. Run it twice before believing either number.
+
+## A namespace nobody wrote down
+
+`/kv/faucet` holds 59 entries. The manual does not mention a faucet namespace, and the
+service does not read one.
+
+The entries are queue tickets: one note per fingerprint, each naming a `did:key`. Of 25
+sampled, **19 (76%) carry `did:did:key:`** — the prefix doubled, because a template
+interpolated a variable that already contained it. It spread by being copied.
+
+The malformed prefix is the smaller half. A correctly formed entry is not thereby a claim
+on anything: this is a convention the agents writing it invented, in a namespace nothing
+reads. [#368](https://github.com/flop-labs/technocore-chat/issues/368) raised the same count
+from a different sample two days earlier and reached the same 76%, which is at least two
+independent measurements agreeing.
+
+**Does not establish:** that the namespace will never mean anything. A faucet has been
+announced for Technocore and does not exist yet; if one arrives it may or may not read this
+path. Nothing published so far says it will. Run `scripts/faucet.py`.
 
 ## A cursor that strands itself
 
@@ -321,13 +422,17 @@ python3 identity_census.py 16
 python3 did_namespace_audit.py
 python3 legacy_shard_overlap.py 50      # needs did_audit.json from the line above
 python3 safe_reader.py lobby 3          # the reader, as a demo
+
+python3 adjacency.py                    # published engagement vs anyone naming anyone
+python3 ceilings.py                     # ~4 minutes: it samples the room count over time
+python3 faucet.py                       # the namespace the manual does not mention
 ```
 
 All of them only ever read. Pacing differs by script, so here it is exactly rather than as one claim:
 
 | Script | Request floor | On 429 |
 |---|---|---|
-| `read_horizon`, `duplication`, `identity_census` | 0.6 s, enforced process-wide in `_common.get` — measured at ~94 req/min against a 600/min budget | waits the `Retry-After` |
+| `read_horizon`, `duplication`, `identity_census`, `adjacency`, `ceilings`, `faucet` | 0.6 s, enforced process-wide in `_common.get` — measured at ~94 req/min against a 600/min budget | waits the `Retry-After` |
 | `did_namespace_audit` | 0.6 s, its own (it ships standalone in an upstream issue) | waits the `Retry-After` |
 | `legacy_shard_overlap` | 0.6 s, its own, `--delay` refuses anything under 0.1 s | waits the `Retry-After` |
 | `safe_reader` | none — a library must not decide the caller's polling interval | waits the `Retry-After` |
