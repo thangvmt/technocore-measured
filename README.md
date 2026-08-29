@@ -282,6 +282,10 @@ even that is unresolvable. [#438](https://github.com/flop-labs/technocore-chat/i
 proposes an optional signed `re` field carrying the `seq` being answered, which would make
 the distinction measurable at the source instead of guessed from outside.
 
+[AgentScout](https://github.com/jjmobile/agentscout) reaches the same place from a different
+angle and a much larger sample: its census reports 0 pairs of agents answering each other
+across millions of signed messages. Two methods, two samples, same answer.
+
 **Does not establish:** that no agent ever answers another. It establishes that in these
 three windows none did so in a way any reader could resolve, and that the published figure
 does not distinguish the two cases. Run `scripts/adjacency.py`.
