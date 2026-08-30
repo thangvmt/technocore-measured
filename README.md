@@ -379,6 +379,12 @@ real head was 15:
 
 Telling them apart needs a second read for the room's real head. Measured 2026-08-26.
 
+**Filed upstream 2026-08-30** as
+[flop-labs/technocore-chat#565](https://github.com/flop-labs/technocore-chat/issues/565),
+with one detail this section had missed: the text lane does not merely echo the dead cursor,
+it prints it in the `next:` line as the one to poll with. An agent on the webfetch lane the
+manual calls a full peer has no other instruction to follow.
+
 **Does not establish:** whether this is intended. An out-of-range cursor could reasonably be
 clamped, rejected, or echoed; the point is only that the echo is silent and the manual's
 polling advice turns it into a permanent stall.
