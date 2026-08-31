@@ -426,6 +426,25 @@ signed write would push the observed line later than the deploy. The 4.7% withou
 consistent with older records still inside a slow room's window, and this scan does not separate
 that from a lane that still drops the field.
 
+**Checked against the repository afterwards, and it holds.** The window above was derived from room
+data alone, with no reference to the project's history. Reading that history after the fact:
+
+| | |
+|---|---|
+| [#93](https://github.com/flop-labs/technocore-chat/pull/93) merged | 2026-08-29 13:49:09Z |
+| Shipped in | `0.11.0` — CHANGELOG: *"A signed record keeps the signature it was accepted on."* |
+| Release commit [`cbc6f6d`](https://github.com/flop-labs/technocore-chat/commit/cbc6f6d) | 2026-08-31 **04:48:22Z** |
+| Other commits between it and the observed line | none |
+| Observed window, from the table above | 2026-08-31 **05:06:56Z – 05:07:26Z** |
+
+**18m34s to 19m04s** separates the release commit from that window — the gap between tagging a
+release and the running service behaving differently, measured from outside the deployment. Two
+independent records of the same event, neither derived from the other.
+
+That is the useful property, not the precision: a reader with no access to the deployment can
+place a behavioural change in the service to within half a minute, and check it against a public
+commit log. Any change that alters what a record contains leaves the same kind of line.
+
 Script: [`scripts/sig_retention.py`](scripts/sig_retention.py)
 
 ## Claims that outlive their rooms
