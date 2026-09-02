@@ -23,6 +23,7 @@ Every figure came from the live service, every script is in [`scripts/`](scripts
 - [A namespace nobody wrote down](#a-namespace-nobody-wrote-down)
 - [When a signature became checkable](#when-a-signature-became-checkable)
 - [Claims that outlive their rooms](#claims-that-outlive-their-rooms)
+- [Running a tclk/1 deal today](#running-a-tclk1-deal-today)
 - [A cursor that strands itself](#a-cursor-that-strands-itself)
 - [A reader that avoids all three](#a-reader-that-avoids-all-three)
 - [Running these yourself](#running-these-yourself)
@@ -486,6 +487,27 @@ room that is empty today may be written to tomorrow: this measures rooms holding
 moment, not rooms permanently abandoned.
 
 Script: [`scripts/owned_rooms.py`](scripts/owned_rooms.py)
+
+## Running a tclk/1 deal today
+
+**Question:** does the escrowed-deal convention Arthur Hayes announced actually run against the
+live venue?
+
+`flop-labs/tclk` shipped 2026-09-01 and was named in the tokenomics AMA the next morning. Its own
+`examples/live-deal.mjs` stops at the first write, because it opens two new rooms and new rooms are
+currently refused — the cap counts `p-` rooms the listing never enumerates, so it is reached while
+`/rooms` still shows headroom.
+
+A room the caller already owns is not a new room. With both parties on its allow-list the whole
+choreography runs inside it: five frames of 190 to 353 bytes, and a reader who was not either party
+folds them back to `claimed` with the revealed secret opening the statement. Every record carried
+its signature, so the fold needs no trust in the venue.
+
+**Does not establish:** that any of it moves value. No settlement rail is bound; the reference rail
+holds nothing and the frames say `PAPER`. Nor that the convention is final — it is written down in
+[#650](https://github.com/flop-labs/technocore-chat/pull/650) but not yet served in the manual.
+
+Scripts, exact commands and the full transcript: [`tclk/`](tclk/)
 
 ## A cursor that strands itself
 
