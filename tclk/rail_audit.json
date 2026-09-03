@@ -1,0 +1,3738 @@
+[
+ {
+  "contract": "0x5dad1adbfd26de40b6750912fc22397137a09caceb39c0b01d6770b33f02fd25",
+  "status": "cancelled",
+  "rail": null,
+  "ref": null,
+  "refShape": "no-lock-frame",
+  "funded": false,
+  "matches": null,
+  "railStatus": null,
+  "parties": [
+   "did:key:z6MksBH2K89pp6LRZ2qC1VCSyZ2swNpHurUYk1WcpRJSnFiG"
+  ]
+ },
+ {
+  "contract": "0x049a06dc9542e89fbe18a43d720f37e36c14048a2d9385b136ab4457151af0c6",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x049a06dc9542e89fbe18a43d720f37e36c14048a2d9385b136ab4457151af0c6",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6Mku6sVQ28AGxBqCKA7h8exDg1ZckEomTpg4VhyD3xyXXCV",
+   "did:key:z6MkfXUQUVFQKAeG45sJKDmpdZzBQ3RwVsD3wQzuoSPb3uxc"
+  ]
+ },
+ {
+  "contract": "0x386a22379b362d64a0e0c87c278111943c327a7c2103d39352d520b82fa6e585",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x386a22379b362d64a0e0c87c278111943c327a7c2103d39352d520b82fa6e585",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6Mksg2cCeCYpGA6y1FJyzd1oXEZhp9EcrF5WW4zkr6vHdn3",
+   "did:key:z6MkrPmag7GZFf3AEBfiaPP9gf7xbzXyLCXusBfJmW6mFSKL"
+  ]
+ },
+ {
+  "contract": "0x64af4aaa10e41441034ed540de6ee7f76b4a00131956e7f09e3395d98630614b",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x64af4aaa10e41441034ed540de6ee7f76b4a00131956e7f09e3395d98630614b",
+  "refShape": "contract-id",
+  "funded": false,
+  "matches": null,
+  "railStatus": null,
+  "parties": [
+   "did:key:z6Mkqcsiv2FJGTLGRZYkk9PewJeZjzHvxPWj8iBbRwXKBNpC",
+   "did:key:z6MkhiFaVmsCwBSSjhqssdZdRchGRaeuJmwzk8P1Qb6hQXCc"
+  ]
+ },
+ {
+  "contract": "0xcdf03ff42943b6888a4ba52bdb3e0688f997dd246d8053b8ca985f4b53bcc614",
+  "status": "claimed",
+  "rail": "flop-htlc",
+  "ref": "escrow-601968cd",
+  "refShape": "other",
+  "funded": false,
+  "matches": null,
+  "railStatus": null,
+  "parties": [
+   "did:key:z6MksuemwP8tgdTa16YZS42nzRBKKfp1K9G1Zuo1dUhKSNbH",
+   "did:key:z6MkqWinvHgS4NqEc2Y1Bem4uWAZkgY59iwDdPCMow3ctKdM"
+  ]
+ },
+ {
+  "contract": "0xc6a9be66478447911019526d809efcc5fb107035e71ae46ba71902a09bb01901",
+  "status": "refunded",
+  "rail": "paper",
+  "ref": "0xc6a9be66478447911019526d809efcc5fb107035e71ae46ba71902a09bb01901",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "refunded",
+  "parties": [
+   "did:key:z6MkefJLyH3vTd38XQMVBYtPCYuwxc2u3gTSkowbDEnA6cs8",
+   "did:key:z6Mkvr5RAM1N64rJpR1QXYJvzi8EyV78bQsXVL4BvoDQkuC1"
+  ]
+ },
+ {
+  "contract": "0xf4b9015fbf75f05bc355db1d3925218d807065d314901cec73419b70f23c3ed3",
+  "status": "locked",
+  "rail": "paper",
+  "ref": "0xf4b9015fbf75f05bc355db1d3925218d807065d314901cec73419b70f23c3ed3",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "locked",
+  "parties": [
+   "did:key:z6MkjW5Kkc6jznsZKX65mxj6dRNybJYYqKQvDfQ9ctSTUhXY",
+   "did:key:z6MkoA8xuzKJRGtHa5hr6znFCZq164mb45JHx6kktdJ6tMdL"
+  ]
+ },
+ {
+  "contract": "0x706f6110dff1315c4ff1b07839b1f4814a03b5f99b0a88f1d76f507afcd7d44f",
+  "status": "locked",
+  "rail": "paper",
+  "ref": "0x706f6110dff1315c4ff1b07839b1f4814a03b5f99b0a88f1d76f507afcd7d44f",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "locked",
+  "parties": [
+   "did:key:z6Mkt291ktNpZgPgPxA7qxkFgZHJ4RoofCw2NDdcRGZ8zATr",
+   "did:key:z6MkoA8xuzKJRGtHa5hr6znFCZq164mb45JHx6kktdJ6tMdL"
+  ]
+ },
+ {
+  "contract": "0x230d3c996f6794d549c4f1ef24c215d31a3f43e4dcb0f75cf09164aef79024e8",
+  "status": "locked",
+  "rail": "paper",
+  "ref": "0x230d3c996f6794d549c4f1ef24c215d31a3f43e4dcb0f75cf09164aef79024e8",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "locked",
+  "parties": [
+   "did:key:z6MkoA8xuzKJRGtHa5hr6znFCZq164mb45JHx6kktdJ6tMdL",
+   "did:key:z6MkoukizKpFqhnesLJdofhVdmnMqVT4LBdRebQWRN2Trgj6"
+  ]
+ },
+ {
+  "contract": "0x8c764b56d070f42ca456eee802f9993daac6845bf6bf522e772b7c8733655abc",
+  "status": "locked",
+  "rail": "paper",
+  "ref": "0x8c764b56d070f42ca456eee802f9993daac6845bf6bf522e772b7c8733655abc",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "locked",
+  "parties": [
+   "did:key:z6MkoukizKpFqhnesLJdofhVdmnMqVT4LBdRebQWRN2Trgj6",
+   "did:key:z6MkoA8xuzKJRGtHa5hr6znFCZq164mb45JHx6kktdJ6tMdL"
+  ]
+ },
+ {
+  "contract": "0xecd3929ee7831f10dc193d5bda4190e5cb9ef51f5bfee0602e77318c1ddc7731",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xecd3929ee7831f10dc193d5bda4190e5cb9ef51f5bfee0602e77318c1ddc7731",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkoA8xuzKJRGtHa5hr6znFCZq164mb45JHx6kktdJ6tMdL",
+   "did:key:z6MkvJeLZYFP1zJek8JYqjSQC942eWnwcg4Y5Cpxnqcs1G5w"
+  ]
+ },
+ {
+  "contract": "0x92f04705c49199331c0f06fee852498c40dd2e4e5b43626a3dcfbf286300dab6",
+  "status": "locked",
+  "rail": "paper",
+  "ref": "0x92f04705c49199331c0f06fee852498c40dd2e4e5b43626a3dcfbf286300dab6",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "locked",
+  "parties": [
+   "did:key:z6MkvJeLZYFP1zJek8JYqjSQC942eWnwcg4Y5Cpxnqcs1G5w",
+   "did:key:z6MkoA8xuzKJRGtHa5hr6znFCZq164mb45JHx6kktdJ6tMdL"
+  ]
+ },
+ {
+  "contract": "0x720af91f4d1cdf7305517d7c3b25e31349db672d0968fd8b9d1916b3e7b11a9d",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x720af91f4d1cdf7305517d7c3b25e31349db672d0968fd8b9d1916b3e7b11a9d",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6Mkes3T7yE2HXpwiA24q9BVFYyJ387MnrtAEfNWyBx32sdk",
+   "did:key:z6MktSBqM7VSyFYNCRaqpocuwCxzNtYZjxBMxCK2Skq7Vpn8"
+  ]
+ },
+ {
+  "contract": "0x4733e02b12f34f7c111e3e00032a2dafd6628e86729799476644420f9ac9b168",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x4733e02b12f34f7c111e3e00032a2dafd6628e86729799476644420f9ac9b168",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6Mkvo8H6cgLpmFuyXVy5Rf7BaoJ77pvR3SVF7vF7pSY5XTn",
+   "did:key:z6MkpPMYHuoD5Gc1UXjff619CdaisrEXaRaKANA5mAseN7E2"
+  ]
+ },
+ {
+  "contract": "0xf76f1392aae710aef4d406590ac4918cbea4c4c68375fafdebec332da5f29cc2",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xf76f1392aae710aef4d406590ac4918cbea4c4c68375fafdebec332da5f29cc2",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkuUv9PzeKmrkwnfWHztC1Uid9CCdxZZ7krAj2RV4VcwGr",
+   "did:key:z6Mkoo8QYBD7oUDSxg1qAe1GhmZR54UoMcDiY3TeKjBcJQKr"
+  ]
+ },
+ {
+  "contract": "0x7bf212b51bae108be61a0a3131a98a4ce372480c12f96218ee22476fcae94f76",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "paper-7bf212b51bae",
+  "refShape": "paper-12hex",
+  "funded": false,
+  "matches": null,
+  "railStatus": null,
+  "parties": [
+   "did:key:z6Mkm6RoNFf5Uy9B3TVz1Mcy5EFfsbnM9jeGpJGar9G6ofVp",
+   "did:key:z6MkgeAxFUmcF8n4dHTcz1U6ZkQLkeufbabnALJYXvT4hihW"
+  ]
+ },
+ {
+  "contract": "0xfc22ebe461601821e3b7a364097b266230d4f4319666b9ae5b81f8af6b5443e4",
+  "status": "locked",
+  "rail": "paper",
+  "ref": "0xfc22ebe461601821e3b7a364097b266230d4f4319666b9ae5b81f8af6b5443e4",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "locked",
+  "parties": [
+   "did:key:z6MkfPG9GkpqLiZ9XyCyjmNiYCP9UZCQxmoTZMw9JPHzFHkb",
+   "did:key:z6MkrPmag7GZFf3AEBfiaPP9gf7xbzXyLCXusBfJmW6mFSKL"
+  ]
+ },
+ {
+  "contract": "0x71a05e0cafd794b2440f0ebf768bde3abb6a5c44514569b163e4899cabb5d5e0",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x71a05e0cafd794b2440f0ebf768bde3abb6a5c44514569b163e4899cabb5d5e0",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkgsbuQ8QRUZJqbi3BCx2LMxfPDb9DB5wVMrMJe3Tff1GK",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0xb762e7b715a4e70ac9340d5e11725a6d8ba513da1e281ae402ddca850f557716",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xb762e7b715a4e70ac9340d5e11725a6d8ba513da1e281ae402ddca850f557716",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkoA8xuzKJRGtHa5hr6znFCZq164mb45JHx6kktdJ6tMdL",
+   "did:key:z6MkgWcnMf21FvBwqazE9pNeLubRvAu24wD2DDnjHbxiioHU"
+  ]
+ },
+ {
+  "contract": "0x644ce54fc50fcf848b1b68871d9e9b7f1a340133cb2d69d5e9cb3adb039c9d4a",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x644ce54fc50fcf848b1b68871d9e9b7f1a340133cb2d69d5e9cb3adb039c9d4a",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkgWcnMf21FvBwqazE9pNeLubRvAu24wD2DDnjHbxiioHU",
+   "did:key:z6MkoA8xuzKJRGtHa5hr6znFCZq164mb45JHx6kktdJ6tMdL"
+  ]
+ },
+ {
+  "contract": "0xa1735b1c8844310419166e1022417ed80213e71f5b9b72d748a3ee0bb408c9a3",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xa1735b1c8844310419166e1022417ed80213e71f5b9b72d748a3ee0bb408c9a3",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkkkZt4xFcwApFZW34aZVkg4UuKtJov9VLeq22aDczVSpu",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x1b4053b265994615ca62dd69bdcd3e41141141008ac38ec5460ba2cff1a3c651",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x1b4053b265994615ca62dd69bdcd3e41141141008ac38ec5460ba2cff1a3c651",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkfPG9GkpqLiZ9XyCyjmNiYCP9UZCQxmoTZMw9JPHzFHkb",
+   "did:key:z6MkrPmag7GZFf3AEBfiaPP9gf7xbzXyLCXusBfJmW6mFSKL"
+  ]
+ },
+ {
+  "contract": "0x3be4ad03e29bdded17cdc3bf68ffc4168cb1aee66cdfe7bb2e3e2036aeb80703",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "paper-3be4ad03e29b",
+  "refShape": "paper-12hex",
+  "funded": false,
+  "matches": null,
+  "railStatus": null,
+  "parties": [
+   "did:key:z6Mkh7FhjKnK4z9JmqGNHVX3GvqeUXVVbWjdq9osKYjpeshz",
+   "did:key:z6MkgfbdHN6652biXyeRY9SHowbDSTz5Bw1NSuukkdVhmgig"
+  ]
+ },
+ {
+  "contract": "0xd6274efd780d2916de4c8478e328bc8efcbd051aa5e29ff516ba8b2635cd233c",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xd6274efd780d2916de4c8478e328bc8efcbd051aa5e29ff516ba8b2635cd233c",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6Mkejsq3jjGDdKo6GwG7DQBS61UtTZtzaCxtKfgGH5YPcrq",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x161d3df2e746091531df969b997444e6d4d177dbf4dbd93653630be57ac3f40e",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "paper-161d3df2e746",
+  "refShape": "paper-12hex",
+  "funded": false,
+  "matches": null,
+  "railStatus": null,
+  "parties": [
+   "did:key:z6MknTxCPi6kKoHoTTms9j3Cvzi5tAoRdArp5tYcSKRF5sf7",
+   "did:key:z6MkkZ1Ew3WQn7r4jU19GgBZmNbrRM7eiq4ogQYDrBBnpoy7"
+  ]
+ },
+ {
+  "contract": "0x29242f8c0ce417933a23dbf0d2b3fe7821372722e458c7bc2a3c9e636dbf7039",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x29242f8c0ce417933a23dbf0d2b3fe7821372722e458c7bc2a3c9e636dbf7039",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkpmTsbt28hrKgCsYuRWwFDZSXP76SkELguvvhbmWascST",
+   "did:key:z6MkkoGGuSyR9xeBetFTiFensJVVQotbw3Qn413zE3fadGaD"
+  ]
+ },
+ {
+  "contract": "0x8938fb60f5b5efeba4d32a65126519c6ce0e5460cfc6067a696ea0603d7316d8",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x8938fb60f5b5efeba4d32a65126519c6ce0e5460cfc6067a696ea0603d7316d8",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkibVe5KLviP177s1NWDAUyJjv1KeVePv2jgRcSHvkGpcZ",
+   "did:key:z6Mku4tYx4VGW3j6qi7Y3v9PXVucpnpvhooZEqtbvzJMFu8W"
+  ]
+ },
+ {
+  "contract": "0xc536764c9f7eaaec288855a4a0c9e0f304e17e074ddb7fc1dbdafb19ed97fdbb",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xc536764c9f7eaaec288855a4a0c9e0f304e17e074ddb7fc1dbdafb19ed97fdbb",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkeYoh5ogzDscYVkUPBWLm7yzYUByLFDqmbjvoYarFeHpj",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0xf6d2b7ea25b897e4787b2e64f4ed20d5322de454721c7e3875f008405a6c1ec4",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xf6d2b7ea25b897e4787b2e64f4ed20d5322de454721c7e3875f008405a6c1ec4",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkorwEUMD945JYEf5VvoFwfEy8aaTTnPSgFh62euqRckW3",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0xcedbaf7b1790cc6dc8a6aea68e64fe9c55c8480f9d437a54f683d974b7bc034f",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xcedbaf7b1790cc6dc8a6aea68e64fe9c55c8480f9d437a54f683d974b7bc034f",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkoakTdmtG7kY3BT72BN7dszoKfePmZoMS1dfZVPsW5UWY",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0xe8f0d8f1ed9c489846698215739ef88461841a3fe4ccfff014304a5b587193b8",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xe8f0d8f1ed9c489846698215739ef88461841a3fe4ccfff014304a5b587193b8",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkuWt3AGPtALUyrEwcfMfiopXTamD7Q3XtjB3c8AjkU7oi",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0xcee9ccc1b56dcec5ca0e2061294dc79cb5c7749e14f1799d763a273bdc67c86c",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xcee9ccc1b56dcec5ca0e2061294dc79cb5c7749e14f1799d763a273bdc67c86c",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkezXjSN91nZrC23JbEsjRVoLgov6yonfMccWkuYktwpJi",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0xae8aa529a1eb9b3fb7a36ec16bd8c344ed112483a26267e9296062cd2f62c2c2",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xae8aa529a1eb9b3fb7a36ec16bd8c344ed112483a26267e9296062cd2f62c2c2",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MksnJNxYrmMwr3wbLQ7WFnddhTqEDjTXzZ62o8k3QFdaov",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x82437dbc62b506ec88bb099dbb29bfd069f6daa9ea80464da7e8fc5ae78bd38c",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x82437dbc62b506ec88bb099dbb29bfd069f6daa9ea80464da7e8fc5ae78bd38c",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MktixXndHdJtRpTcV5MuYsxCaAKhPeSjLrtPcMLQ9btQNX",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x1fb39e160caabb1dd3a07993d9261da4b1e8a8fec2ee8b6b02ea1c06106b2c2f",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x1fb39e160caabb1dd3a07993d9261da4b1e8a8fec2ee8b6b02ea1c06106b2c2f",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkrMdBeYK1yt1a3aZy9ASpmrXy8s4HcFfod9MrJhNdncx4",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0xf221a709cb7f7e5acce4b1cbd3a30f3f295b778538323e46ae75a5ba5aa177d9",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xf221a709cb7f7e5acce4b1cbd3a30f3f295b778538323e46ae75a5ba5aa177d9",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkutjrcD7Us6yEmo5xbNBXD75a68aE2XPTBSaLW5f77AQT",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x852b2ec29779835eed359b65c4fb71ef3440db1d5e1b278b7f9ba3855a74ba30",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x852b2ec29779835eed359b65c4fb71ef3440db1d5e1b278b7f9ba3855a74ba30",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkoCgcSgYikD29bLdPqxSBkQh12S8oYuhJsE5YDLX58Q5P",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x83e46fb81ea6376bcf6d0a9dc6ef4a183226fc4ac634083817ae597c9182b184",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x83e46fb81ea6376bcf6d0a9dc6ef4a183226fc4ac634083817ae597c9182b184",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MknoicfQQgYzDtB5ngBoiReid5w48qPaqhjGV5LEHSUXEi",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0xf490b1a7167c65d2ac3aa394e718ca474923acc6bcf0fc7883f08b51c65e5f3b",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xf490b1a7167c65d2ac3aa394e718ca474923acc6bcf0fc7883f08b51c65e5f3b",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MktmHFDKDCpyL5ZkjJKWsTR34Vkq3GgDVNeuifACTicEcE",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x49cb505d8c3978af1da529dbe69a4bace7ad6b9798e9c1585899fd1e9dfec3c5",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x49cb505d8c3978af1da529dbe69a4bace7ad6b9798e9c1585899fd1e9dfec3c5",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkoQHicn7Jzt4T9NJzUn1FpuKMTuiWVHFoU1gkAzNj3o98",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x3e7c5957ad620c96702ae3044028b6cbb61cc60b9e47f8898f764e3a4a2c4ef1",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x3e7c5957ad620c96702ae3044028b6cbb61cc60b9e47f8898f764e3a4a2c4ef1",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkkTiu8XcDSGcFb9ANv7FjUCajw1X4u8TCoXesMND6mFwW",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x3cb3f347c98b96212f86f4222d07b6824c86cc62a6546484bcd3d5ce0d7244a2",
+  "status": "locked",
+  "rail": "alpha-test-only-no-settlement",
+  "ref": "alpha-coordination-only:no-funds-locked:3cb3f347c98b9621",
+  "refShape": "other",
+  "funded": false,
+  "matches": null,
+  "railStatus": null,
+  "parties": [
+   "did:key:z6MkwfnckxULjn9dPvoPnJSPbc7aWNegeXrirWzBLpfVgqSM",
+   "did:key:z6MkinVJ1WXuLo9bqH7JFZmcCuteviCfq1mWzQYSyL3AjGdx"
+  ]
+ },
+ {
+  "contract": "0x56d72cc72d688fb798b64d4d91afd5558620e8f6f013ff982199fb8ba0b27859",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x56d72cc72d688fb798b64d4d91afd5558620e8f6f013ff982199fb8ba0b27859",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkjcLHYuQA825wpKnE4nC8riQWSemZJGJMWxNVQJDPoQUb",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x36b50d8176a8c7a2c743a6eaaea2b37b626851ead5ab33e3584c5ca2de2125b5",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x36b50d8176a8c7a2c743a6eaaea2b37b626851ead5ab33e3584c5ca2de2125b5",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkfL985SEN6HUaLEqd2J9Nxitntde44irvphXbjBUYmwQ8",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0xf5ffc4817b59e05a0e10a99fbbf9474bbc14e938d68ca12a79cf8b88210ed2d4",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xf5ffc4817b59e05a0e10a99fbbf9474bbc14e938d68ca12a79cf8b88210ed2d4",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkvYuxqGH24Kp9PNM7BCkYzoF3tbDxF18txYfKLLYM4NyW",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x1d567e979705af8c1e01d4df4ac229a8ca403fc83fcb07d0dccde31bd72309b9",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x1d567e979705af8c1e01d4df4ac229a8ca403fc83fcb07d0dccde31bd72309b9",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6Mkk9tkAiRF8yrSGTX83Twm2zhzzGGFrnsJqDF7fMhu5ZKh",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x26475536227eafa74aab9f51c508ba83e32efec23c890f5d6cc8558133ad1dd0",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x26475536227eafa74aab9f51c508ba83e32efec23c890f5d6cc8558133ad1dd0",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6Mksz4DDgwXdpak2B6zzxR6fRL1mnvrCzQbCSXzhjNytHeN",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x7bc3aaaa7ba935547475d52957ba0d426fd894b94f80d56702b37dd4f7557f76",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x7bc3aaaa7ba935547475d52957ba0d426fd894b94f80d56702b37dd4f7557f76",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6Mkv7yfnyqPK5kq7H1g8rq2RnzkrFYzmWmFjd5XTVYGsZAa",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x08056c122b970e5ba08172a13197078fb2dd9b983118348a9a604593b7d09a2c",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x08056c122b970e5ba08172a13197078fb2dd9b983118348a9a604593b7d09a2c",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkoA8xuzKJRGtHa5hr6znFCZq164mb45JHx6kktdJ6tMdL",
+   "did:key:z6MkgNQovMrT59AT82TzfcSrTBznc2xzX3mTzUS4i5eYD8Re"
+  ]
+ },
+ {
+  "contract": "0x1e3507c15e6cc3befae7043aac20b7c514e3cdc30289b376e4b12a8347d51750",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x1e3507c15e6cc3befae7043aac20b7c514e3cdc30289b376e4b12a8347d51750",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkgNQovMrT59AT82TzfcSrTBznc2xzX3mTzUS4i5eYD8Re",
+   "did:key:z6MkoA8xuzKJRGtHa5hr6znFCZq164mb45JHx6kktdJ6tMdL"
+  ]
+ },
+ {
+  "contract": "0x85f5b5dfed37beb1df4730d21185f0180027ef3b1ee168edb713f8dea8a8a82f",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x85f5b5dfed37beb1df4730d21185f0180027ef3b1ee168edb713f8dea8a8a82f",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkuxNUGUxortKntboXWTgFTRm3djytoeqvVNXPWLEff5Hn",
+   "did:key:z6MkuxQ6NN1H32xrWt4d5njLXbzX1C9DoVTZyMpsab9i72dW"
+  ]
+ },
+ {
+  "contract": "0xc022a7c5162ccf5d82fb7ab6679d702120e5f187e402eba24584a9d12120ef2b",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xc022a7c5162ccf5d82fb7ab6679d702120e5f187e402eba24584a9d12120ef2b",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkhvWcbQkBaQUPsgwDieyqgbTrdBMM2UA3TFc4F4a1X77q",
+   "did:key:z6MkrVEFm9TLJK6rLBxgY9MGAxh35oJAKXCg3iFkLkyDm9s7"
+  ]
+ },
+ {
+  "contract": "0x97ae0502ae725a889a58b7c4969c321748c59e897ca68cad8a14f9fd8a8c48e0",
+  "status": "locked",
+  "rail": "paper",
+  "ref": "paper-97ae0502",
+  "refShape": "other",
+  "funded": false,
+  "matches": null,
+  "railStatus": null,
+  "parties": [
+   "did:key:z6MkjthRmoCQhKPLRuSqjXZr2EVtbiWA1kPDoW9Y5dSS7PqE",
+   "did:key:z6Mkp5YDnFL7XY5B9T1x9u47WLTZzjoakXF1WdVhdY5Eo4fK"
+  ]
+ },
+ {
+  "contract": "0xb08dbef1bd0456b02f7506b7b22d4081a300ed699dcdb4dbc21ab10be0e9be80",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xb08dbef1bd0456b02f7506b7b22d4081a300ed699dcdb4dbc21ab10be0e9be80",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6Mkte6yfFTLDsEzV8E1REoh7LCpkbMy9aK7aptfdP2NaxLw",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0xba02a9183396465774a763e294a8909e887878f1821730b147925c5427db249b",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xba02a9183396465774a763e294a8909e887878f1821730b147925c5427db249b",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkuSw88qyHsvcBFS2eZfCKsby5hCLpEGpi4aW4s1iD5cHn",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x1d41787bf04f41a20fd7336a6cd4ab06dcc3949d4d11fc9af5253aff2a356b0c",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x1d41787bf04f41a20fd7336a6cd4ab06dcc3949d4d11fc9af5253aff2a356b0c",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkpGppsrQviNgTLKYRtEMcCUtAiMMoc2fM62Lr6jvGAcoZ",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x74c1902bace076fd5e65041c836218b6d7b9e70f1a0cc5a2d8007c6230da946c",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x74c1902bace076fd5e65041c836218b6d7b9e70f1a0cc5a2d8007c6230da946c",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6Mkp8DAVwELEjXxrf7yGDMyWf92XLE5BCevMueJaqHkFNwg",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0xf30593af071f232d40ffe91b7a05bf277ec3c7ff6f88c121d528a9f132152a99",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xf30593af071f232d40ffe91b7a05bf277ec3c7ff6f88c121d528a9f132152a99",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MknmfpGoD7535X9WkKj8SUSRB3VvcPm25EPaedyN8fBh1H",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0xfbacc7cb3611a4528417cf54063c2b691062ab6e4eb38a3beb9a5d45e245a9f2",
+  "status": "refunded",
+  "rail": "paper",
+  "ref": "0xfbacc7cb3611a4528417cf54063c2b691062ab6e4eb38a3beb9a5d45e245a9f2",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "refunded",
+  "parties": [
+   "did:key:z6MkkHxtVzKS9vamVBhmecGvBiiDM4FQhCDqZLv3AsFpTB4N",
+   "did:key:z6Mkr8mSPgAQwEJLbVAkarRhpvydknRTYaVvtTucJVHpgUyg"
+  ]
+ },
+ {
+  "contract": "0x89b88df414a74b178557aff02d7edaf617ac689a8f583f1f9d32f68a5fc29a32",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x89b88df414a74b178557aff02d7edaf617ac689a8f583f1f9d32f68a5fc29a32",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkoA8xuzKJRGtHa5hr6znFCZq164mb45JHx6kktdJ6tMdL",
+   "did:key:z6MkidhWckXC7ynW56GcGKyLCwvcFtGs9bciAEqGZAEVGxHR"
+  ]
+ },
+ {
+  "contract": "0xf386114fe2475a11781ec5c24742f8d84823eac40dfa96bf27cea2ac47084603",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xf386114fe2475a11781ec5c24742f8d84823eac40dfa96bf27cea2ac47084603",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkidhWckXC7ynW56GcGKyLCwvcFtGs9bciAEqGZAEVGxHR",
+   "did:key:z6MkoA8xuzKJRGtHa5hr6znFCZq164mb45JHx6kktdJ6tMdL"
+  ]
+ },
+ {
+  "contract": "0x9caba2e8f869bc4bbe761264905ccd6bc9b599b2b1b5666290264ee86ee6c384",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x9caba2e8f869bc4bbe761264905ccd6bc9b599b2b1b5666290264ee86ee6c384",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkkFD9ebr3QS7J247R3385mpk8Q2FrddXcWquqXiZ2q78v",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x87dba5828c90d7f1c240710b9e62961649c695336f47725b9837486c725aac4a",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x87dba5828c90d7f1c240710b9e62961649c695336f47725b9837486c725aac4a",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkutYuRV4pCh6i8Zn2NA4obpjWdrFs2m8hFYK6e9apryyJ",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x92dd3e184b6f1b82bfb3cf37b2072172e81e1683eeaecd917c9b1726862c2d69",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x92dd3e184b6f1b82bfb3cf37b2072172e81e1683eeaecd917c9b1726862c2d69",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6Mkvhbe6zNPjYNDNvykNRg2VARu89C1JcbQytkSoQPcKxPP",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0xcecf9a4172827bbb4dc737774ab4974321b076bee4cc81eb170afc6fd6223dda",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xcecf9a4172827bbb4dc737774ab4974321b076bee4cc81eb170afc6fd6223dda",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkrY77mxw4Nb9Qk1Hc8RqgmBwR9ZXGZzutKgWCw5oiMoqz",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x9e25245d33db4174f14402207a112db35fca8803ea9230eb3a4dc9d51d232068",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x9e25245d33db4174f14402207a112db35fca8803ea9230eb3a4dc9d51d232068",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkksxuagBqrsxcPbSdoeAu6Tpm4pLrgXvSHegM1UPKLa6j",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x26f5e543bdfade5c8a83cc1818850a66324946a685e4846beddd626565bf85f1",
+  "status": "locked",
+  "rail": "paper",
+  "ref": "paper-26f5e543",
+  "refShape": "other",
+  "funded": false,
+  "matches": null,
+  "railStatus": null,
+  "parties": [
+   "did:key:z6MkiCxCfTP6gHmWrJvPgF4UtxYL4upzry6hTAs6g1ni2C8g",
+   "did:key:z6Mkp5YDnFL7XY5B9T1x9u47WLTZzjoakXF1WdVhdY5Eo4fK"
+  ]
+ },
+ {
+  "contract": "0x78c2b3d2d27297e9e7d30c79453bfa56af69d6691de6e76e4e4d38c58b1ac5fb",
+  "status": "locked",
+  "rail": "paper",
+  "ref": "paper-78c2b3d2d272",
+  "refShape": "paper-12hex",
+  "funded": false,
+  "matches": null,
+  "railStatus": null,
+  "parties": [
+   "did:key:z6MkqRaiw4yb71Zigxu5mnkK2Xz45WmCbCus7CtmFTnjvw11",
+   "did:key:z6MkmzyBxvrSZveZv5YhZhfwUYQYv5LDgt5NuqVrBe5vXvPA"
+  ]
+ },
+ {
+  "contract": "0x51e0a43ea923c10e9333c9ba1fd8d8d2418633b130347b46323f24cadae13edd",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x51e0a43ea923c10e9333c9ba1fd8d8d2418633b130347b46323f24cadae13edd",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkfeBYLpp1kHhUcJzVFyFZWDugrSEZbJZM5MZrWTSnbWKu",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x5156966280d7e6aee6fe8146b7a93193e2d9f96560cf5cd0716077fe0b75939c",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x5156966280d7e6aee6fe8146b7a93193e2d9f96560cf5cd0716077fe0b75939c",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkgvciT376baH1xPZArFYrSCgSfQEQKEtvHFbWaj7oavVR",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x76cf1edebd97997d55cc64b6ebc0010ecc9a410187e2662ebc087ede8e8a591d",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x76cf1edebd97997d55cc64b6ebc0010ecc9a410187e2662ebc087ede8e8a591d",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkvJxLJXiQd5SUKACwWQNdetQ3o3w7pQgo7LsW4XyoADuT",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x9160e83169dbb9a121689327a0d0d4555f52b14336b7df3ab67466443869ecf6",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x9160e83169dbb9a121689327a0d0d4555f52b14336b7df3ab67466443869ecf6",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkhdeKWavRtDjqCXpSLi6sVQLLAuAp1RDh8iyo2Dsi5Vrm",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x3510449639663f12d46c98a4ca693ef0850d9cecb1414694f14f41988da19381",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x3510449639663f12d46c98a4ca693ef0850d9cecb1414694f14f41988da19381",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkqEo2VpAErMuREVq5vssQqNfqLHGckAovDvn42yyAL4b3",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0xd19a158d68743137510c374c5f8c711e937df0d00131257ed20e7c8f79b0e8b7",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xd19a158d68743137510c374c5f8c711e937df0d00131257ed20e7c8f79b0e8b7",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6Mkqwx1RphoCR38k6pMrnQpnQQtGqrdA1sH1eqMeGKNmUJj",
+   "did:key:z6MkkS42hE8CfAbr1uU816MN54F9cmm6K2MAfmvwWBAEQYbk"
+  ]
+ },
+ {
+  "contract": "0x622c2c830389b7babcb5c69a78f943a664c91bbad3bc7a9fe51866b68f429d1b",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x622c2c830389b7babcb5c69a78f943a664c91bbad3bc7a9fe51866b68f429d1b",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkkzFD5Wj9Fn8znAJxEnwTTupPZVgoxKgPxhzLx65iWy5m",
+   "did:key:z6MkegksoXfLzQgX9Px3iJAc9MBhQSDzFZ9mS71xBxTZr4GU"
+  ]
+ },
+ {
+  "contract": "0xc825ca4eb5585ce05b7e2b98aaaacabb86a7c8d08bfdb6ce7bf58469323aecae",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xc825ca4eb5585ce05b7e2b98aaaacabb86a7c8d08bfdb6ce7bf58469323aecae",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6Mkvr5RAM1N64rJpR1QXYJvzi8EyV78bQsXVL4BvoDQkuC1",
+   "did:key:z6MkvY5Fbtu286B5HTG1SsVtRyceAq22ypJShcsU7SDYkYqG"
+  ]
+ },
+ {
+  "contract": "0x7947802d80209359df770ac73a0d8210e10ea62f0d207ac33ad3c0bea068cc99",
+  "status": "refunded",
+  "rail": "paper",
+  "ref": "0x7947802d80209359df770ac73a0d8210e10ea62f0d207ac33ad3c0bea068cc99",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "refunded",
+  "parties": [
+   "did:key:z6MkknRcD81zSf6uPTQ9oJFU7FDUK5n8AGLtZgdz4s4u3khy",
+   "did:key:z6MkmBF2SfKZiT9SipCA9RQ29zktGEML1yzbVHvtfR7TpaaK"
+  ]
+ },
+ {
+  "contract": "0x493afb532f51e7f32dd22f1e9d04a0fdbbb7e4fbf4bec115ab28bbef341ece41",
+  "status": "locked",
+  "rail": "flop-htlc",
+  "ref": "escrow-493a",
+  "refShape": "other",
+  "funded": false,
+  "matches": null,
+  "railStatus": null,
+  "parties": [
+   "did:key:z6MkkZH6nzfWsoUKPNi3dyDMgKbtHQdXaSUXWXDYG3JAkC3x",
+   "did:key:z6MkqWinvHgS4NqEc2Y1Bem4uWAZkgY59iwDdPCMow3ctKdM"
+  ]
+ },
+ {
+  "contract": "0x6a54c76ef36f3f0246ed14719fec0761d1caf9fb9ff0ec9aa8904ed5f6aa7fa8",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x6a54c76ef36f3f0246ed14719fec0761d1caf9fb9ff0ec9aa8904ed5f6aa7fa8",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkrdNfnXKfYq3FE8WbNcnmReA7GJASPMcrHkiQ76py4yon",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x80b124c3de100603e9bab8ad0e01d2d6563b08f12a501c449561768d0f9e3927",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x80b124c3de100603e9bab8ad0e01d2d6563b08f12a501c449561768d0f9e3927",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkwWsxVHbPzTR7HKvuXdQ8ihCKqW3dhNEffkHxpiPJRe3Q",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x49952de72f929ca9f3f0f4da319e7fad30dcb343dc028005b202ea3762511c20",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x49952de72f929ca9f3f0f4da319e7fad30dcb343dc028005b202ea3762511c20",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkixhTm1euPHgt8PEhnWxZF3T4DxQwY1vUyWqAWA5owL5v",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0xb31755aa827d8c858db74563d28b778f3f004a97c0428e106cef8140ad0982e9",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xb31755aa827d8c858db74563d28b778f3f004a97c0428e106cef8140ad0982e9",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkfecCNW8KkW5LsxyEMPgrdPUyF8z3VvVEaB1eoEZGwCaN",
+   "did:key:z6Mkmrsx9J6M5mJbnQAHya7ewxay17EZG5Hkdjbf9gVNAVWG"
+  ]
+ },
+ {
+  "contract": "0x3d40843faa5ccec312c6bb057ad78fd83a30848a6fbaca789460031b12461f44",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x3d40843faa5ccec312c6bb057ad78fd83a30848a6fbaca789460031b12461f44",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkpmTsbt28hrKgCsYuRWwFDZSXP76SkELguvvhbmWascST",
+   "did:key:z6MkkxaxSRk9guUixgTyEh6cCv9Dg3MxCnJJM3VsxheB2aNT"
+  ]
+ },
+ {
+  "contract": "0xeab150291ce2544dce80f28797c35327660c4aa75460b41a4b08e4ae05e45220",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xeab150291ce2544dce80f28797c35327660c4aa75460b41a4b08e4ae05e45220",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkpXSw8HPWKsZjzP99qMXE8ZZZPoWbwJ1AN2rGyVZkJ6iC",
+   "did:key:z6MkrVEFm9TLJK6rLBxgY9MGAxh35oJAKXCg3iFkLkyDm9s7"
+  ]
+ },
+ {
+  "contract": "0x2e54f553402c322ce810dfa1630c3d14c49e5fc461cbbd81fe6724aeb4aa8c84",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x2e54f553402c322ce810dfa1630c3d14c49e5fc461cbbd81fe6724aeb4aa8c84",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6Mksg2cCeCYpGA6y1FJyzd1oXEZhp9EcrF5WW4zkr6vHdn3",
+   "did:key:z6MkoMjrKHe8Y4fTrUz32fnJ8RpGdJZTr5McC5jSgbZfvpod"
+  ]
+ },
+ {
+  "contract": "0x8ecf0138856b44c16e5d0cd6d3fbc2ed3974fbe2b3b6646b9a3a1ce0a168c3bb",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x8ecf0138856b44c16e5d0cd6d3fbc2ed3974fbe2b3b6646b9a3a1ce0a168c3bb",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkoGsqKj7a9hiZTgE41JKukECzvsAwQrjrKwbQrPKWGGPf",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x295e5205f82ba27988c84406ecefe43ec2ba3fec4fca22d7684fefcdba2b9210",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x295e5205f82ba27988c84406ecefe43ec2ba3fec4fca22d7684fefcdba2b9210",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkeouUYojUv5gRsmiaYcTCvsRVHRnbdN7TueMtCPUfTbKX",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x1863499aa355c1a16034157f0b3cf89b1e0df298568117f2e16ec375cfe5f1d6",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x1863499aa355c1a16034157f0b3cf89b1e0df298568117f2e16ec375cfe5f1d6",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkhcANfCApnjPY9w6fsZSxRagUa6oFFWa53JZKEE5QXfi4",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x54540e2e2fa0b79833693f99eb05a699859a355b2afd6f23c3a09f6ee24d700d",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x54540e2e2fa0b79833693f99eb05a699859a355b2afd6f23c3a09f6ee24d700d",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkmCzf8ArcfLDEArVupXMXmQereuVGg26sp3N5wtXfv9dQ",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0xbc824df1ccfe42f02eb641520b68f88c00725706c9a98e0eb89f28962f22c259",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xbc824df1ccfe42f02eb641520b68f88c00725706c9a98e0eb89f28962f22c259",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MktpLFaL2f28RpYKNG5yB92aXeESEnxNXbtk2JfyMXc56v",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0xeef8b76312dc4d7e6ecf193edd1e6b8d5214e30d55452b65d7b39fa2fff32db3",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xeef8b76312dc4d7e6ecf193edd1e6b8d5214e30d55452b65d7b39fa2fff32db3",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkpTercXyH7jH6vCXdF5LDHXSftdAq51hT6deNyPbpchXp",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x10c7769dfc207304d5a061f4f4c00eb354f27fa64af9e6f7e9c01555fd1fcf11",
+  "status": "locked",
+  "rail": "paper",
+  "ref": "0x10c7769dfc207304d5a061f4f4c00eb354f27fa64af9e6f7e9c01555fd1fcf11",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "locked",
+  "parties": [
+   "did:key:z6Mkp6LPdYufoN3mhPcK3AitDgonxxcrYzvw4wdfK7FP2Lu8",
+   "did:key:z6MkmzyBxvrSZveZv5YhZhfwUYQYv5LDgt5NuqVrBe5vXvPA"
+  ]
+ },
+ {
+  "contract": "0x91485ab3f6d8d14b7cbd032948b231a078458dbc0003220f341db54dc82a4797",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x91485ab3f6d8d14b7cbd032948b231a078458dbc0003220f341db54dc82a4797",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6Mkmrsx9J6M5mJbnQAHya7ewxay17EZG5Hkdjbf9gVNAVWG",
+   "did:key:z6MkhvWcbQkBaQUPsgwDieyqgbTrdBMM2UA3TFc4F4a1X77q"
+  ]
+ },
+ {
+  "contract": "0x55c2a9f7621b753be5dc5534225c81db16ea93cf2c91fbe1ec7565b141761990",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x55c2a9f7621b753be5dc5534225c81db16ea93cf2c91fbe1ec7565b141761990",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkibVe5KLviP177s1NWDAUyJjv1KeVePv2jgRcSHvkGpcZ",
+   "did:key:z6Mku4tYx4VGW3j6qi7Y3v9PXVucpnpvhooZEqtbvzJMFu8W"
+  ]
+ },
+ {
+  "contract": "0x47e87867d559746134206b5a676d8fc8c8f752515e66ee1610a2e0f9c940ab1f",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x47e87867d559746134206b5a676d8fc8c8f752515e66ee1610a2e0f9c940ab1f",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkkoGGuSyR9xeBetFTiFensJVVQotbw3Qn413zE3fadGaD",
+   "did:key:z6MkfecCNW8KkW5LsxyEMPgrdPUyF8z3VvVEaB1eoEZGwCaN"
+  ]
+ },
+ {
+  "contract": "0xe713f93802c7d5cf765da50364b6f0375188bc960e3ac217c5691c807684c929",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xe713f93802c7d5cf765da50364b6f0375188bc960e3ac217c5691c807684c929",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkfecCNW8KkW5LsxyEMPgrdPUyF8z3VvVEaB1eoEZGwCaN",
+   "did:key:z6MkkoGGuSyR9xeBetFTiFensJVVQotbw3Qn413zE3fadGaD"
+  ]
+ },
+ {
+  "contract": "0x899bddad902cb59dd751d10fc1c9ed9059d6a8395a79d5dbd6b3c35fb5d9f110",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x899bddad902cb59dd751d10fc1c9ed9059d6a8395a79d5dbd6b3c35fb5d9f110",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkrVEFm9TLJK6rLBxgY9MGAxh35oJAKXCg3iFkLkyDm9s7",
+   "did:key:z6MkpXSw8HPWKsZjzP99qMXE8ZZZPoWbwJ1AN2rGyVZkJ6iC"
+  ]
+ },
+ {
+  "contract": "0xa4bd109702ad6ec2292db40bb5d82c0b57c5c9a739bb0d973867fefd6c218703",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xa4bd109702ad6ec2292db40bb5d82c0b57c5c9a739bb0d973867fefd6c218703",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6Mkmrsx9J6M5mJbnQAHya7ewxay17EZG5Hkdjbf9gVNAVWG",
+   "did:key:z6MkpmTsbt28hrKgCsYuRWwFDZSXP76SkELguvvhbmWascST"
+  ]
+ },
+ {
+  "contract": "0x5a54638cac3f7328044ad147317a36433463838d569f366174c65dd47ec449b0",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x5a54638cac3f7328044ad147317a36433463838d569f366174c65dd47ec449b0",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkkC4DPbWkCJVsjoByjeNnVfQ1oUPX9XdwXvwYFwZs9JSy",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0xb9013183c2a1e03f34f8e4471654927befe3ed4a3b192193472a94d848df6525",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xb9013183c2a1e03f34f8e4471654927befe3ed4a3b192193472a94d848df6525",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkfLXGJG4566zLi9tfXEGJtGgrkuuAJcS8jhXnjcDC4FUB",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x75b9e08c6b4a3f9db6a97e7c95f6afb19672abfb43fce61e93affc7c806d9492",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x75b9e08c6b4a3f9db6a97e7c95f6afb19672abfb43fce61e93affc7c806d9492",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkoZ245kSAdurbrqjUYZytxE4Pc7yVJCLeMEEaok4gA5Dj",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x59320ea68d5878beab184638c9f68d743f4349056d6b18de9adaff457810c3c4",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x59320ea68d5878beab184638c9f68d743f4349056d6b18de9adaff457810c3c4",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MktM24aq7FkyE8hpQnwpGswvsfgJbFPT9qZrJ3NnG5kY95",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x7d299f32f695d22eefd6532a1fa57060f2fa6ab3183099eab58d3b1cbb13c8d6",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x7d299f32f695d22eefd6532a1fa57060f2fa6ab3183099eab58d3b1cbb13c8d6",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkkoGGuSyR9xeBetFTiFensJVVQotbw3Qn413zE3fadGaD",
+   "did:key:z6MkibVe5KLviP177s1NWDAUyJjv1KeVePv2jgRcSHvkGpcZ"
+  ]
+ },
+ {
+  "contract": "0x93ba0603e06a3535cfe3f502df8830237975e16557419ddc19145db2f5b8d2a7",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x93ba0603e06a3535cfe3f502df8830237975e16557419ddc19145db2f5b8d2a7",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkoFYuBLCSFH1HXzMRcm5YuDTVCigBbEcASVSEaG3h97As",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x355e150d6186563ce9d74729946a0ba29e7e9c15a56ad0e10659e63f91e7759f",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x355e150d6186563ce9d74729946a0ba29e7e9c15a56ad0e10659e63f91e7759f",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkfW7A3UAfW3nLYG5GpewJsRamZExAoGJy87hE63fefx4i",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x8577801b385ae9ed31b9cc735b705d57b353d2dc0140864e292a0123d431833b",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x8577801b385ae9ed31b9cc735b705d57b353d2dc0140864e292a0123d431833b",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkqqMCCFP44ivaUCRVuJnPjQ9NF76YAuZDaPu7QPFJ6XrA",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x5fb7ff854e261bd499ce211bbfc3e7869e8abbf7aca5f6973e68959500b0c0d7",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x5fb7ff854e261bd499ce211bbfc3e7869e8abbf7aca5f6973e68959500b0c0d7",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkrSMgXsNAcivnoi9xkkP4tW7g61Yw9oT8EeqaixZmv6hr",
+   "did:key:z6MkusQ8ZKo3FEeV9Svt7iYg9xKrcwjV5XKku3NsjFAAN8Hx"
+  ]
+ },
+ {
+  "contract": "0x4b81189cab1f3aa0db9a16752d8a476df60f1be6e56fd1d6fc40f386fb323fb0",
+  "status": "refunded",
+  "rail": "paper",
+  "ref": "paper:kv/tclkpaper-4b/81189cab1f3aa0",
+  "refShape": "other",
+  "funded": false,
+  "matches": null,
+  "railStatus": null,
+  "parties": [
+   "did:key:z6MkkZH6nzfWsoUKPNi3dyDMgKbtHQdXaSUXWXDYG3JAkC3x",
+   "did:key:z6MksuemwP8tgdTa16YZS42nzRBKKfp1K9G1Zuo1dUhKSNbH"
+  ]
+ },
+ {
+  "contract": "0x660acb347155d47c7700308ed6209a24ea75ce5c0b7288b0bb081110f233e9a0",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x660acb347155d47c7700308ed6209a24ea75ce5c0b7288b0bb081110f233e9a0",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkjtHkhgK2fXZDpV8bqLsTYVh7nzEYFjZ5wiNwo9bh4Y62",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0xadf8d70c1476649e0bba9f6bf9e5b5bd2f085a169d44cca5db99c057e003eac8",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xadf8d70c1476649e0bba9f6bf9e5b5bd2f085a169d44cca5db99c057e003eac8",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6Mkt8ZpX7SZWBf9kALkuPySUYYpDoWJiuh624Utue1qnExY",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0xf0d6d35cfd2efad258ab0e2b60359ea59285d4bbbcd511a5c901801c179ef4df",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xf0d6d35cfd2efad258ab0e2b60359ea59285d4bbbcd511a5c901801c179ef4df",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkefaNKktHGfYSdextY18KPYHXduN1zbM8523bAwSrHZpu",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x66dbd8738ba9b49a4063406b73c0ca03bde47a70d6754169db64feca54bb2034",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x66dbd8738ba9b49a4063406b73c0ca03bde47a70d6754169db64feca54bb2034",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkftD5iEEgDjx9zn8kRAm7dJQYvNk8Xvv9e3PfMhWtmsJX",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0xdb5398abf1de134a8bb74b2fc654704c393859559f79aec9d6587d9569dbf706",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xdb5398abf1de134a8bb74b2fc654704c393859559f79aec9d6587d9569dbf706",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkgiVYFMQ8o3ZfLGTsapNDwMGeZh6rGzp7zCrLsG9xFWuk",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0xe4e83587680720a2cbd626796ccf59e102acd78866b05c876791695a8fb73acb",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xe4e83587680720a2cbd626796ccf59e102acd78866b05c876791695a8fb73acb",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkpXSw8HPWKsZjzP99qMXE8ZZZPoWbwJ1AN2rGyVZkJ6iC",
+   "did:key:z6MkkoGGuSyR9xeBetFTiFensJVVQotbw3Qn413zE3fadGaD"
+  ]
+ },
+ {
+  "contract": "0xa96c98f746688f5971420237f11ad26864a9ccb7ecee01adbb1112c9b8a5779b",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xa96c98f746688f5971420237f11ad26864a9ccb7ecee01adbb1112c9b8a5779b",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkrVEFm9TLJK6rLBxgY9MGAxh35oJAKXCg3iFkLkyDm9s7",
+   "did:key:z6MkhvWcbQkBaQUPsgwDieyqgbTrdBMM2UA3TFc4F4a1X77q"
+  ]
+ },
+ {
+  "contract": "0x556968bd111995eac2e2a221a83f5152fe30ed2b32c3ffffc46adfd1fdee3bbe",
+  "status": "refunded",
+  "rail": "paper",
+  "ref": "0x556968bd111995eac2e2a221a83f5152fe30ed2b32c3ffffc46adfd1fdee3bbe",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "refunded",
+  "parties": [
+   "did:key:z6MkkZH6nzfWsoUKPNi3dyDMgKbtHQdXaSUXWXDYG3JAkC3x",
+   "did:key:z6MkioChtEf8e7u7TmJiQ5mGasmqHaZXEf8udGLhq6n42Qmb"
+  ]
+ },
+ {
+  "contract": "0xf0198d51e50086fc4b10b3db223b1972d46be4293ccf16eac382ab90cf66c98d",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xf0198d51e50086fc4b10b3db223b1972d46be4293ccf16eac382ab90cf66c98d",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkjSQY18Wp4P18HrxGATyxj1PjGAnx6UhGRyvVTQoo3Dpo",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x0e4ec2dc6a19d769d983c69ee24e987a7c5cf55887573ceb433a87eda73b4b7e",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x0e4ec2dc6a19d769d983c69ee24e987a7c5cf55887573ceb433a87eda73b4b7e",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6Mkg7XiRkdU15teG1MJZ6KSmwngTJDM8yBPPss3kbwP2ikK",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0xc6ad86d275a576c2f4944035eff2ed30b624c29f92c291611d7d8bafeaa7ba92",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xc6ad86d275a576c2f4944035eff2ed30b624c29f92c291611d7d8bafeaa7ba92",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MktBWvLMkDPkcPFjeTbMWXDxBM6jEJPSuTcFmoyKdFVXPg",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x48d715257098d8ee1efe8c38df45d4751ec5c16264615348ee659fe10d7b0dff",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x48d715257098d8ee1efe8c38df45d4751ec5c16264615348ee659fe10d7b0dff",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MknA18RpQ2XBaxxEJH4aSnEEmEzWF4KPd3yRRhj5JjZTEa",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x4783ca80c572c37b4dd9ef04cda0288619ffecd8bd4363e34791ccc4996573cd",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x4783ca80c572c37b4dd9ef04cda0288619ffecd8bd4363e34791ccc4996573cd",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkuuAcFeMqbEzNuq8f5YmqXhWCoHNk9iaVCwy1FAJmEuwV",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x7bea6d1631037addf0333ce0f9f50c94794855d4b2b32b7b15ff908d97f44eba",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x7bea6d1631037addf0333ce0f9f50c94794855d4b2b32b7b15ff908d97f44eba",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkkBGWDVkhBiDa72EVhS14Y8gEyqJzcqmDCnd6unB7Uth1",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x5ccbc2c93d828b49a2421b70035c78bcecffef9b25729bd468f03b624213eaa9",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x5ccbc2c93d828b49a2421b70035c78bcecffef9b25729bd468f03b624213eaa9",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MknQcmYi6hTw6HPcauU1dbqd7jFUeXf9iTKqpGNtZVkWwy",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0xbe0709f3f8155dcb4bbaf385eadb32ef59702b68b75b549a2f19c6300004ba80",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xbe0709f3f8155dcb4bbaf385eadb32ef59702b68b75b549a2f19c6300004ba80",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6Mkp4vumbS7Cp8vhcRALwtAdiJzVudTdu41xuetzWHJUNET",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x51a94f25bb8ec97b99d69728f788bd292416d8d06a85661462015e0c1e239b39",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x51a94f25bb8ec97b99d69728f788bd292416d8d06a85661462015e0c1e239b39",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkixbeEoDoSjVYD8JHiHGmJmeYKiCfk6sg3GMTuDjnNc9B",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0xeac2dcb1be5bee95bf6223c724a3b7259f3efc4d4fc510176c1ade48dc13d0d2",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xeac2dcb1be5bee95bf6223c724a3b7259f3efc4d4fc510176c1ade48dc13d0d2",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6Mkn5NeaVM1eyU9fUznGnRW3bgtZD7db31zFmgvadDYBPdW",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0xda7c7b3311c41e810a405a36fc4435f11782f35e1ceb34a51f5166f6d8ec9597",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xda7c7b3311c41e810a405a36fc4435f11782f35e1ceb34a51f5166f6d8ec9597",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6Mkg8BwLCeCbMBLn7pUsPS7sKD7qDkZPqK68mRbJdHBP6b1",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x95a0380d031382a65e98654a173d1b2a10b6c3e8e4e728eb283ee289d90441f0",
+  "status": "locked",
+  "rail": "flop-htlc",
+  "ref": "escrow-4732",
+  "refShape": "other",
+  "funded": false,
+  "matches": null,
+  "railStatus": null,
+  "parties": [
+   "did:key:z6MkkZH6nzfWsoUKPNi3dyDMgKbtHQdXaSUXWXDYG3JAkC3x",
+   "did:key:z6MkqWinvHgS4NqEc2Y1Bem4uWAZkgY59iwDdPCMow3ctKdM"
+  ]
+ },
+ {
+  "contract": "0x22eb3f064b261b52f2d935b7d6a3bc31ee8a52f9999588d79ea96ffb491e8289",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x22eb3f064b261b52f2d935b7d6a3bc31ee8a52f9999588d79ea96ffb491e8289",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MknTxCPi6kKoHoTTms9j3Cvzi5tAoRdArp5tYcSKRF5sf7",
+   "did:key:z6MkkZ1Ew3WQn7r4jU19GgBZmNbrRM7eiq4ogQYDrBBnpoy7"
+  ]
+ },
+ {
+  "contract": "0x8247d5edaae36243313765daf1e4f1e2c4989d8796b8793ddf26024f98986929",
+  "status": "refunded",
+  "rail": "paper",
+  "ref": "0x8247d5edaae36243313765daf1e4f1e2c4989d8796b8793ddf26024f98986929",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "refunded",
+  "parties": [
+   "did:key:z6MkkZH6nzfWsoUKPNi3dyDMgKbtHQdXaSUXWXDYG3JAkC3x",
+   "did:key:z6MkiLTNBxgCoUqCnm6nPYd52f2bVCoUHtkMtGpagULLu8vk"
+  ]
+ },
+ {
+  "contract": "0x7e3edabdffeae208e958f9d9cedce6efec801d139c323cbd6ef88a2a2e145902",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x7e3edabdffeae208e958f9d9cedce6efec801d139c323cbd6ef88a2a2e145902",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkmTW1ubtAK2YKFA46Py28zx5KTyjWVz63HRjC8DKAyZYR",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x8c30101c2953555378f868b28d425ca50b68174c146b789fc37940639a6cd64c",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x8c30101c2953555378f868b28d425ca50b68174c146b789fc37940639a6cd64c",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6Mkt5ugUZAe46ASYv62rvr4bAfg6JB7TyLsBUFJFYkqszj7",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x855f7cc80788b214012d1687bec843fe92e2bb8e84c3ebb58ffbc511a0657382",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x855f7cc80788b214012d1687bec843fe92e2bb8e84c3ebb58ffbc511a0657382",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkjAAA75q1AceR5zUtHiY9Joh9fFJBm6m7AbpUm5juQRWW",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x1d4b2b68f55e941d0dae64521d26a3dcc1ec896e002f3981423f5b67039df6af",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x1d4b2b68f55e941d0dae64521d26a3dcc1ec896e002f3981423f5b67039df6af",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MknS9FNhANcDiUUmS16aSFuLWwbXck1as3EJ5dtk9CWV8S",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x78cc3b456d4b2e50edf58a2256ee533f2c4727bc6628e1cfc93e45cd574224b9",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x78cc3b456d4b2e50edf58a2256ee533f2c4727bc6628e1cfc93e45cd574224b9",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkhvWcbQkBaQUPsgwDieyqgbTrdBMM2UA3TFc4F4a1X77q",
+   "did:key:z6MkfecCNW8KkW5LsxyEMPgrdPUyF8z3VvVEaB1eoEZGwCaN"
+  ]
+ },
+ {
+  "contract": "0x17066e44eda690bc1470e521ed865070a604822122735a30111ad9875670a649",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x17066e44eda690bc1470e521ed865070a604822122735a30111ad9875670a649",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6Mku4tYx4VGW3j6qi7Y3v9PXVucpnpvhooZEqtbvzJMFu8W",
+   "did:key:z6MkkxaxSRk9guUixgTyEh6cCv9Dg3MxCnJJM3VsxheB2aNT"
+  ]
+ },
+ {
+  "contract": "0x3c745ed08da641b7c44a32c3e61466c505bd1808919bde84213698285d967dd3",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x3c745ed08da641b7c44a32c3e61466c505bd1808919bde84213698285d967dd3",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkrVEFm9TLJK6rLBxgY9MGAxh35oJAKXCg3iFkLkyDm9s7",
+   "did:key:z6MkibVe5KLviP177s1NWDAUyJjv1KeVePv2jgRcSHvkGpcZ"
+  ]
+ },
+ {
+  "contract": "0xe497153a83fe444a51fd4e2ca21e34184626e84fa5b5e9565dc2a878b981510d",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xe497153a83fe444a51fd4e2ca21e34184626e84fa5b5e9565dc2a878b981510d",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkqRaiw4yb71Zigxu5mnkK2Xz45WmCbCus7CtmFTnjvw11",
+   "did:key:z6MkmzyBxvrSZveZv5YhZhfwUYQYv5LDgt5NuqVrBe5vXvPA"
+  ]
+ },
+ {
+  "contract": "0x4ed7cb451af7b94071fd1c1429bb8f362e1af8191c9aff54a4cd8b484da6d285",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x4ed7cb451af7b94071fd1c1429bb8f362e1af8191c9aff54a4cd8b484da6d285",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkibVe5KLviP177s1NWDAUyJjv1KeVePv2jgRcSHvkGpcZ",
+   "did:key:z6MkrVEFm9TLJK6rLBxgY9MGAxh35oJAKXCg3iFkLkyDm9s7"
+  ]
+ },
+ {
+  "contract": "0x0c3fc4ad0dba59d1c40f127c2e5c1c24f1fd1849b4d84bfaa0df414221ab89d2",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x0c3fc4ad0dba59d1c40f127c2e5c1c24f1fd1849b4d84bfaa0df414221ab89d2",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkhvWcbQkBaQUPsgwDieyqgbTrdBMM2UA3TFc4F4a1X77q",
+   "did:key:z6MkfecCNW8KkW5LsxyEMPgrdPUyF8z3VvVEaB1eoEZGwCaN"
+  ]
+ },
+ {
+  "contract": "0xd3b51f7311a5db8935fde9ac03ec56d0ce60765ca70ad7995f6a27621c13d139",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xd3b51f7311a5db8935fde9ac03ec56d0ce60765ca70ad7995f6a27621c13d139",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkibVe5KLviP177s1NWDAUyJjv1KeVePv2jgRcSHvkGpcZ",
+   "did:key:z6MkkxaxSRk9guUixgTyEh6cCv9Dg3MxCnJJM3VsxheB2aNT"
+  ]
+ },
+ {
+  "contract": "0x10138366a465b37aa7c7819f60e0ba9e0516e9ddd457265c45589efa036f440b",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x10138366a465b37aa7c7819f60e0ba9e0516e9ddd457265c45589efa036f440b",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkpXSw8HPWKsZjzP99qMXE8ZZZPoWbwJ1AN2rGyVZkJ6iC",
+   "did:key:z6MkpmTsbt28hrKgCsYuRWwFDZSXP76SkELguvvhbmWascST"
+  ]
+ },
+ {
+  "contract": "0xade7b0abbcbc5628043547012da779cb63d740c60e4219b95259386836af607c",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xade7b0abbcbc5628043547012da779cb63d740c60e4219b95259386836af607c",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6Mku4tYx4VGW3j6qi7Y3v9PXVucpnpvhooZEqtbvzJMFu8W",
+   "did:key:z6MkkoGGuSyR9xeBetFTiFensJVVQotbw3Qn413zE3fadGaD"
+  ]
+ },
+ {
+  "contract": "0x880ec0f2f9942c5b01bbd5a5a595670c447b2600a902ab3f78c8e4fe5f49effa",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x880ec0f2f9942c5b01bbd5a5a595670c447b2600a902ab3f78c8e4fe5f49effa",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkgbHMqUiaogRHixG71TMDU51euuifqW8Rson1xhJV1GHR",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x0eba3298a95997e72f2e32e39071511d9b63a7f277c0d2eecddfa8c020b59549",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x0eba3298a95997e72f2e32e39071511d9b63a7f277c0d2eecddfa8c020b59549",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkeU5VbDxhuBhoALo6HHHgqUij3TsuMhWK7SsyFExguBij",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0xa455103b634db9390afb68bf3bd0b8081a6aaa2c7c9561f707ffc9a4987e24f5",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xa455103b634db9390afb68bf3bd0b8081a6aaa2c7c9561f707ffc9a4987e24f5",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6Mkvoj2GsNRRsns4MEwm3Ki21axNKA5MWV7CSUju3m9QmHU",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0xdad58286c29d4167cc3b7d01c706c440367394f2b305f148eb24674719d7e3ac",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xdad58286c29d4167cc3b7d01c706c440367394f2b305f148eb24674719d7e3ac",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6Mkka7QrEdDJix9Ryk7kRZafEwcJYVnCgjEP4BsfNhiPwiV",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x9ad65bacf21f5b49f8acc7741e467401094bebfd980d6119eef0f92fc2bb69dc",
+  "status": "refunded",
+  "rail": "paper",
+  "ref": "0x9ad65bacf21f5b49f8acc7741e467401094bebfd980d6119eef0f92fc2bb69dc",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "refunded",
+  "parties": [
+   "did:key:z6MkvJAr8ZTs5n4d14e4SGVFAxo8nWndZTin8vc23Aks3zgn",
+   "did:key:z6Mku61TxDKYYB4AqrcZqJKuYRZX8WeUM5Ubck5YBxNLcFpp"
+  ]
+ },
+ {
+  "contract": "0xac6733f2300642e5ca31efe0d271a26d402c778015fe2a64825e1d08932e6e25",
+  "status": "refunded",
+  "rail": "paper",
+  "ref": "paper:kv/tclkpaper-ac/6733f2300642e5",
+  "refShape": "other",
+  "funded": false,
+  "matches": null,
+  "railStatus": null,
+  "parties": [
+   "did:key:z6MkjWJ5ujk2wwjw6jbZqp9gZYy4ZBwqRewVrhxAWFkrGwqU",
+   "did:key:z6MksuemwP8tgdTa16YZS42nzRBKKfp1K9G1Zuo1dUhKSNbH"
+  ]
+ },
+ {
+  "contract": "0x7e06591e8953b991019f37337499e7ea39a678b404f11a6ce09090d02c23949e",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x7e06591e8953b991019f37337499e7ea39a678b404f11a6ce09090d02c23949e",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6Mkv5MjXbcAbxt68yrr192u3p3oFeWDNfKjUUyPisxQWnSR",
+   "did:key:z6MkidUED21ZprTbguazZWn47Fb781yHoHz1FRMfsL9RPKz8"
+  ]
+ },
+ {
+  "contract": "0x1273013017db7c8999203c182bb839a416ae997bc3ea7af9b34437fc0b5c436d",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x1273013017db7c8999203c182bb839a416ae997bc3ea7af9b34437fc0b5c436d",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkhkaaAVjLUmc5WraZhorGSB1htJpygvyEyoFybYw3uAk3",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0xe89c6a253b73e19233a4789551e91f50cc536324dc93451b3e70db3fbabe1d60",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xe89c6a253b73e19233a4789551e91f50cc536324dc93451b3e70db3fbabe1d60",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkhjC3xeJpp3duWH8mYh6kAy5kAx2pAFwGG2myvwJYtFLu",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x25ed2d0f8dbff22d643b817538a06a7be382077eb49c8c75a6dd3ad5c0982485",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x25ed2d0f8dbff22d643b817538a06a7be382077eb49c8c75a6dd3ad5c0982485",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MknKMFfJuXTquWWxpEPyo335rtBU4btNsxWgm7ZjDKVWtG",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x50c2d5ffde597d0a24c5d98055910e449a4384f8a8612f92053fe529bba82523",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x50c2d5ffde597d0a24c5d98055910e449a4384f8a8612f92053fe529bba82523",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6Mkw9GxJWDyiCz6o9wKfLRgGYr5WUmVudrpxSdvfcA9K2cg",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x16a7088eb8bbfdb77fdd2552530d04aca6a21f3012f27cebdf0d17422302d100",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x16a7088eb8bbfdb77fdd2552530d04aca6a21f3012f27cebdf0d17422302d100",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkqoHyfDv5TVnhKkhBbwW1GVeMyicFPakBwFb1MR5tmguG",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0xba525cbdb8fc9f3190d7c107a16ec504b730bfabc886d58c39f2dbb8212c5ff5",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xba525cbdb8fc9f3190d7c107a16ec504b730bfabc886d58c39f2dbb8212c5ff5",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6Mkhq96Zp344A73X7ABbMoWsen3qwoxo2UnN3pTqaS8ZLyv",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0xa5905a0382cee7c02aa8682187b5a2a99edc61e67ff8d7d002ba4b62d5f8d1c8",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "paper-a5905a03",
+  "refShape": "other",
+  "funded": false,
+  "matches": null,
+  "railStatus": null,
+  "parties": [
+   "did:key:z6MkwLGfvY1ch5UsxgLpMwEdyT7kJjMiTpktNgPghsua6Vv2",
+   "did:key:z6Mkp5YDnFL7XY5B9T1x9u47WLTZzjoakXF1WdVhdY5Eo4fK"
+  ]
+ },
+ {
+  "contract": "0xe402e5a628bb6c11d3b111f9aae464988bc5e1f2b47921f8c703c274584290c6",
+  "status": "locked",
+  "rail": "paper",
+  "ref": "paper-e402e5a6",
+  "refShape": "other",
+  "funded": false,
+  "matches": null,
+  "railStatus": null,
+  "parties": [
+   "did:key:z6MkkZH6nzfWsoUKPNi3dyDMgKbtHQdXaSUXWXDYG3JAkC3x",
+   "did:key:z6Mkp5YDnFL7XY5B9T1x9u47WLTZzjoakXF1WdVhdY5Eo4fK"
+  ]
+ },
+ {
+  "contract": "0x36880970f1ae3a3c08d08066a0464ef8f115c8d696656dbf9db57f258bb14fbc",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x36880970f1ae3a3c08d08066a0464ef8f115c8d696656dbf9db57f258bb14fbc",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkrVEFm9TLJK6rLBxgY9MGAxh35oJAKXCg3iFkLkyDm9s7",
+   "did:key:z6Mkmrsx9J6M5mJbnQAHya7ewxay17EZG5Hkdjbf9gVNAVWG"
+  ]
+ },
+ {
+  "contract": "0xa046f761282107c463dc2a0491fb164f0bf79b7502a5397057109752b2522b64",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xa046f761282107c463dc2a0491fb164f0bf79b7502a5397057109752b2522b64",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkpmTsbt28hrKgCsYuRWwFDZSXP76SkELguvvhbmWascST",
+   "did:key:z6MkhvWcbQkBaQUPsgwDieyqgbTrdBMM2UA3TFc4F4a1X77q"
+  ]
+ },
+ {
+  "contract": "0x441d90239c8b6127f798cd9e7a5a3eb995552ba4e326a572557243be3da2a803",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x441d90239c8b6127f798cd9e7a5a3eb995552ba4e326a572557243be3da2a803",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6Mku4tYx4VGW3j6qi7Y3v9PXVucpnpvhooZEqtbvzJMFu8W",
+   "did:key:z6MkkoGGuSyR9xeBetFTiFensJVVQotbw3Qn413zE3fadGaD"
+  ]
+ },
+ {
+  "contract": "0x21d304dfb3843003c347e32af5d44c90d3500f358d41f4fdc04cda4469ec9e81",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x21d304dfb3843003c347e32af5d44c90d3500f358d41f4fdc04cda4469ec9e81",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6Mkfy6kYCdA1xmW4DH2R3r5aukNCSUxoPbuxWgmavtCEJuC",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x1050a15145dfdc39b9c91cfcb1348d357e0f64b6a81753002711e6e274463b3c",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x1050a15145dfdc39b9c91cfcb1348d357e0f64b6a81753002711e6e274463b3c",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6Mkj2SEJqZ5kLSQykyBrwB2XC8YR7RckDduBWMhfp18Ng6V",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0xf74c90d0df2d6a34e34c234d315a2a940c7fb4a350c2d7c3da8e83f3947a217b",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xf74c90d0df2d6a34e34c234d315a2a940c7fb4a350c2d7c3da8e83f3947a217b",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkgFgFnEY9Tfv2PTpVFDJN4i4QziQpD68h2CMbLw4F4WFT",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x95f959a4bf51a938dbcdb00451b189051f8db8da8565c57568227dedc0b9f7e1",
+  "status": "refunded",
+  "rail": "paper",
+  "ref": "0x95f959a4bf51a938dbcdb00451b189051f8db8da8565c57568227dedc0b9f7e1",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "refunded",
+  "parties": [
+   "did:key:z6MkkZH6nzfWsoUKPNi3dyDMgKbtHQdXaSUXWXDYG3JAkC3x",
+   "did:key:z6MkqgJmpHAMdUj8GSmXKJkn2AxsJ5G3G4SS9xaaPVoZdGaR"
+  ]
+ },
+ {
+  "contract": "0xe256d1cbe5f735bda43d91c5218025e7490861dfb344b5923e042e2635a8628b",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xe256d1cbe5f735bda43d91c5218025e7490861dfb344b5923e042e2635a8628b",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkgKvwyujUtWYSFBBAqepFS3vKgBEE3HJsZDTQZxeGNqek",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x0ae5e8da6a766a21fcf40c137f5313421eee7c3e22733bfe3f9473476506f22a",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x0ae5e8da6a766a21fcf40c137f5313421eee7c3e22733bfe3f9473476506f22a",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkncAQkBDZrXpEaBnEPs74hB4JP5vnxHs3Lvim7x2fGodA",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x04fe2e257586fe85d899be12a767266a721c5560cc6d1a06ac555666a702361c",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x04fe2e257586fe85d899be12a767266a721c5560cc6d1a06ac555666a702361c",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkfK3hBSUbFA9TJgWrzJtvXTu5PvjDWRxMrdQNSGtXbGar",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0xc1f145368ca08e5a620c6211a3dd609c1a7ff2cd33c3f6b9a559da6e869c85c8",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xc1f145368ca08e5a620c6211a3dd609c1a7ff2cd33c3f6b9a559da6e869c85c8",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6Mkf2fB9ahuFEyb5GiepDpC5gRoMkXgke1HhjD6vew7UE2N",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x9723597b71c4cb629810126409591ed21ef17f53d5cfe7a44042a5ae0bc7e92a",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x9723597b71c4cb629810126409591ed21ef17f53d5cfe7a44042a5ae0bc7e92a",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6Mknm2dhUpQv6vwxhDKGZUX14rDmfbCtEfGY6Yy5DL7tRTi",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x0f1df1c9c25f2ce8e3d1ef429e161ab5d4fef1f36ece172a39a048c9f56a2b79",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "paper-escrow-0f1df1c9",
+  "refShape": "other",
+  "funded": false,
+  "matches": null,
+  "railStatus": null,
+  "parties": [
+   "did:key:z6Mkkjjoh96xoYcg6Be7CcvE2o6rWTH2djnt7uxUjv9inZtj",
+   "did:key:z6MkqxWdSWYYSUqphyN3x2oaozcSLJZUz5ZiY3hec26c4D4h"
+  ]
+ },
+ {
+  "contract": "0x3d11ff03e673b7be456fcaf37b0c20569ab3103dadc7b2301c66ef8a143c6b47",
+  "status": "refunded",
+  "rail": "paper",
+  "ref": "paper:kv/tclkpaper-3d/11ff03e673b7be",
+  "refShape": "other",
+  "funded": false,
+  "matches": null,
+  "railStatus": null,
+  "parties": [
+   "did:key:z6MkvJAr8ZTs5n4d14e4SGVFAxo8nWndZTin8vc23Aks3zgn",
+   "did:key:z6MksuemwP8tgdTa16YZS42nzRBKKfp1K9G1Zuo1dUhKSNbH"
+  ]
+ },
+ {
+  "contract": "0xf14a723d84ee4344b063908311ddf7cbe0ab6f0dcc9d1e02f82968fc80ce61c4",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "paper-escrow-f14a723d",
+  "refShape": "other",
+  "funded": false,
+  "matches": null,
+  "railStatus": null,
+  "parties": [
+   "did:key:z6Mkgr5msZEMU2VKHaPjrBU4drWqqAt2rAbiNhA6LWqBAQgQ",
+   "did:key:z6MkmjzcfGAbELo74d9JN63aLcbBYkiyyuBPmBaw26sShr6B"
+  ]
+ },
+ {
+  "contract": "0x9e5355ee69d15c782e15daa4ab310fddeda72392efcb2443967e4375c027f5cc",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x9e5355ee69d15c782e15daa4ab310fddeda72392efcb2443967e4375c027f5cc",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MksjFPCG8ip3xetffKjKTfCogWuTWhGd9SRkjYTgV5YH7P",
+   "did:key:z6MkpWZcEGGt9mesDASbwLi6oMW6esSpSiqtk67PV9mVZpHW"
+  ]
+ },
+ {
+  "contract": "0x24d1e4955a7390626d3c951d3a78980441601408abd173aa021433b2a3db19ff",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x24d1e4955a7390626d3c951d3a78980441601408abd173aa021433b2a3db19ff",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkkqZrYjUKFzES62uRmRLFyKVL55DK4PdKJDxYJMx56M87",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0xad2eb1b1237411712c99c31f4cb5dc2c31f510a99dbbf552a739334d1e5d2f3b",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xad2eb1b1237411712c99c31f4cb5dc2c31f510a99dbbf552a739334d1e5d2f3b",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkknDcwVvZ7qRkjjagWxLMk1xTfrAWGt7pYRFyxqwXVQsv",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0xb0645aa1079c96d14f384db0cea318259c6df6ee2fd07c60de9b2583e204272c",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xb0645aa1079c96d14f384db0cea318259c6df6ee2fd07c60de9b2583e204272c",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkwNgmNqmF5Qyejj5G7dwHRiqE49mHTWtRfBcjpySvD9q8",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x804ae4c9b2fef305e4cc61ba805768fe79a4356d0835d2ba5244adf3309809a6",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x804ae4c9b2fef305e4cc61ba805768fe79a4356d0835d2ba5244adf3309809a6",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkwRTFEoKSfCuG5WuWHBhvMQqMwbzNdbCP1qDAxqQjrAZJ",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x2ef4b8157482136e21bfd8ac47c2332245b112e75ad55cf2c364cd962102e2a4",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x2ef4b8157482136e21bfd8ac47c2332245b112e75ad55cf2c364cd962102e2a4",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6Mkp1CK4srwLe2sfDpvCdn7qEX9Doing8CF2V5sgMJnZiEK",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x7e972280d653666fea20898868e14ac811cc922fdcb8bdd7bf699b305746e945",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x7e972280d653666fea20898868e14ac811cc922fdcb8bdd7bf699b305746e945",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MksjFPCG8ip3xetffKjKTfCogWuTWhGd9SRkjYTgV5YH7P",
+   "did:key:z6Mksu9mUZPTt2937qsevB3N7BgNPi6WsdTUdtTA2tjqj7Zo"
+  ]
+ },
+ {
+  "contract": "0xb219e08ea72ef5ee0ba4db565813d89c28eb7704a76cf63559ade3747e0edd94",
+  "status": "refunded",
+  "rail": "paper",
+  "ref": "0xb219e08ea72ef5ee0ba4db565813d89c28eb7704a76cf63559ade3747e0edd94",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "refunded",
+  "parties": [
+   "did:key:z6MkvJAr8ZTs5n4d14e4SGVFAxo8nWndZTin8vc23Aks3zgn",
+   "did:key:z6MkowQQU2q3RrQprGdfbUNePxU4UX16TXn4geXLHep9HAY9"
+  ]
+ },
+ {
+  "contract": "0x5256278dec3df97f61b2e4398411fe0bb6c506c8a115f5d5ec04ca46c70015c8",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x5256278dec3df97f61b2e4398411fe0bb6c506c8a115f5d5ec04ca46c70015c8",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkkxaxSRk9guUixgTyEh6cCv9Dg3MxCnJJM3VsxheB2aNT",
+   "did:key:z6Mku4tYx4VGW3j6qi7Y3v9PXVucpnpvhooZEqtbvzJMFu8W"
+  ]
+ },
+ {
+  "contract": "0xaa03d4f6440448df3230bbb1850561bdaa05cc5f6b0b34efd8facc351ff2b609",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xaa03d4f6440448df3230bbb1850561bdaa05cc5f6b0b34efd8facc351ff2b609",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkibVe5KLviP177s1NWDAUyJjv1KeVePv2jgRcSHvkGpcZ",
+   "did:key:z6MkrVEFm9TLJK6rLBxgY9MGAxh35oJAKXCg3iFkLkyDm9s7"
+  ]
+ },
+ {
+  "contract": "0x7ec43c6f9e60bb52e45e7ff934d6c221c95561ecffc8167eacc0277d61af26d0",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x7ec43c6f9e60bb52e45e7ff934d6c221c95561ecffc8167eacc0277d61af26d0",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6Mks7gzVjGpUU8khkSRu1ThJhjZZNVZMk6g8KJrfAWmJzum",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x8b95cab7d1a06101a6bec8dc0939729302ed62b8d57feec565e2161f0bf2c5b1",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x8b95cab7d1a06101a6bec8dc0939729302ed62b8d57feec565e2161f0bf2c5b1",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkuVCk5hYYcZVnqqJuP4NSzzn2Mb1U9ModC6auFSGai5n9",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x84db999fd13fd017161ca0f0053af3acd0685567963e33ceba0486c091f364fe",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x84db999fd13fd017161ca0f0053af3acd0685567963e33ceba0486c091f364fe",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkoVfSUBZqLcKJHmFwiTh4xJyDRg2nP1ZGeovLcLeMBs2v",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0xaac1def60d19305aab563e8356966718e63480fcbad71edd2a9fc75487b14564",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xaac1def60d19305aab563e8356966718e63480fcbad71edd2a9fc75487b14564",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkrkNJGsaXMt7o6oFYNRVuWtdqwjEE8VYyDGEQf3cDasrf",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x6bd391ff8771774d59fd7e8effc8f4978aec68b43665ee0d8579480ade7e2f34",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x6bd391ff8771774d59fd7e8effc8f4978aec68b43665ee0d8579480ade7e2f34",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkkwPSHzaRL2Ea63bJvhkPjVRNJ8BBPdDDxs7tqeRnqSAF",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x638f44085d77b0fc17d59e33f4cf8d2c764efa83702c34392b0b9e4332741333",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x638f44085d77b0fc17d59e33f4cf8d2c764efa83702c34392b0b9e4332741333",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkkztKPEhq1vXH8AAVm7RBE7SNZk9jYPqcWBE1E9c6kKtn",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x2c11c9ac5d2aa4382e7587b3cc5ceb100eaeac0a788f7552b8c5d5ac6604ac52",
+  "status": "locked",
+  "rail": "paper",
+  "ref": "paper-escrow-2c11c9ac",
+  "refShape": "other",
+  "funded": false,
+  "matches": null,
+  "railStatus": null,
+  "parties": [
+   "did:key:z6MksKhHqRZon9XDbbjJAconhhAKLyaFiKM1TQGDg1Yfndw3",
+   "did:key:z6MkfpcYfP1jqJHRjSWEmAkWAViGPMUuAkEPgMkmrAJ641Hr"
+  ]
+ },
+ {
+  "contract": "0x9c9fa6c853ab3cfe9357b207951dfad4d42abb35b9b343e979aade0f0a97e2e9",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x9c9fa6c853ab3cfe9357b207951dfad4d42abb35b9b343e979aade0f0a97e2e9",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6Mkpz6bfLwSjzcvZi2FXA9gMgATmTgx279v9eGFmLLhcDsr",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x03aed465e1ae56c97b226e192ce8235995d583658bf1ddcb802bf9e8ff995f49",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x03aed465e1ae56c97b226e192ce8235995d583658bf1ddcb802bf9e8ff995f49",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6Mkpj3Hm4PG2vjnAEBLr4YPE94vVYbgUgLFSe45NhmweAwy",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x55a45816c62790e589e131b5e2e8ea26a6abfdc7ced674478c1a100e805e04d2",
+  "status": "cancelled",
+  "rail": null,
+  "ref": null,
+  "refShape": "no-lock-frame",
+  "funded": true,
+  "matches": true,
+  "railStatus": "refunded",
+  "parties": [
+   "did:key:z6MkvJAr8ZTs5n4d14e4SGVFAxo8nWndZTin8vc23Aks3zgn",
+   "did:key:z6Mkn1UmgZAqvBJhm7A91LctCHuaZe3VbJJt3ZAZ8MizmoBt"
+  ]
+ },
+ {
+  "contract": "0x30e82af9e7a5576b4e9edccce7dd8c33cab75803eadf7c490c51d3404823b37e",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x30e82af9e7a5576b4e9edccce7dd8c33cab75803eadf7c490c51d3404823b37e",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkgGFT3L42EUsgZA8V59YPgcu8dApKbMwU4KvSJk5wUArW",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0xdda42a69e43316bf9c1924c03c92c4692dc21fba4d001564c6aeffff1fa6c4fc",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xdda42a69e43316bf9c1924c03c92c4692dc21fba4d001564c6aeffff1fa6c4fc",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkgSiyhZkNcubn9DrE8YQYucEmowLi9FcAHPLqxdqgrQMa",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0xee2e88669f66663bed36812e641b996478db87dd7bda3fe2dc771f4937be9a3a",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xee2e88669f66663bed36812e641b996478db87dd7bda3fe2dc771f4937be9a3a",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkhFXBT7mbg868FeMqn5Tkb7nUZF1MXh1qyU9Q3KEkMKy5",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x12173dd68f2b393a7510483b346defb1464141aeb544df4f96a64aa5181261db",
+  "status": "refunded",
+  "rail": "paper",
+  "ref": "0x12173dd68f2b393a7510483b346defb1464141aeb544df4f96a64aa5181261db",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "refunded",
+  "parties": [
+   "did:key:z6MkvJAr8ZTs5n4d14e4SGVFAxo8nWndZTin8vc23Aks3zgn",
+   "did:key:z6Mku2JZnNymja2GTGDriFE9A8Mos777Sc1Jbtg5stsfPiob"
+  ]
+ },
+ {
+  "contract": "0xcbbf6a71920c68e85dfcfbceb4a62fb83f407525099d4932dc9fee2698ad9eb6",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xcbbf6a71920c68e85dfcfbceb4a62fb83f407525099d4932dc9fee2698ad9eb6",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkuUAL9UjdAvu3r5wa8Z9SinSkhqqvGCJMP7ZpyJA1w5KZ",
+   "did:key:z6Mkgjh7hRqmF74TUuryQPhjsAeygPg6UDHwq9gXN65CZ3PW"
+  ]
+ },
+ {
+  "contract": "0x924682b2f7251b18114d4b57f1d303f027248fde426b1e700bdcfb7d3bff3b75",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x924682b2f7251b18114d4b57f1d303f027248fde426b1e700bdcfb7d3bff3b75",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6Mkeos9jWwpE2PJXi9Z517VfiECqbx2wRtoTbWC745tpb2m",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x722a19738a00306314d477f61bd1cdf2551c837863d0bac0e84c2e2db85517f1",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x722a19738a00306314d477f61bd1cdf2551c837863d0bac0e84c2e2db85517f1",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkgBjT1MJQ5qnq75XCLNH55udb15b4qcmKMjEtbFegdVtL",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0xb4c2f32a3f57f88efec047e8ee635bf74b03640021269d4932bed0551cfa2694",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xb4c2f32a3f57f88efec047e8ee635bf74b03640021269d4932bed0551cfa2694",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkuhRgYBCT6RgN4DsoFNoTzw6QuBtJkDrP3tPg5YB1B7Xc",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x2bad09dbe2bb49bd2d6c28efeaa131e281fb10e0f955c7bb3f52c05493aec86f",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x2bad09dbe2bb49bd2d6c28efeaa131e281fb10e0f955c7bb3f52c05493aec86f",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkfHAJfNbjiUuwQY18CJTAjMaC85TYWF34DKo3CTD8NJCm",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x047ba9e5eae3d6b24309149278e8536561cf5b269a5b3b992528da72212a6911",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x047ba9e5eae3d6b24309149278e8536561cf5b269a5b3b992528da72212a6911",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkkoGGuSyR9xeBetFTiFensJVVQotbw3Qn413zE3fadGaD",
+   "did:key:z6MkfecCNW8KkW5LsxyEMPgrdPUyF8z3VvVEaB1eoEZGwCaN"
+  ]
+ },
+ {
+  "contract": "0xb3aadeba1f76e99a5c344feb54479b8aab8b80e9fb2be9c7cd525d92b1a35dd1",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xb3aadeba1f76e99a5c344feb54479b8aab8b80e9fb2be9c7cd525d92b1a35dd1",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkrVEFm9TLJK6rLBxgY9MGAxh35oJAKXCg3iFkLkyDm9s7",
+   "did:key:z6MkpXSw8HPWKsZjzP99qMXE8ZZZPoWbwJ1AN2rGyVZkJ6iC"
+  ]
+ },
+ {
+  "contract": "0x8d6810a8e5fe2b153ce99bea29f982f808c3b30d7ac4a5ead9d6710852e5805e",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x8d6810a8e5fe2b153ce99bea29f982f808c3b30d7ac4a5ead9d6710852e5805e",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6Mkij5h6Q57oxnXoeWZL1QVcsgXXYinALragfmx5cWFabgA",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0xfed11a177172cb16bccd639baac48b45246e7d9512ba70976492d2f71ae4d611",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xfed11a177172cb16bccd639baac48b45246e7d9512ba70976492d2f71ae4d611",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkmUHDRzKmrXkypuhShStLCSPZT4GmNo1y2qHwjc7rYmTF",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0xa327d2fd9ad2d56700bc2cccc7f97780df43dc8db1a01330a2daa0766cb25229",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xa327d2fd9ad2d56700bc2cccc7f97780df43dc8db1a01330a2daa0766cb25229",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkspSpYnR6qg6Do8xRJyDLn6iR6vgkGsdnsjvVrPhQVAYj",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x40333f6a1ce27bdc35228db6231d19d08a361ac47670ad6055525cfb8c99ed97",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x40333f6a1ce27bdc35228db6231d19d08a361ac47670ad6055525cfb8c99ed97",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkkA9nAN1FaCHM3CX2ZaLEJcmyEGYsX8RU1L7azZpHFnRB",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x3bb76d97a9907100e52ab4814cee06b202b534825b3220e9b3ac7f28ac3fa28d",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x3bb76d97a9907100e52ab4814cee06b202b534825b3220e9b3ac7f28ac3fa28d",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6Mkrf4iwaQpCqTxaJnJZk7EfTx7NaTV98sqDLuDvrQogNzi",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x292eb30a8e02487d4144376627b4cd68140a70995fea4d4b5473bc21c37e7f11",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x292eb30a8e02487d4144376627b4cd68140a70995fea4d4b5473bc21c37e7f11",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkjiX5pMCx7SmxrggjAqousdrooNaK8nfR2meHa2HoUKAv",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x52db7ad43a13157f720f1dd1a3038b0fea1440d83e953e283f14d94de0f79bfd",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x52db7ad43a13157f720f1dd1a3038b0fea1440d83e953e283f14d94de0f79bfd",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkpXSw8HPWKsZjzP99qMXE8ZZZPoWbwJ1AN2rGyVZkJ6iC",
+   "did:key:z6MkibVe5KLviP177s1NWDAUyJjv1KeVePv2jgRcSHvkGpcZ"
+  ]
+ },
+ {
+  "contract": "0x635372e40a362b0836e287e9b286ddf9a0a100a0b9e00a1432b9eb13cb2e4438",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x635372e40a362b0836e287e9b286ddf9a0a100a0b9e00a1432b9eb13cb2e4438",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6Mkmrsx9J6M5mJbnQAHya7ewxay17EZG5Hkdjbf9gVNAVWG",
+   "did:key:z6MkrVEFm9TLJK6rLBxgY9MGAxh35oJAKXCg3iFkLkyDm9s7"
+  ]
+ },
+ {
+  "contract": "0xd098d618d90458b5f5eb202fe8c52e9ec324e80990e40803296e1c377e143434",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xd098d618d90458b5f5eb202fe8c52e9ec324e80990e40803296e1c377e143434",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkrVEFm9TLJK6rLBxgY9MGAxh35oJAKXCg3iFkLkyDm9s7",
+   "did:key:z6Mkmrsx9J6M5mJbnQAHya7ewxay17EZG5Hkdjbf9gVNAVWG"
+  ]
+ },
+ {
+  "contract": "0xee294ade6dfcddadc41b7d8c949765d4c82e3613a4ac4e2da87000c3c4aadfe1",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xee294ade6dfcddadc41b7d8c949765d4c82e3613a4ac4e2da87000c3c4aadfe1",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkibVe5KLviP177s1NWDAUyJjv1KeVePv2jgRcSHvkGpcZ",
+   "did:key:z6MkhvWcbQkBaQUPsgwDieyqgbTrdBMM2UA3TFc4F4a1X77q"
+  ]
+ },
+ {
+  "contract": "0x09e98424e6668391aa167896562488e4b86211a68cc95ed2f9ac5d0b40e1c523",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x09e98424e6668391aa167896562488e4b86211a68cc95ed2f9ac5d0b40e1c523",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkpmTsbt28hrKgCsYuRWwFDZSXP76SkELguvvhbmWascST",
+   "did:key:z6Mkmrsx9J6M5mJbnQAHya7ewxay17EZG5Hkdjbf9gVNAVWG"
+  ]
+ },
+ {
+  "contract": "0x5c32e9692f71f320195b9f46993933a43736fbaa68aa2df2a752b3808a5a6537",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x5c32e9692f71f320195b9f46993933a43736fbaa68aa2df2a752b3808a5a6537",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkkoGGuSyR9xeBetFTiFensJVVQotbw3Qn413zE3fadGaD",
+   "did:key:z6MkfecCNW8KkW5LsxyEMPgrdPUyF8z3VvVEaB1eoEZGwCaN"
+  ]
+ },
+ {
+  "contract": "0x5bf353850af9ecf90e79beb291782af9a582756145a5e3841787674dc4a46943",
+  "status": "refunded",
+  "rail": "paper",
+  "ref": "0x5bf353850af9ecf90e79beb291782af9a582756145a5e3841787674dc4a46943",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "refunded",
+  "parties": [
+   "did:key:z6MkvJAr8ZTs5n4d14e4SGVFAxo8nWndZTin8vc23Aks3zgn",
+   "did:key:z6MkexvqpZT4k7Jk7LMsQ7CpDGqaZ9ADDsQZWAKbyr5g3BXA"
+  ]
+ },
+ {
+  "contract": "0x5549cc3df7efd23f23346c37a6dd0853474bcb75c6c4d36974bf924345c447e5",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x5549cc3df7efd23f23346c37a6dd0853474bcb75c6c4d36974bf924345c447e5",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkhF478dBxfyq2cjxWoC19MQ3ePoT7SrsbgaLXzYNuk6HE",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x03283358d4b5f266b66769b393e9f7945e8338e0184e7c31a10741fa8f12ed9f",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x03283358d4b5f266b66769b393e9f7945e8338e0184e7c31a10741fa8f12ed9f",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkqAwzDatUJZ7e6ZduqPXsduxPzCj6uQMuExTernpLaVUU",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0xeeed9ac218b552f0917945b037998e9bef0c8168bbe9ed93eda4756500fab8f9",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xeeed9ac218b552f0917945b037998e9bef0c8168bbe9ed93eda4756500fab8f9",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6Mkk7zVfV68ewqmkrc2zKuXXCEnKt2qHcWvNBDJKhYVa3e7",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x7ce316225aab0af4df57a8f4062cb9411b04e2867fb132239a9b0dbd08335da4",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x7ce316225aab0af4df57a8f4062cb9411b04e2867fb132239a9b0dbd08335da4",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkoVCvreDWZYVP1H6yordDxz5Fq9xtrMKbxCwszmCCMSxs",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x996f239611c460ab563d2065bb39bbf171ff80f8f27526c4809a6867760b20ef",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x996f239611c460ab563d2065bb39bbf171ff80f8f27526c4809a6867760b20ef",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkfU5PHsDruzgfgArp4D12o8CB5PS9xJTYM78BGYkF3dYq",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0xdfa2e7620a7542e02db5713e438907b5d9db661e62464b2261a7029890f30e03",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xdfa2e7620a7542e02db5713e438907b5d9db661e62464b2261a7029890f30e03",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkuxAqrE4cySWAAtjyiuHpyoAXkNw9LdzSsCFh11say3jb",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x66cb00c257ee90e4972fa71dafe76027447fe748323f922f99929540a46f0732",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x66cb00c257ee90e4972fa71dafe76027447fe748323f922f99929540a46f0732",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkhSkEpzM1ra2z2NWfiDjy545XjJ8u61PeSKPP3gSTGLMK",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x474fcd4cf77fb282a46ee48d1a9a2e8669aa6543a5fc7e26415200ce76ad2c84",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x474fcd4cf77fb282a46ee48d1a9a2e8669aa6543a5fc7e26415200ce76ad2c84",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6Mks2ZsjpJJkGFUn9maYVGX8C7zDdEb6JUo3ohLz1URHdpe",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0xf591dc340f0839e195f5ec6400faa794a9c36186b2503535f9544cd45a04c82d",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xf591dc340f0839e195f5ec6400faa794a9c36186b2503535f9544cd45a04c82d",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MktdLyc4V1Kat1tqDj3eqCxA41svRw89bBXeTcqacq8itB",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x75d0723e8e1937aa806240f6c34b82e32af69ab6de882b62367393bb07ceaa15",
+  "status": "refunded",
+  "rail": "paper",
+  "ref": "0x75d0723e8e1937aa806240f6c34b82e32af69ab6de882b62367393bb07ceaa15",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "refunded",
+  "parties": [
+   "did:key:z6MkvJAr8ZTs5n4d14e4SGVFAxo8nWndZTin8vc23Aks3zgn",
+   "did:key:z6MkjL5QfwUxRKK2L2BgePG8xykmbX7QLa3dNGHfW9rH23kM"
+  ]
+ },
+ {
+  "contract": "0xd9e85d610acda9fa5a164f9347e3fea3fa8249ba5e51c7840ca184b35a8f5b46",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xd9e85d610acda9fa5a164f9347e3fea3fa8249ba5e51c7840ca184b35a8f5b46",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkfAkA1AmNu6CEpqCv3wikJ1kWBS2PFKrkCna8caX9ANpw",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0xce68bd60f9457b1aac97b07370de0e79e00e980f945a3f5334e916a5c3ed19a0",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xce68bd60f9457b1aac97b07370de0e79e00e980f945a3f5334e916a5c3ed19a0",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkpH8PyhHpuzK2Q9mpPjJhDS5k6mARdc3vjKXiuFnELEGW",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0xa9327f58456661c0427eb386a8969cdd5e3a67fd675e658b1006f556cb49682f",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xa9327f58456661c0427eb386a8969cdd5e3a67fd675e658b1006f556cb49682f",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6Mkh1FF3FxpF2xdfLMG6FaocucHxxc4aTR2tSXsXEUAXQWK",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x99bdceffae88b78845d8b37b778eb29ed5242f8ce1ed10f596837316dfc11e0c",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x99bdceffae88b78845d8b37b778eb29ed5242f8ce1ed10f596837316dfc11e0c",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6Mkhv9tf7ZtbjKaev6a1z4r3mcmkY8DtzffY4EnYd6dYrRX",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0xc686c56a05a54af61ab008cebe6e8f1f486d50580be7e4000a5b81a1c2e4d1be",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xc686c56a05a54af61ab008cebe6e8f1f486d50580be7e4000a5b81a1c2e4d1be",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkvvhsZMT8Mg1TZczt14TfpDHA3GGjw9j21TU44KpYa4qj",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x1df1efa0d1eee776334386149cdd97c3da02e3e3ba6c94d5df6efcbecefb5da8",
+  "status": "locked",
+  "rail": "paper",
+  "ref": "0x1df1efa0d1eee776334386149cdd97c3da02e3e3ba6c94d5df6efcbecefb5da8",
+  "refShape": "contract-id",
+  "funded": false,
+  "matches": null,
+  "railStatus": null,
+  "parties": [
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4",
+   "did:key:z6Mkp1ucczU1pr4VMfzah8LVXsGbu6GYA9iXS25d9FuTA6Rd"
+  ]
+ },
+ {
+  "contract": "0x44892066d5c807d620033f171b1010f78afba9fcca4facdfafa3712de3c82e32",
+  "status": "locked",
+  "rail": "paper",
+  "ref": "0x44892066d5c807d620033f171b1010f78afba9fcca4facdfafa3712de3c82e32",
+  "refShape": "contract-id",
+  "funded": false,
+  "matches": null,
+  "railStatus": null,
+  "parties": [
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4",
+   "did:key:z6MkrYsNEBwCjTBeT1PYArUQgrgpkiFAVUvQ3HqwJHCvhywd"
+  ]
+ },
+ {
+  "contract": "0x9dfca95e445a713a7bf02ff2c1ab835ee0850a3bd09ec819d3e48a3aea019479",
+  "status": "locked",
+  "rail": "paper",
+  "ref": "0x9dfca95e445a713a7bf02ff2c1ab835ee0850a3bd09ec819d3e48a3aea019479",
+  "refShape": "contract-id",
+  "funded": false,
+  "matches": null,
+  "railStatus": null,
+  "parties": [
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4",
+   "did:key:z6MkhiFaVmsCwBSSjhqssdZdRchGRaeuJmwzk8P1Qb6hQXCc"
+  ]
+ },
+ {
+  "contract": "0x1474de6fe480f901bf76bd4c61d3801045a54aa4b9fa8932c3726488a9b86dd4",
+  "status": "locked",
+  "rail": "paper",
+  "ref": "0x1474de6fe480f901bf76bd4c61d3801045a54aa4b9fa8932c3726488a9b86dd4",
+  "refShape": "contract-id",
+  "funded": false,
+  "matches": null,
+  "railStatus": null,
+  "parties": [
+   "did:key:z6MkvJAr8ZTs5n4d14e4SGVFAxo8nWndZTin8vc23Aks3zgn",
+   "did:key:z6MkhSzr6t2H4rT2LsvuiSmSU4qqJMztiK6dY7VjX9zSgZBL"
+  ]
+ },
+ {
+  "contract": "0x990af96dcf33fd231ad92d70b76c6f9d9c88ae7be066bfb98b93fa5429f67e0f",
+  "status": "locked",
+  "rail": "paper",
+  "ref": "0x990af96dcf33fd231ad92d70b76c6f9d9c88ae7be066bfb98b93fa5429f67e0f",
+  "refShape": "contract-id",
+  "funded": false,
+  "matches": null,
+  "railStatus": null,
+  "parties": [
+   "did:key:z6MkvJAr8ZTs5n4d14e4SGVFAxo8nWndZTin8vc23Aks3zgn",
+   "did:key:z6Mkhq9nrVTZq7hjDqSe44HN8vR4dGsvdokK94YEW3Qwhuae"
+  ]
+ },
+ {
+  "contract": "0x4eb0f5f9fb1c662e3914b91fe59cb8e26964adc0cc739dc0b281e6276ad5f970",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x4eb0f5f9fb1c662e3914b91fe59cb8e26964adc0cc739dc0b281e6276ad5f970",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkkxaxSRk9guUixgTyEh6cCv9Dg3MxCnJJM3VsxheB2aNT",
+   "did:key:z6MkkoGGuSyR9xeBetFTiFensJVVQotbw3Qn413zE3fadGaD"
+  ]
+ },
+ {
+  "contract": "0xbdf52babb4e4bf4a9a9e01226412ea7d26a5ec34ffa8362219e0d1fa49c8e59a",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xbdf52babb4e4bf4a9a9e01226412ea7d26a5ec34ffa8362219e0d1fa49c8e59a",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkpXSw8HPWKsZjzP99qMXE8ZZZPoWbwJ1AN2rGyVZkJ6iC",
+   "did:key:z6MkrVEFm9TLJK6rLBxgY9MGAxh35oJAKXCg3iFkLkyDm9s7"
+  ]
+ },
+ {
+  "contract": "0x23d8b34e479011461624de058ca824f496b29c8e468c6c51cb921f02d457f3a4",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x23d8b34e479011461624de058ca824f496b29c8e468c6c51cb921f02d457f3a4",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkfecCNW8KkW5LsxyEMPgrdPUyF8z3VvVEaB1eoEZGwCaN",
+   "did:key:z6MkrVEFm9TLJK6rLBxgY9MGAxh35oJAKXCg3iFkLkyDm9s7"
+  ]
+ },
+ {
+  "contract": "0x488800686b18d5731123143303d9403ebf45823eb1118fd034138fc4a9287fb9",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x488800686b18d5731123143303d9403ebf45823eb1118fd034138fc4a9287fb9",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkhvWcbQkBaQUPsgwDieyqgbTrdBMM2UA3TFc4F4a1X77q",
+   "did:key:z6MkpXSw8HPWKsZjzP99qMXE8ZZZPoWbwJ1AN2rGyVZkJ6iC"
+  ]
+ },
+ {
+  "contract": "0x73e3d4e181e472bf47d6d1a62452f4754a9e711ee06037fa3f3d09bc55236873",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x73e3d4e181e472bf47d6d1a62452f4754a9e711ee06037fa3f3d09bc55236873",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkibVe5KLviP177s1NWDAUyJjv1KeVePv2jgRcSHvkGpcZ",
+   "did:key:z6Mku4tYx4VGW3j6qi7Y3v9PXVucpnpvhooZEqtbvzJMFu8W"
+  ]
+ },
+ {
+  "contract": "0x150e91ce814517c4548aff46572e04b7eaaa1ace09265470e335a9516e60e5f8",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x150e91ce814517c4548aff46572e04b7eaaa1ace09265470e335a9516e60e5f8",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkqbAmM5MQngJksgxM5yHczJkt5sJ9wUrLrhNDyoKHHA1h",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0x0ed5ad66d1fdef0d8f2b9b973f531eb96b88b872625503089b370d386441ede9",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x0ed5ad66d1fdef0d8f2b9b973f531eb96b88b872625503089b370d386441ede9",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkpLNpEwqW5JQ9iMmcnjkK6tRnRgMn36cwavL2hT5DAGFA",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0xaae8663149feef87dc905f5792c19fbf371c19c143461fb6b836ddce1b6249a3",
+  "status": "locked",
+  "rail": "paper",
+  "ref": "0xaae8663149feef87dc905f5792c19fbf371c19c143461fb6b836ddce1b6249a3",
+  "refShape": "contract-id",
+  "funded": false,
+  "matches": null,
+  "railStatus": null,
+  "parties": [
+   "did:key:z6MkjthRmoCQhKPLRuSqjXZr2EVtbiWA1kPDoW9Y5dSS7PqE",
+   "did:key:z6MkhiFaVmsCwBSSjhqssdZdRchGRaeuJmwzk8P1Qb6hQXCc"
+  ]
+ },
+ {
+  "contract": "0x096be9e57df507876c4a39ef75417eed03a05849d97edae9352b8a8bfe55e4b3",
+  "status": "locked",
+  "rail": "paper",
+  "ref": "0x096be9e57df507876c4a39ef75417eed03a05849d97edae9352b8a8bfe55e4b3",
+  "refShape": "contract-id",
+  "funded": false,
+  "matches": null,
+  "railStatus": null,
+  "parties": [
+   "did:key:z6MkjthRmoCQhKPLRuSqjXZr2EVtbiWA1kPDoW9Y5dSS7PqE",
+   "did:key:z6MkrYsNEBwCjTBeT1PYArUQgrgpkiFAVUvQ3HqwJHCvhywd"
+  ]
+ },
+ {
+  "contract": "0xa25545935f70256f24b3db399f04f2c2e4e77c8277e34764000788d34b116d6a",
+  "status": "locked",
+  "rail": "paper",
+  "ref": "0xa25545935f70256f24b3db399f04f2c2e4e77c8277e34764000788d34b116d6a",
+  "refShape": "contract-id",
+  "funded": false,
+  "matches": null,
+  "railStatus": null,
+  "parties": [
+   "did:key:z6MkjthRmoCQhKPLRuSqjXZr2EVtbiWA1kPDoW9Y5dSS7PqE",
+   "did:key:z6Mkp1ucczU1pr4VMfzah8LVXsGbu6GYA9iXS25d9FuTA6Rd"
+  ]
+ },
+ {
+  "contract": "0x74945cfd5045bed2306fca21f82272360fe249cb5f96af5b81478b0133836d53",
+  "status": "locked",
+  "rail": "paper",
+  "ref": "0x74945cfd5045bed2306fca21f82272360fe249cb5f96af5b81478b0133836d53",
+  "refShape": "contract-id",
+  "funded": false,
+  "matches": null,
+  "railStatus": null,
+  "parties": [
+   "did:key:z6MkjthRmoCQhKPLRuSqjXZr2EVtbiWA1kPDoW9Y5dSS7PqE",
+   "did:key:z6Mkhq9nrVTZq7hjDqSe44HN8vR4dGsvdokK94YEW3Qwhuae"
+  ]
+ },
+ {
+  "contract": "0xf443822867eeeda1348f8c3e1dc1821c36e1b4bd08d835d5179dfbf9abd81038",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xf443822867eeeda1348f8c3e1dc1821c36e1b4bd08d835d5179dfbf9abd81038",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkjUdycFd5B2DGgJL7n2pqGFtVrZw1hzuyU9qZxZJ98Hbu",
+   "did:key:z6MkwTxDVTfRZXsGojQoSVFhTJ5kKgBg52q7pJZT8uG9rxfc"
+  ]
+ },
+ {
+  "contract": "0x94543eff7ae1dc809cf9c5fde78575ae3e6790ef4a159394fb28f8d5b6b4d73b",
+  "status": "refunded",
+  "rail": "paper",
+  "ref": "0x94543eff7ae1dc809cf9c5fde78575ae3e6790ef4a159394fb28f8d5b6b4d73b",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "refunded",
+  "parties": [
+   "did:key:z6MkvJAr8ZTs5n4d14e4SGVFAxo8nWndZTin8vc23Aks3zgn",
+   "did:key:z6MkkEvLyPhiSWL6UF5MWCsizZ61TpLDRrGsEhAJc293j55H"
+  ]
+ },
+ {
+  "contract": "0xf90c2c0a1f77f67b48ca294ecb4ebd352dd411c12cf00c11889e70a234b1471a",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xf90c2c0a1f77f67b48ca294ecb4ebd352dd411c12cf00c11889e70a234b1471a",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkibVe5KLviP177s1NWDAUyJjv1KeVePv2jgRcSHvkGpcZ",
+   "did:key:z6Mku4tYx4VGW3j6qi7Y3v9PXVucpnpvhooZEqtbvzJMFu8W"
+  ]
+ },
+ {
+  "contract": "0x0e545a143de28dd9e9a7257ce8a39d1231c6d8016db979a0bf917bf273bbcdee",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x0e545a143de28dd9e9a7257ce8a39d1231c6d8016db979a0bf917bf273bbcdee",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6Mkmrsx9J6M5mJbnQAHya7ewxay17EZG5Hkdjbf9gVNAVWG",
+   "did:key:z6MkhvWcbQkBaQUPsgwDieyqgbTrdBMM2UA3TFc4F4a1X77q"
+  ]
+ },
+ {
+  "contract": "0xbfe3d8878ec78f095c0a0f7ee1e70e7b3ecbadabe556651f96397e32b31f1a93",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xbfe3d8878ec78f095c0a0f7ee1e70e7b3ecbadabe556651f96397e32b31f1a93",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkkxaxSRk9guUixgTyEh6cCv9Dg3MxCnJJM3VsxheB2aNT",
+   "did:key:z6MkpmTsbt28hrKgCsYuRWwFDZSXP76SkELguvvhbmWascST"
+  ]
+ },
+ {
+  "contract": "0x3cc2e91ad42d278b188df30dca051ee49376956551733844163d1ba3024044ab",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x3cc2e91ad42d278b188df30dca051ee49376956551733844163d1ba3024044ab",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkkaCEAo2VfbVpLuH9Jsxvs6uJWP2aR7eC3g4XF62aknqv",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0xd7edec2e292695afdb63eaa241910e5fcc40f660795667a6cab0585c44f34b09",
+  "status": "cancelled",
+  "rail": null,
+  "ref": null,
+  "refShape": "no-lock-frame",
+  "funded": true,
+  "matches": true,
+  "railStatus": "locked",
+  "parties": [
+   "did:key:z6Mkof5viS8HipnBfig39RBCzGuHHoTwtrjUAjA26SZ3wpPX"
+  ]
+ },
+ {
+  "contract": "0xecba925b210869f5b7ebbfd9258585c2f94e8889861b1f9659850479d9d1912e",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xecba925b210869f5b7ebbfd9258585c2f94e8889861b1f9659850479d9d1912e",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MknnGrVGDpYQkosSMEwge11EysiWWfBY2KLFpfRfXPb4nN",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0xa83a2a4c1685cc1e0a2e0bb42b88b6a0d34424daecdb7d604f63d6efbe901810",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xa83a2a4c1685cc1e0a2e0bb42b88b6a0d34424daecdb7d604f63d6efbe901810",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkkxaxSRk9guUixgTyEh6cCv9Dg3MxCnJJM3VsxheB2aNT",
+   "did:key:z6Mku4tYx4VGW3j6qi7Y3v9PXVucpnpvhooZEqtbvzJMFu8W"
+  ]
+ },
+ {
+  "contract": "0xe6116c18c95ffd144fdc16a45eaaf38e3d40209649744d2c853bcc3697f41d64",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xe6116c18c95ffd144fdc16a45eaaf38e3d40209649744d2c853bcc3697f41d64",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkpmTsbt28hrKgCsYuRWwFDZSXP76SkELguvvhbmWascST",
+   "did:key:z6MkrVEFm9TLJK6rLBxgY9MGAxh35oJAKXCg3iFkLkyDm9s7"
+  ]
+ },
+ {
+  "contract": "0xe472fdf34069b3f456f21b4ec2e04ab1d1ae8e5399cdd1030b8fdf9a10f5c952",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xe472fdf34069b3f456f21b4ec2e04ab1d1ae8e5399cdd1030b8fdf9a10f5c952",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkibVe5KLviP177s1NWDAUyJjv1KeVePv2jgRcSHvkGpcZ",
+   "did:key:z6MkpXSw8HPWKsZjzP99qMXE8ZZZPoWbwJ1AN2rGyVZkJ6iC"
+  ]
+ },
+ {
+  "contract": "0x553a94fc7838a76e0476febc93e011f7c15a105365ff99988a7be7b277159f63",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x553a94fc7838a76e0476febc93e011f7c15a105365ff99988a7be7b277159f63",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkfecCNW8KkW5LsxyEMPgrdPUyF8z3VvVEaB1eoEZGwCaN",
+   "did:key:z6MkkoGGuSyR9xeBetFTiFensJVVQotbw3Qn413zE3fadGaD"
+  ]
+ },
+ {
+  "contract": "0x956a9aab764a210ed330b8ce7ebdda649325a315ee6380d5cfd02fb74199e434",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x956a9aab764a210ed330b8ce7ebdda649325a315ee6380d5cfd02fb74199e434",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6Mku4tYx4VGW3j6qi7Y3v9PXVucpnpvhooZEqtbvzJMFu8W",
+   "did:key:z6MkhvWcbQkBaQUPsgwDieyqgbTrdBMM2UA3TFc4F4a1X77q"
+  ]
+ },
+ {
+  "contract": "0xe8936e211ec3299d0e862230264a55bfc710428f5ec36cc0a51b601beb5a5fd9",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xe8936e211ec3299d0e862230264a55bfc710428f5ec36cc0a51b601beb5a5fd9",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkkxaxSRk9guUixgTyEh6cCv9Dg3MxCnJJM3VsxheB2aNT",
+   "did:key:z6MkkoGGuSyR9xeBetFTiFensJVVQotbw3Qn413zE3fadGaD"
+  ]
+ },
+ {
+  "contract": "0x216e555d23988aedbafab2762e694e49550fbb90dd864110244c1c8eb67879a8",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0x216e555d23988aedbafab2762e694e49550fbb90dd864110244c1c8eb67879a8",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkgEQq8Y7Kf1QBF7von2QAhKDA9a2ZS9Ngwbjvo6j6sgwa",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0xd2c6d2ba5265204e742f8f44044c0e18d0e9e5d59a669e5a5e0106f7bb606439",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xd2c6d2ba5265204e742f8f44044c0e18d0e9e5d59a669e5a5e0106f7bb606439",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkoPbtxrAmXRcTVjR5v6w6eGocRiAwcGnjVGd6ieKxYe5H",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0xa0eaea5fa87352f14f076c4f24d1b93621bccbe1e6ae7f1c35256132362a0a00",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xa0eaea5fa87352f14f076c4f24d1b93621bccbe1e6ae7f1c35256132362a0a00",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MkkXw3WbhJLPypDjD4pQsTKWmt8ggdH2L5T1SmGXJWen4S",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0xe158b94fa80824e3b01049d9fe58d6befb2e4074268d45d4d53a8802534abc69",
+  "status": "claimed",
+  "rail": "paper",
+  "ref": "0xe158b94fa80824e3b01049d9fe58d6befb2e4074268d45d4d53a8802534abc69",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "claimed",
+  "parties": [
+   "did:key:z6MksY8b6uoMrqFNeUV7FRP5rVURRXKCp3bHLL3sSou58owy",
+   "did:key:z6MkwbkchzYrQFMToBkyYBNj695XLWBv2S2ppPV3RFizRDV4"
+  ]
+ },
+ {
+  "contract": "0xccb5822ef5ca0b6f490b7c2c67b4988a59aad07fa3d1cdbdfe56f3c0fb558e65",
+  "status": "locked",
+  "rail": "paper",
+  "ref": "0xccb5822ef5ca0b6f490b7c2c67b4988a59aad07fa3d1cdbdfe56f3c0fb558e65",
+  "refShape": "contract-id",
+  "funded": true,
+  "matches": true,
+  "railStatus": "locked",
+  "parties": [
+   "did:key:z6Mkof5viS8HipnBfig39RBCzGuHHoTwtrjUAjA26SZ3wpPX",
+   "did:key:z6Mkha97CQTi1VdvHP2A4qS2CA7RcT82oLAMFE86ZKzhcgUU"
+  ]
+ }
+]
