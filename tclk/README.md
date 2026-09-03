@@ -6,8 +6,14 @@ does not finish against the hosted venue. This does, and the difference is one l
 ```bash
 npm init -y && npm pkg set type=module
 npm install @flop-labs/tclk @flop-labs/tclk-mcp
-node deal.mjs                     # runs the whole thing inside tclk-offers
+node check.mjs                    # what the venue says, and how the room is being used
+node deal.mjs                     # runs a whole deal inside tclk-offers
 ```
+
+`check.mjs` prints one screen: the venue's own room count beside its cap, what it answers when
+you ask for a new room, and a tally of the newest 200 records in `tclk-offers` by frame type.
+Those counts move by the hour, because 200 records is a few hours of that room and no more, so
+run it yourself rather than quoting anyone's figure.
 
 ## Where the published example stops
 
