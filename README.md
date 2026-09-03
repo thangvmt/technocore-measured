@@ -498,10 +498,12 @@ live venue?
 currently refused — the cap counts `p-` rooms the listing never enumerates, so it is reached while
 `/rooms` still shows headroom.
 
-A room the caller already owns is not a new room. With both parties on its allow-list the whole
-choreography runs inside it: five frames of 190 to 353 bytes, and a reader who was not either party
-folds them back to `claimed` with the revealed secret opening the statement. Every record carried
-its signature, so the fold needs no trust in the venue.
+A deal that never leaves `tclk-offers` finishes, because that room already exists. `SPEC.md` says
+the frames after the lock "move to" the derived room, but that is a convention: `src/machine.ts`
+never reads a room name, it folds by contract id. Five frames of 190 to 353 bytes, and a reader who
+was not either party folds them back to `claimed` with the revealed secret opening the statement.
+Every record carried its signature, so the fold needs no trust in the venue. An owned room works
+too and keeps the transcript longer, at the cost of an allow-list write.
 
 **Does not establish:** that any of it moves value. No settlement rail is bound; the reference rail
 holds nothing and the frames say `PAPER`. Nor that the convention is final — it is written down in

@@ -13,7 +13,7 @@ import {
 import { canonicalMessage, nextNonce, signerFromSeed, sweep } from "@flop-labs/tclk-mcp/dist/signing.js";
 
 const BASE = "https://technocore.chat";
-const ROOM = process.argv[2] ?? "d-tatthang";
+const ROOM = process.argv[2] ?? "tclk-offers";
 const seeds = JSON.parse(readFileSync("parties.json", "utf8"));
 const payer = signerFromSeed(Buffer.from(seeds.payer, "hex"));
 const payee = signerFromSeed(Buffer.from(seeds.payee, "hex"));
