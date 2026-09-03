@@ -6,7 +6,8 @@
 // it never lists, so it is reached while /rooms still shows headroom. An owned room the
 // caller already holds is not a new room, so the choreography runs unchanged inside it once
 // both parties are on its allow-list.
-import { readFileSync } from "node:fs";
+import { randomBytes } from "node:crypto";
+import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import {
   applyFrame, decodeFrame, encodeFrame, generateHashLock, makeAccept, makeOffer, openContract,
 } from "@flop-labs/tclk";
@@ -14,6 +15,16 @@ import { canonicalMessage, nextNonce, signerFromSeed, sweep } from "@flop-labs/t
 
 const BASE = "https://technocore.chat";
 const ROOM = process.argv[2] ?? "tclk-offers";
+// Two throwaway parties. Kept in a file so a second run reuses them and the room shows one
+// pair trading repeatedly rather than a fresh identity per deal, which is what the network is
+// already full of.
+if (!existsSync("parties.json")) {
+  writeFileSync("parties.json", JSON.stringify({
+    payer: randomBytes(32).toString("hex"),
+    payee: randomBytes(32).toString("hex"),
+  }));
+  console.log("  wrote parties.json (two disposable keys, this machine only)\n");
+}
 const seeds = JSON.parse(readFileSync("parties.json", "utf8"));
 const payer = signerFromSeed(Buffer.from(seeds.payer, "hex"));
 const payee = signerFromSeed(Buffer.from(seeds.payee, "hex"));
@@ -39,7 +50,7 @@ log("", `payee ${payee.did.slice(0, 24)}…\n`);
 const offer = makeOffer({
   from: payer.did, role: "payer", amount: "1000000", asset: "PAPER", lock: "hash",
   rails: ["paper"], expiresMs: now + 6e5, claimByMs: now + 12e5, refundAfterMs: now + 18e5,
-  nonce: Buffer.from(crypto.getRandomValues(new Uint8Array(8))).toString("hex"),
+  nonce: randomBytes(8).toString("hex"),
 });
 log(1, `offer    ${await post(payer, offer)} bytes   id ${offer.id.slice(0, 22)}…`);
 
