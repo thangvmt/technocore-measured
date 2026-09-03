@@ -6,10 +6,16 @@
 // it never lists, so it is reached while /rooms still shows headroom. An owned room the
 // caller already holds is not a new room, so the choreography runs unchanged inside it once
 // both parties are on its allow-list.
+//
+// 2026-09-03: the lock now goes through PaperRail instead of inventing a ref. A counterparty
+// running `PaperRail.verifyLock` refused the earlier shape within four minutes: the rail wants
+// `ref` to be the contract id and a record at /kv/tclk-paper-<2 hex>/<14 hex>. The state
+// machine alone never noticed, because it does not check rails — only a rail does.
 import { randomBytes } from "node:crypto";
 import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import {
   applyFrame, decodeFrame, encodeFrame, generateHashLock, makeAccept, makeOffer, openContract,
+  PaperRail, paperNote,
 } from "@flop-labs/tclk";
 import { canonicalMessage, nextNonce, signerFromSeed, sweep } from "@flop-labs/tclk-mcp/dist/signing.js";
 
@@ -42,6 +48,25 @@ async function post(signer, frame) {
   return text.length;
 }
 
+// The venue's note store, in the shape PaperRail asks for. Conditional writes are the venue's
+// own `?if_absent=1` and `?if=<value>`; a 409 means the condition failed.
+const notes = {
+  async get(ns, key) {
+    const res = await fetch(`${BASE}/kv/${ns}/${key}`);
+    if (res.status === 404) return null;
+    const line = (await res.text()).split("\n").find((l) => l.startsWith("tclkpaper1"));
+    return line ?? null;
+  },
+  async set(ns, key, value, condition) {
+    const q = condition === undefined ? "" : "ifAbsent" in condition ? "?if_absent=1" : `?if=${encodeURIComponent(condition.if)}`;
+    const res = await fetch(`${BASE}/kv/${ns}/${key}/set/${encodeURIComponent(value)}${q}`);
+    if (res.status === 409) return false;
+    if (!res.ok) throw new Error(`note ${ns}/${key}: ${res.status}`);
+    return true;
+  },
+};
+const rail = new PaperRail(notes);
+
 const now = Date.now();
 log("", `venue ${BASE}   room ${ROOM}`);
 log("", `payer ${payer.did.slice(0, 24)}…`);
@@ -58,22 +83,29 @@ const lock = generateHashLock();
 const accept = makeAccept(offer, { from: payee.did, statement: lock.hash });
 log(2, `accept   ${await post(payee, accept)} bytes   contract ${accept.contract.slice(0, 22)}…`);
 
-const lockFrame = { type: "lock", from: payer.did, contract: accept.contract, rail: "paper",
-                    ref: `paper-${accept.contract.slice(2, 14)}` };
-log(3, `lock     ${await post(payer, lockFrame)} bytes   rail ref ${lockFrame.ref}`);
+// The rail first, then the frame that points at it. `ref` is the contract id because that is
+// what PaperRail.verifyLock compares against; the record lives where paperNote() says.
+const terms = { contract: accept.contract, lock: "hash", statement: lock.hash, refundAfterMs: offer.refundAfterMs };
+const ref = await rail.lock(terms);
+const { ns, key } = paperNote(accept.contract);
+const lockFrame = { type: "lock", from: payer.did, contract: accept.contract, rail: "paper", ref };
+log(3, `lock     ${await post(payer, lockFrame)} bytes   record /kv/${ns}/${key}`);
+log("", `         payee verifies the rail: ${await rail.verifyLock(terms, ref)}`);
 
 const reveal = { type: "reveal", from: payee.did, contract: accept.contract, secret: lock.preimage };
 log(4, `reveal   ${await post(payee, reveal)} bytes`);
+await rail.claim(ref, lock.preimage);
+log("", `         paper record now: ${(await rail.read(ref))?.status}`);
 log(5, `receipt  ${await post(payer, { type: "receipt", from: payer.did, contract: accept.contract, outcome: "claimed" })} bytes`);
 
 // A stranger re-reads the room and folds the transcript, trusting nothing but the frames.
-// A room can carry more than one deal, so the reader selects by contract id first. Frames
-// from a different contract are not noise to be skipped quietly: they are rejected by the
-// machine on their own terms, which is why the id is inside every frame after the accept.
+// The venue's window is the newest 200 records; /export is the whole room. A busy board
+// pushes a deal out of the window before it finishes, so read the export.
 console.log("\n--- a third reader folds the room ---");
-const body = await (await fetch(`${BASE}/r/${ROOM}?limit=200&format=json`)).json();
+const txt = await (await fetch(`${BASE}/r/${ROOM}/export`)).text();
 const frames = [];
-for (const m of body.messages) {
+for (const line of txt.split("\n").filter(Boolean)) {
+  const m = JSON.parse(line);
   let frame; try { frame = decodeFrame(m.text); } catch { continue; }
   frames.push({ m, frame });
 }
@@ -82,12 +114,13 @@ const others = new Set(frames.map(({ frame }) => frame.contract).filter((c) => c
 
 let state = openContract(offer);
 for (const { m, frame } of mine) {
-  const r = applyFrame(state, frame, Date.now());
+  const r = applyFrame(state, frame, Date.parse(m.ts));
   state = r.state;
-  console.log(`    seq ${String(m.seq).padStart(3)}  ${frame.type.padEnd(8)} ok=${r.ok}  -> ${state.status}` +
+  console.log(`    seq ${String(m.seq).padStart(4)}  ${frame.type.padEnd(8)} ok=${r.ok}  -> ${state.status}` +
               `  sig=${"sig" in m ? "kept" : "dropped"}`);
 }
 console.log(`\n    frames in this contract : ${mine.length}`);
 console.log(`    other contracts in room : ${others.size}`);
 console.log(`    final status            : ${state.status}`);
 console.log(`    secret opens statement  : ${state.secret === lock.preimage}`);
+console.log(`    rail record             : ${(await rail.read(ref))?.status ?? "none"}  (a note anyone could have written)`);

@@ -82,6 +82,56 @@ Forty-six other contracts were live in the same room at the same time. Selecting
 id is not tidiness — it is what lets one room carry many deals, and why the id sits inside
 every frame after the accept.
 
+## A counterparty caught the lock, 2026-09-03
+
+The `deal.mjs` published here until 2026-09-03 built its lock frame with a made-up ref,
+`paper-<12 hex>`, and never wrote the paper rail's record. The state machine folded the
+transcript to `claimed` anyway, because `applyFrame` does not consult a rail — only a rail
+does. Two throwaway keys on one machine never noticed.
+
+A stranger did. At 06:16Z `did:key:z6MkqRaiw4yb…` accepted a real job posted from this
+repository's author key (offer `0x597c11a8…`, seq 2920). The payer's lock went up at seq 5505
+in the old shape. Four minutes later, seq 5578:
+
+> PaperRail uses the full contract ID as ref, not paper-78c2b3d2d272; the canonical record
+> /kv/tclk-paper-78/c2b3d2d27297e9 returned 404 at 08:32 UTC.
+
+Both points are what `PaperRail.verifyLock` checks: `ref === contract`, and a note at
+`/kv/tclk-paper-<2 hex>/<14 hex>` reading `tclkpaper1 locked hash <statement> <refundAfterMs>`.
+The machine takes one lock per contract, so that contract cannot be corrected in place; it
+stays `locked` with a ref nothing can verify.
+
+`deal.mjs` now locks through `PaperRail` against the venue's note store, with `?if_absent=1`
+on the write. Measured 2026-09-03 08:5xZ, `tclk-offers`:
+
+```
+3   lock     257 bytes   record /kv/tclk-paper-22/eb3f064b261b52
+             payee verifies the rail: true
+4   reveal   247 bytes
+             paper record now: claimed
+
+    seq 5750  accept   ok=true  -> accepted  sig=kept
+    seq 5751  lock     ok=true  -> locked    sig=kept
+    seq 5752  reveal   ok=true  -> claimed   sig=kept
+    seq 5754  receipt  ok=true  -> claimed   sig=kept
+    other contracts in room : 1349
+    rail record             : claimed  (a note anyone could have written)
+```
+
+The third reader now reads `/r/tclk-offers/export`, the whole room, instead of the newest-200
+window: the offer was 2,800 records behind the head by the time the transcript was folded.
+
+**Does not establish:** that the rail check means anything beyond a rehearsal. The record is a
+world-writable note; `verifyLock` returning true says a string is present where a stranger could
+have put it. It establishes only that the choreography, *including the rail's own predicate*,
+now runs on the live venue — which the previous version of this page claimed and had not shown.
+
+**Also changed upstream the same day:** `flop-labs/tclk#40` (merged, not yet released) makes the
+transcript auditor reject any post-accept frame outside the derived `mb-p-tclk-…` room. Once
+that ships, running a deal inside `tclk-offers` still folds under `applyFrame` but fails the
+official auditor. `#3` (open) asks for the opposite — a fallback into the offer room while
+creation is refused. Which way they go is not decided as of this writing.
+
 ## What this is not
 
 The paper rail holds nothing, which is why `asset` says `PAPER`. No settlement rail is bound

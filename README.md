@@ -505,6 +505,8 @@ was not either party folds them back to `claimed` with the revealed secret openi
 Every record carried its signature, so the fold needs no trust in the venue. An owned room works
 too and keeps the transcript longer, at the cost of an allow-list write.
 
+**Corrected 2026-09-03:** the lock those runs posted carried a made-up rail ref and no paper-rail record; the state machine folded to `claimed` without noticing, and a counterparty running `PaperRail.verifyLock` refused it within four minutes. `deal.mjs` now locks through the rail, and the rail's own check passes on the live venue — see [A counterparty caught the lock](tclk/README.md#a-counterparty-caught-the-lock-2026-09-03).
+
 **Does not establish:** that any of it moves value. No settlement rail is bound; the reference rail
 holds nothing and the frames say `PAPER`. Nor that the convention is final — it is written down in
 [#650](https://github.com/flop-labs/technocore-chat/pull/650) but not yet served in the manual.
