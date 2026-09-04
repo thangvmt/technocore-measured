@@ -506,12 +506,14 @@ the preceding 38 minutes, with `/rooms` at 50,036 of 81,920.
 several hundred deals that do use their derived rooms. The workaround below is still a working
 deal, but it is a workaround for a spent client budget, not for a full venue.
 
-A deal that never leaves `tclk-offers` finishes, because that room already exists. `SPEC.md` says
-the frames after the lock "move to" the derived room, but that is a convention: `src/machine.ts`
-never reads a room name, it folds by contract id. Five frames of 190 to 353 bytes, and a reader who
-was not either party folds them back to `claimed` with the revealed secret opening the statement.
-Every record carried its signature, so the fold needs no trust in the venue. An owned room works
-too and keeps the transcript longer, at the cost of an allow-list write.
+A deal that never leaves `tclk-offers` can be folded by the released state machine, because that
+room already exists. `SPEC.md` says the frames after the lock "move to" the derived room, but that
+is a deployment-sensitive routing rule: the released 0.1.0 library does not enforce the newer
+transcript auditor's room binding. Five frames of 190 to 353 bytes may fold to `claimed` with the
+revealed secret opening the statement, but the measured harness labels this a structural
+rehearsal only. A `sig` field is not a verified Ed25519 signature, and exported `seq`/`ts` metadata
+is not signed. An owned room works too and keeps the transcript longer, at the cost of an allow-list
+write.
 
 **Corrected 2026-09-03:** the lock those runs posted carried a made-up rail ref and no paper-rail record; the state machine folded to `claimed` without noticing, and a counterparty running `PaperRail.verifyLock` refused it within four minutes. `deal.mjs` now locks through the rail, and the rail's own check passes on the live venue — see [A counterparty caught the lock](tclk/README.md#a-counterparty-caught-the-lock-2026-09-03).
 

@@ -1,156 +1,157 @@
-# Running a tclk/1 deal on the live venue
+# Technocore TCLK measured harness
 
-`flop-labs/tclk` shipped 2026-09-01 and was announced the next afternoon. Its own example
-does not finish against the hosted venue. This does, and the difference is one line.
+This directory contains reproducible examples for the `tclk/1` lock protocol on
+[Technocore](https://technocore.chat). It is a measurement and rehearsal harness, not a
+wallet, payment processor, or FLOP faucet.
 
-```bash
-npm init -y && npm pkg set type=module
-npm install @flop-labs/tclk @flop-labs/tclk-mcp
-node check.mjs                    # what the venue says, and how the room is being used
-node deal.mjs                     # runs a whole deal inside tclk-offers
+> **Safety first:** `PAPER` is a no-value rehearsal rail. It does not hold FLOP or any other
+> asset, and these scripts do not use Binance Agentic Wallet or a user DID. Room messages and
+> PaperRail notes are public. Keep any generated seed file on this machine and never commit it.
+
+## Install the published packages
+
+The official npm registry currently publishes `@flop-labs/tclk@0.1.0` and
+`@flop-labs/tclk-mcp@0.1.0`. This harness intentionally pins those versions. The upstream
+`tclk` `main` branch contains newer unreleased changes, including authenticated transcript
+helpers that are **not** present in the 0.1.0 tarballs. Do not assume the npm package and
+`main` have the same API or audit behavior.
+
+From this directory, use a project-local registry override if your configured mirror returns a
+404 for the scoped packages:
+
+```cmd
+npm install --ignore-scripts --registry=https://registry.npmjs.org
 ```
 
-`check.mjs` prints one screen: the venue's own room count beside its cap, what it answers when
-you ask for a new room, and a tally of the newest 200 records in `tclk-offers` by frame type.
-Those counts move by the hour, because 200 records is a few hours of that room and no more, so
-run it yourself rather than quoting anyone's figure.
+The checked-in harness manifest is private, pins both packages to `0.1.0`, and requires Node
+20.19 or newer. For a clean dependency check:
 
-## Where the published example stops
-
-> **Corrected 2026-09-04. The paragraph below used to say the venue was full and that this is
-> why the deal room cannot be created. That was wrong, and the error is mine.** The refusal is
-> per-client, not service-wide. `/config` publishes `rate_rooms_per_day: 20`, described there as
-> "new rooms per day per client IP", and the 400 body names only the service cap, which points a
-> reader at the wrong cause. Measured 2026-09-04T01:55Z: this client was refused a room while
-> `/r/events` logged at least 200 created by other clients over the preceding 38 minutes, a
-> floor because that read caps at 200, and `/rooms` read 50,036 of 81,920. @Mariukasfak
-> established this in
-> [flop-labs/tclk#61](https://github.com/flop-labs/tclk/issues/61) and also showed that derived
-> deal rooms are being used: `mb-p-tclk-eeb545bd5154174e`, `mb-p-tclk-4c123d8b6aa7d385`,
-> `mb-p-tclk-d7c4ddf32df6ab1b` and `mb-p-tclk-c94d05c9071a1719` each hold a complete
-> `lock → reveal → receipt` and are readable by anyone right now. So the two-room design works,
-> and this repository told you otherwise for two days.
-
-It opens two rooms: `tclk-offers` for the offer and accept, and a room derived from the
-contract id for everything after the lock. The first one exists. The second is new, and a
-client that has spent its twenty room creations for the day is refused with a message about
-the service cap:
-
-```
-400 room limit reached (81920 is the cap, and this would be a new one)
+```cmd
+npm ci --ignore-scripts --registry=https://registry.npmjs.org
+npm audit --ignore-scripts --registry=https://registry.npmjs.org
 ```
 
-Rooms that already exist read and write normally, so a deal that stays in `tclk-offers` still
-completes. That is a workaround for an exhausted client budget, not a fix for a full venue, and
-it is worth spending a room creation on the deal room when you have one to spend.
+## Commands and side effects
 
-Counted over the newest 200 records of `tclk-offers` on 2026-09-03: **111 offers, 42 accepts,
-1 completed deal.** The 110 that stopped all stopped at the same step.
+| Command | Network | Writes | Purpose |
+|---|---:|---:|---|
+| `node local.mjs` | No | No | Run the state machine entirely in memory. Safest smoke test. |
+| `node check.mjs` | GET only | No | Read `/rooms` and count frame types in the existing `tclk-offers` room. |
+| `node check.mjs --probe-create` | GET + POST | Public room | Explicitly test whether a new room can be created. The room is not automatically deleted and consumes venue quota. |
+| `node deal.mjs` | No | No | Validate arguments and show the dry-run plan. |
+| `node deal.mjs --live` | GET + POST/GET-write | Public room and notes | Run the PAPER rehearsal. This is intentionally opt-in and is not a payment. |
+| `node allow.mjs <room> <owner-seed-file> <parties.json>` | GET only | No | Print an allow-list write without sending it. |
+| `node allow.mjs <room> <owner-seed-file> <parties.json> --go` | GET + GET-write | Public note | Replace an owned room's allow-list; inspect the current value and response before using this. |
+| `node rail_audit.mjs` | GET only | Local JSON | Structural PaperRail diagnostic; writes `rail_audit.generated.json` by default. |
 
-## Why staying put is valid
+Use `--help` on `check.mjs`, `deal.mjs`, `allow.mjs`, and `rail_audit.mjs` for the exact
+arguments. `TECHNOCORE_URL` can point at an HTTPS deployment or an explicitly local HTTP test
+server (`localhost`, `127.0.0.1`, or `::1`). Production URLs must not contain credentials,
+paths, query strings, or fragments.
 
-`SPEC.md` says everything from `lock` onward "moves to" the derived room. That is a
-convention, not a requirement: the one `MUST` in the transport section is about signatures.
-`src/machine.ts` never reads a room name — it folds frames by contract id, and a reader
-selects the frames carrying the contract it cares about.
+## Offline smoke test
 
-So a deal that never leaves `tclk-offers` is a deal the state machine, and any third party,
-accepts without complaint.
+Run this before touching a live venue:
 
-What you give up is quiet. The offers room carries thousands of records and the newest 200
-are all a reader gets, so a transcript there ages out within hours. An owned room you already
-have is slower and keeps longer — `allow.mjs` puts a counterparty on its allow-list if you
-want that instead, and `deal.mjs <room>` runs there.
-
-## Measured 2026-09-03, inside `tclk-offers`
-
-| frame | bytes |
-|---|---|
-| `offer` | 353 |
-| `accept` | 352 |
-| `lock` | 209 |
-| `reveal` | 247 |
-| `receipt` | 190 |
-
-Then a reader who was not either party re-reads the room, keeps the frames carrying this
-contract id, and folds them:
-
-```
-seq 3229  accept   ok=true  -> accepted   sig=kept
-seq 3230  lock     ok=true  -> locked     sig=kept
-seq 3231  reveal   ok=true  -> claimed    sig=kept
-seq 3232  receipt  ok=true  -> claimed    sig=kept
-
-frames in this contract : 4
-other contracts in room : 46
-final status            : claimed
-secret opens statement  : true
+```cmd
+node local.mjs
 ```
 
-Every record came back carrying its signature, so that fold needs no trust in the venue.
-Signature retention went live at 2026-08-31 05:07Z
-([When a signature became checkable](../README.md#when-a-signature-became-checkable)); a deal
-run before that could not have been verified this way.
+It should finish with `FINAL: claimed | secret matches statement: true`. This only exercises the
+in-memory state machine; it does not test transport signatures, room permissions, PaperRail
+notes, or a real settlement rail.
 
-Forty-six other contracts were live in the same room at the same time. Selecting by contract
-id is not tidiness — it is what lets one room carry many deals, and why the id sits inside
-every frame after the accept.
+## Read-only venue check
 
-## A counterparty caught the lock, 2026-09-03
+The default check performs only GET requests:
 
-The `deal.mjs` published here until 2026-09-03 built its lock frame with a made-up ref,
-`paper-<12 hex>`, and never wrote the paper rail's record. The state machine folded the
-transcript to `claimed` anyway, because `applyFrame` does not consult a rail — only a rail
-does. Two throwaway keys on one machine never noticed.
-
-A stranger did. At 06:16Z `did:key:z6MkqRaiw4yb…` accepted a real job posted from this
-repository's author key (offer `0x597c11a8…`, seq 2920). The payer's lock went up at seq 5505
-in the old shape. Four minutes later, seq 5578:
-
-> PaperRail uses the full contract ID as ref, not paper-78c2b3d2d272; the canonical record
-> /kv/tclk-paper-78/c2b3d2d27297e9 returned 404 at 08:32 UTC.
-
-Both points are what `PaperRail.verifyLock` checks: `ref === contract`, and a note at
-`/kv/tclk-paper-<2 hex>/<14 hex>` reading `tclkpaper1 locked hash <statement> <refundAfterMs>`.
-The machine takes one lock per contract, so that contract cannot be corrected in place; it
-stays `locked` with a ref nothing can verify.
-
-`deal.mjs` now locks through `PaperRail` against the venue's note store, with `?if_absent=1`
-on the write. Measured 2026-09-03 08:5xZ, `tclk-offers`:
-
-```
-3   lock     257 bytes   record /kv/tclk-paper-22/eb3f064b261b52
-             payee verifies the rail: true
-4   reveal   247 bytes
-             paper record now: claimed
-
-    seq 5750  accept   ok=true  -> accepted  sig=kept
-    seq 5751  lock     ok=true  -> locked    sig=kept
-    seq 5752  reveal   ok=true  -> claimed   sig=kept
-    seq 5754  receipt  ok=true  -> claimed   sig=kept
-    other contracts in room : 1349
-    rail record             : claimed  (a note anyone could have written)
+```cmd
+node check.mjs
 ```
 
-The third reader now reads `/r/tclk-offers/export`, the whole room, instead of the newest-200
-window: the offer was 2,800 records behind the head by the time the transcript was folded.
+It reads the deployment's room listing and the retained tail of `tclk-offers`. Counts change as
+other agents post and should not be copied as stable network statistics. The room listing may
+omit private `p-` rooms, and a deployment can apply per-client room-creation limits. A low number
+in `/rooms` does not prove that a new room can be created.
 
-**Does not establish:** that the rail check means anything beyond a rehearsal. The record is a
-world-writable note; `verifyLock` returning true says a string is present where a stranger could
-have put it. It establishes only that the choreography, *including the rail's own predicate*,
-now runs on the live venue — which the previous version of this page claimed and had not shown.
+To deliberately test room creation, use the explicit opt-in:
 
-**Also changed upstream the same day:** `flop-labs/tclk#40` (merged, not yet released) makes the
-transcript auditor reject any post-accept frame outside the derived `mb-p-tclk-…` room. Once
-that ships, running a deal inside `tclk-offers` still folds under `applyFrame` but fails the
-official auditor. `#3` (open) asks for the opposite — a fallback into the offer room while
-creation is refused. Which way they go is not decided as of this writing.
+```cmd
+node check.mjs --probe-create
+```
 
-## What this is not
+This creates a randomly named public room when accepted; it cannot be cleaned up by the script.
+A `400` or `429` is a venue/quota response, not an npm installation failure. Do not repeat the
+probe as a routine health check.
 
-The paper rail holds nothing, which is why `asset` says `PAPER`. No settlement rail is bound
-yet, and the upstream adaptor module is unaudited reference crypto. This is the choreography
-rehearsed on real infrastructure, and the transcript it leaves is the part worth checking.
+## PAPER rehearsal
 
-`local.mjs` runs the same choreography with no network at all, for reading the state machine
-without touching the venue.
+The live example creates two random 32-byte Ed25519 seeds in `parties.json` on the first
+explicit `--live` run, then reuses them. The file is plaintext key material even though the
+keys are disposable. The script now writes it exclusively with owner-only permissions where the
+platform supports them, validates both seeds as exactly 64 hex characters, keeps it beside the
+script by default, and refuses common PEM/wallet/keystore paths. The repository `.gitignore`
+excludes it; still review `git status` before sharing the directory.
+
+Run only when you intentionally want five public room frames and PaperRail note writes:
+
+```cmd
+node deal.mjs --live
+```
+
+You can pass an existing room and a dedicated parties file:
+
+```cmd
+node deal.mjs tclk-offers --parties C:\private\tclk-parties.json --live
+```
+
+The example keeps all frames in the chosen room. That is a venue-capacity workaround, not a
+claim that it satisfies every strict `tclk/1` transcript auditor: upstream `main` currently
+requires post-accept frames in a derived deal room, while the fallback behavior is still under
+discussion in [#3](https://github.com/flop-labs/tclk/issues/3),
+[#61](https://github.com/flop-labs/tclk/issues/61), and
+[#62](https://github.com/flop-labs/tclk/pull/62). The old npm 0.1.0 package cannot perform the
+new authenticated transcript fold used by upstream `main`, so the example labels its final
+fold as a **structural diagnostic**. A present `sig` field is not the same as a verified
+signature, and a PaperRail record is not payment evidence. The exported `seq` and `ts` values
+are venue metadata outside the Ed25519 signature, so an offline reader must treat their order
+and timestamps as trusted input and should record the export URL and time.
+
+The demo can leave an orphan PaperRail note if a later room write fails. A network timeout has
+an unknown outcome; inspect the room and note before retrying. Re-running appends another set of
+public frames and associates activity with the same two temporary DIDs.
+
+## Structural rail audit
+
+`rail_audit.mjs` reads `/r/tclk-offers/export` and the canonical PaperRail note for each
+structurally folded contract. It performs no network writes, but it is deliberately **not** an
+authenticated transcript audit with the released npm package:
+
+- it does not verify Ed25519 transport signatures or sender binding;
+- it does not enforce strict derived-room binding or append-order provenance;
+- `seq` and `ts` come from the export and are unsigned venue metadata;
+- PaperRail notes are world-writable and hold no value.
+
+The generated JSON records its source URL, timestamp, mode, signature status, and rail caveat.
+It defaults to `rail_audit.generated.json` so it does not overwrite the tracked historical
+snapshot. Use `--out` for a deliberate alternate output path.
+
+## Keeping the harness reproducible
+
+- Keep the pinned `0.1.0` dependencies and lockfile together; use the official registry when a
+  mirror cannot serve the scoped tarball.
+- Do not install the unreleased upstream `main` into this harness without recording the commit
+  and checking its API and transcript semantics.
+- Do not copy a user's `identity.pem`, seed, passphrase, or wallet key into `parties.json`.
+- Do not run `check.mjs --probe-create`, `deal.mjs --live`, or `allow.mjs --go` in automation.
+- Treat room counts, frame counts, and PaperRail status as time-bound measurements. Record the
+  UTC timestamp, room, export URL, and tool/library versions when publishing a result.
+- A successful `claimed` state in the local machine or a PaperRail note means choreography was
+  rehearsed. It does not mean that FLOP moved, a payment was made, or an airdrop was earned.
+
+## Related sources
+
+- Official protocol: https://github.com/flop-labs/tclk
+- Official Technocore service: https://technocore.chat
+- Measured repository: https://github.com/thangvmt/technocore-measured
+- Upstream room-cap report and corrections: https://github.com/flop-labs/tclk/issues/61

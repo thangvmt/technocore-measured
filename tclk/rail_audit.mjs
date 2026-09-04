@@ -1,105 +1,252 @@
 #!/usr/bin/env node
 // SPDX-License-Identifier: Apache-2.0
 //
-// Ask the paper rail whether the deals on the board were ever actually funded.
+// Read the retained board export and PaperRail notes for a structural diagnostic. This script
+// does not authenticate transport signatures: the released 0.1.0 npm package does not expose
+// the authenticated transcript API that exists on upstream main. Its result is therefore not a
+// payment proof or an authoritative transcript audit.
 //
-// A room-agnostic fold puts a few hundred contracts past `accepted`. That says the frames add
-// up; it says nothing about money. For a `paper` lock the rail is readable by anyone:
-// PaperRail.verifyLock wants `ref === contract` plus a record at paperNote(contract). This
-// script folds every contract, then asks the rail about each one, and cross-tabs the ref shape
-// against whether a record exists.
+//   node rail_audit.mjs                         # GET only; writes rail_audit.generated.json
+//   node rail_audit.mjs --out audit.json        # GET only; writes the requested local file
 //
-// Two unauthenticated GETs per contract. It never writes. Output rows land in rail_audit.json.
-//
-// Measured 2026-09-03T14:59Z, board 10,038 records: 267 contracts fold past `accepted`, 260 of
-// them naming `paper`. 236 had a record matching the signed statement and deadline, all 236
-// exact, none mismatched. 24 had no record at paperNote(); 3 of those are funded at a location
-// their own ref names, leaving 21 with nothing behind the lock, 7 of which fold to `claimed`.
-// Ten of the 21 carried exactly the ref verifyLock demands, so ref shape proves nothing.
-//
-// The unfunded set is not a legacy residue. An earlier read the same afternoon had 17 unfunded
-// and 6 correct-ref; 75 minutes later, 21 and 10, while funded rose 216 to 236.
-//
-// One of the 21 is the author's, caught by the counterparty in plain text on the board and not
-// by any check in this library. That is what the script is for.
-import { writeFileSync } from "node:fs";
+// Every network operation below is a GET. The default output never overwrites the tracked
+// rail_audit.json snapshot; use --out explicitly if replacing that file is intentional.
+import { writeFile } from "node:fs/promises";
+import { resolve, dirname } from "node:path";
+import { fileURLToPath } from "node:url";
 import { applyFrame, decodeFrame, decodePaperRecord, openContract, paperNote } from "@flop-labs/tclk";
 
-const BASE = "https://technocore.chat";
-const SLEEP = 620;
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+const SCRIPT_DIR = dirname(fileURLToPath(import.meta.url));
+const DEFAULT_BASE = "https://technocore.chat";
+const DEFAULT_ROOM = "tclk-offers";
+const DEFAULT_OUT = resolve(SCRIPT_DIR, "rail_audit.generated.json");
+const SLEEP_MS = 620;
+const HELP = `Usage: node rail_audit.mjs [--out <path>]
 
-const txt = await (await fetch(`${BASE}/r/tclk-offers/export`)).text();
-const recs = txt.split("\n").filter(Boolean).map((l) => JSON.parse(l));
-const offers = new Map(), frames = [];
-for (const m of recs) {
-  let f;
-  try { f = decodeFrame(m.text); } catch { continue; }
-  if (f.type === "offer") offers.set(f.id, f);
-  frames.push({ m, f });
+Read-only diagnostic:
+  node rail_audit.mjs                 GET the board export and PaperRail notes
+  node rail_audit.mjs --out <path>    choose the local JSON output path
+  node rail_audit.mjs --help          show this help
+
+The script never posts to Technocore. It performs a room-agnostic structural fold using the
+released 0.1.0 library, so signatures, sender binding, room binding, and rail value are not
+verified. The default output is rail_audit.generated.json, not the tracked snapshot.
+`;
+
+const sleep = (ms) => new Promise((resolveSleep) => setTimeout(resolveSleep, ms));
+
+function oneLine(value, max = 240) {
+  const text = String(value ?? "").replace(/\s+/gu, " ").trim();
+  return text ? text.slice(0, max) : "<empty response>";
 }
-const byContract = new Map();
-for (const { m, f } of frames) {
-  if (f.type === "accept") {
-    const offer = offers.get(f.ref);
-    if (offer) byContract.set(f.contract, { offer, accept: f, rows: [{ m, f }] });
-  } else if (f.contract && byContract.has(f.contract)) {
-    byContract.get(f.contract).rows.push({ m, f });
+
+function parseArgs(argv) {
+  if (argv.includes("--help") || argv.includes("-h")) return { help: true };
+  let out = DEFAULT_OUT;
+  let outSeen = false;
+  for (let i = 0; i < argv.length; i += 1) {
+    const arg = argv[i];
+    if (arg === "--out") {
+      if (outSeen || !argv[i + 1] || argv[i + 1].startsWith("--")) {
+        throw new Error("--out requires one path and may be supplied only once");
+      }
+      out = resolve(argv[++i]);
+      outSeen = true;
+    } else {
+      throw new Error(`unknown option ${arg}; use --help`);
+    }
   }
+  return { help: false, out, outSeen };
 }
-const past = [];
-for (const [contract, d] of byContract) {
-  let state = openContract(d.offer), lock = null, parties = new Set();
-  for (const { m, f } of d.rows) {
-    const r = applyFrame(state, f, Date.parse(m.ts));
-    state = r.state;
-    parties.add(m.from);
-    if (r.ok && f.type === "lock") lock = f;
+
+function baseUrl() {
+  const raw = process.env.TECHNOCORE_URL ?? DEFAULT_BASE;
+  if (/[\u0000-\u0020\u007f-\u009f\u200b\u200c\u200d\u2060\ufeff]/u.test(raw)) {
+    throw new Error("TECHNOCORE_URL must not contain whitespace or control characters");
   }
-  if (state.status === "accepted" || state.status === "proposed") continue;
-  past.push({ contract, status: state.status, lock, offer: d.offer, accept: d.accept, parties: [...parties] });
+  let parsed;
+  try { parsed = new URL(raw); } catch { throw new Error("TECHNOCORE_URL is not a valid URL"); }
+  if (!["http:", "https:"].includes(parsed.protocol)) {
+    throw new Error("TECHNOCORE_URL must use http:// or https://");
+  }
+  const hostname = parsed.hostname.toLowerCase().replace(/^\[|\]$/gu, "");
+  if (!hostname || parsed.username || parsed.password) {
+    throw new Error("TECHNOCORE_URL must have a hostname and no username/password credentials");
+  }
+  if (/[\u0000-\u0020\u007f-\u009f\u200b\u200c\u200d\u2060\ufeff]/u.test(hostname)) {
+    throw new Error("TECHNOCORE_URL hostname must not contain whitespace or control characters");
+  }
+  if (parsed.protocol === "http:" && !["localhost", "127.0.0.1", "::1"].includes(hostname)) {
+    throw new Error("TECHNOCORE_URL may use HTTP only for a loopback test server");
+  }
+  try { void parsed.port; }
+  catch { throw new Error("TECHNOCORE_URL contains an invalid port"); }
+  if (parsed.search || parsed.hash || (parsed.pathname !== "" && parsed.pathname !== "/")) {
+    throw new Error("TECHNOCORE_URL must not contain a path, query string, or fragment");
+  }
+  return parsed.href.replace(/\/+$/u, "");
 }
-console.log(`board ${recs.length} records | contracts past accepted: ${past.length}`);
 
-const rows = [];
-let i = 0;
-for (const p of past) {
-  const { ns, key } = paperNote(p.contract);
-  let line = null;
-  try {
-    const res = await fetch(`${BASE}/kv/${ns}/${key}`);
-    if (res.status === 200) line = (await res.text()).split("\n").find((l) => l.startsWith("tclkpaper1")) ?? null;
-  } catch { /* absent */ }
-  await sleep(SLEEP);
-  if (++i % 40 === 0) console.log(`  ${i}/${past.length}`);
-  const rec = line ? decodePaperRecord(line) : null;
-  const refShape = !p.lock ? "no-lock-frame"
-    : p.lock.ref === p.contract ? "contract-id"
-    : /^paper-[0-9a-f]{12}$/.test(String(p.lock.ref)) ? "paper-12hex"
-    : "other";
-  rows.push({
-    contract: p.contract, status: p.status, rail: p.lock?.rail ?? null, ref: p.lock?.ref ?? null,
-    refShape, funded: rec !== null,
-    matches: rec ? rec.statement === p.accept.statement && rec.refundAfterMs === p.offer.refundAfterMs : null,
-    railStatus: rec?.status ?? null, parties: p.parties,
-  });
+async function getText(url, label) {
+  let response;
+  try { response = await fetch(url, { method: "GET", headers: { accept: "text/plain" }, redirect: "error" }); }
+  catch (error) { throw new Error(`${label}: network request failed: ${error instanceof Error ? error.message : String(error)}`); }
+  let body;
+  try { body = await response.text(); }
+  catch (error) { throw new Error(`${label}: could not read response body: ${error instanceof Error ? error.message : String(error)}`); }
+  if (!response.ok) throw new Error(`${label}: HTTP ${response.status} ${response.statusText || ""}; ${oneLine(body)}`.trim());
+  return body;
 }
-writeFileSync("rail_audit.json", JSON.stringify(rows, null, 1));
 
-const tab = {};
-for (const r of rows) {
-  const k = `${r.refShape} / ${r.funded ? "rail record present" : "NO rail record"}`;
-  tab[k] = (tab[k] ?? 0) + 1;
+async function readPaper(base, contract) {
+  const { ns, key } = paperNote(contract);
+  const label = `GET /kv/${ns}/${key}`;
+  let response;
+  try { response = await fetch(`${base}/kv/${encodeURIComponent(ns)}/${encodeURIComponent(key)}`, { method: "GET", redirect: "error", headers: { accept: "text/plain" } }); }
+  catch (error) {
+    return { status: "network-error", error: error instanceof Error ? error.message : String(error) };
+  }
+  let body;
+  try { body = await response.text(); }
+  catch (error) { return { status: "read-error", error: error instanceof Error ? error.message : String(error) }; }
+  if (response.status === 404) return { status: "absent" };
+  if (!response.ok) return { status: "http-error", httpStatus: response.status, error: oneLine(body) };
+  const line = body.split(/\r?\n/u).find((entry) => entry.startsWith("tclkpaper1"));
+  if (!line) return { status: "unparseable" };
+  const record = decodePaperRecord(line);
+  if (!record) return { status: "unparseable" };
+  return { status: "present", record };
 }
-console.log("\n=== lock.ref shape  ×  was the rail ever funded");
-for (const [k, v] of Object.entries(tab).sort((a, b) => b[1] - a[1])) console.log(`  ${String(v).padStart(4)}  ${k}`);
 
-const unfunded = rows.filter((r) => !r.funded);
-console.log(`\nunfunded but folded to a terminal state: ${unfunded.length}`);
-console.log(`  of which lock.ref was correctly the contract id: ${unfunded.filter((r) => r.refShape === "contract-id").length}`);
-const st = {};
-for (const r of unfunded) st[r.status] = (st[r.status] ?? 0) + 1;
-console.log(`  their folded status: ${JSON.stringify(st)}`);
-console.log(`\nfunded rows whose record matches the signed statement + deadline: ${rows.filter((r) => r.funded && r.matches).length} of ${rows.filter((r) => r.funded).length}`);
-const MINE = "0x78c2b3d2d27297e9e7d30c79453bfa56af69d6691de6e76e4e4d38c58b1ac5fb";
-console.log(`\nmy own bad lock (${MINE.slice(0, 14)}…): ${JSON.stringify(rows.find((r) => r.contract === MINE) ?? "not in set")}`);
+function readRecordRows(text) {
+  const rows = [];
+  let malformed = 0;
+  let undecodable = 0;
+  let invalidTimestamp = 0;
+  for (const line of text.split(/\r?\n/u).filter((entry) => entry.trim())) {
+    let message;
+    try { message = JSON.parse(line); }
+    catch { malformed += 1; continue; }
+    if (!message || typeof message !== "object" || typeof message.text !== "string" || typeof message.ts !== "string") {
+      malformed += 1;
+      continue;
+    }
+    const timestampMs = Date.parse(message.ts);
+    if (!Number.isFinite(timestampMs)) {
+      invalidTimestamp += 1;
+      continue;
+    }
+    if (!message.text.startsWith("tclk1 ")) continue;
+    let frame;
+    try { frame = decodeFrame(message.text); }
+    catch { undecodable += 1; continue; }
+    rows.push({ message, frame, timestampMs });
+  }
+  return { rows, malformed, undecodable, invalidTimestamp };
+}
+
+function foldSequential(rows) {
+  const offers = new Map();
+  const deals = new Map();
+  for (const { message, frame, timestampMs } of rows) {
+    const row = { message, frame, timestampMs };
+    if (frame.type === "offer") {
+      offers.set(frame.id, row);
+      continue;
+    }
+    if (frame.type === "accept") {
+      const offer = offers.get(frame.ref);
+      if (!offer || deals.has(frame.contract)) continue;
+      deals.set(frame.contract, { offer, accept: row, rows: [row] });
+      continue;
+    }
+    if (frame.contract && deals.has(frame.contract)) deals.get(frame.contract).rows.push(row);
+  }
+  return deals;
+}
+
+async function run() {
+  const args = parseArgs(process.argv.slice(2));
+  if (args.help) { console.log(HELP); return; }
+  const base = baseUrl();
+  const exportPath = `/r/${DEFAULT_ROOM}/export`;
+  const exportText = await getText(`${base}${exportPath}`, `GET ${exportPath}`);
+  const parsed = readRecordRows(exportText);
+  const deals = foldSequential(parsed.rows);
+  const past = [];
+  for (const [contract, deal] of deals) {
+    let state = openContract(deal.offer.frame);
+    let lock = null;
+    const senders = new Set();
+    for (const { message, frame, timestampMs } of deal.rows) {
+      const result = applyFrame(state, frame, timestampMs);
+      state = result.state;
+      if (typeof message.from === "string") senders.add(message.from);
+      if (result.ok && frame.type === "lock") lock = frame;
+    }
+    if (state.status === "accepted" || state.status === "proposed") continue;
+    past.push({ contract, status: state.status, lock, offer: deal.offer.frame, accept: deal.accept.frame, senders: [...senders], rows: deal.rows });
+  }
+
+  console.log(`board ${parsed.rows.length} decodable records | malformed rows: ${parsed.malformed} | undecodable frames: ${parsed.undecodable} | invalid timestamps: ${parsed.invalidTimestamp}`);
+  console.log(`contracts past accepted: ${past.length}`);
+  if (parsed.malformed || parsed.undecodable || parsed.invalidTimestamp) {
+    console.error("WARNING: export contains records this released-package diagnostic could not fold; results are incomplete.");
+  }
+
+  const rows = [];
+  let index = 0;
+  for (const item of past) {
+    const rail = await readPaper(base, item.contract);
+    const paper = rail.status === "present" ? rail.record : null;
+    const lock = item.lock;
+    const refShape = !lock ? "no-lock-frame"
+      : lock.ref === item.contract ? "contract-id"
+      : /^paper-[0-9a-f]{12}$/u.test(String(lock.ref)) ? "paper-12hex"
+      : "other";
+    rows.push({
+      contract: item.contract,
+      status: item.status,
+      rail: lock?.rail ?? null,
+      ref: lock?.ref ?? null,
+      refShape,
+      railRecord: rail.status,
+      funded: paper !== null,
+      matches: paper ? paper.statement === item.accept.statement && paper.refundAfterMs === item.offer.refundAfterMs : null,
+      railStatus: paper?.status ?? null,
+      parties: item.senders,
+      transportSignatures: item.rows.map(({ message }) => ({ seq: message.seq ?? null, present: typeof message.sig === "string" })),
+    });
+    await sleep(SLEEP_MS);
+    index += 1;
+    if (index % 40 === 0) console.log(`  ${index}/${past.length}`);
+  }
+
+  const output = {
+    generatedAt: new Date().toISOString(),
+    source: { base, room: DEFAULT_ROOM, export: `${base}${exportPath}` },
+    mode: "room-agnostic-structural-diagnostic",
+    authenticatedTranscript: false,
+    signatures: "presence-only; not verified by released npm 0.1.0",
+    roomBinding: "not checked",
+    venueMetadata: "seq/ts read from export and not signed",
+    rail: "PaperRail note is world-writable and holds no value",
+    boardRecords: parsed.rows.length,
+    malformedExportRows: parsed.malformed,
+    undecodableFrames: parsed.undecodable,
+    invalidTimestamps: parsed.invalidTimestamp,
+    incomplete: Boolean(parsed.malformed || parsed.undecodable || parsed.invalidTimestamp),
+    contractsPastAccepted: rows.length,
+    rows,
+  };
+  await writeFile(args.out, JSON.stringify(output, null, 1) + "\n", "utf8");
+  console.log(`\nwrote ${args.out}`);
+  console.log("This is a structural diagnostic only; it is not an authenticated transcript or payment audit.");
+}
+
+try {
+  await run();
+} catch (error) {
+  console.error(`rail_audit.mjs: error: ${error instanceof Error ? error.message : String(error)}`);
+  process.exitCode = 1;
+}
