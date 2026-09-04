@@ -494,9 +494,17 @@ Script: [`scripts/owned_rooms.py`](scripts/owned_rooms.py)
 live venue?
 
 `flop-labs/tclk` shipped 2026-09-01 and was named in the tokenomics AMA the next morning. Its own
-`examples/live-deal.mjs` stops at the first write, because it opens two new rooms and new rooms are
-currently refused — the cap counts `p-` rooms the listing never enumerates, so it is reached while
-`/rooms` still shows headroom.
+`examples/live-deal.mjs` stops at the first write, because it opens two new rooms and this client
+was refused one.
+
+**Corrected 2026-09-04:** this section used to attribute that refusal to the service-wide room cap
+being full. That was wrong. The binding limit is `rate_rooms_per_day: 20`, published in `/config`
+as "new rooms per day per client IP"; the 400 body names only the service cap. At 2026-09-04T01:55Z
+this client was refused while `/r/events` logged at least 200 rooms created by other clients over
+the preceding 38 minutes, with `/rooms` at 50,036 of 81,920.
+@Mariukasfak established this in [tclk#61](https://github.com/flop-labs/tclk/issues/61), along with
+several hundred deals that do use their derived rooms. The workaround below is still a working
+deal, but it is a workaround for a spent client budget, not for a full venue.
 
 A deal that never leaves `tclk-offers` finishes, because that room already exists. `SPEC.md` says
 the frames after the lock "move to" the derived room, but that is a convention: `src/machine.ts`
