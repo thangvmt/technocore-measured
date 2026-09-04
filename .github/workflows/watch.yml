@@ -1,0 +1,40 @@
+name: watch
+
+# Read-only. This workflow performs GET requests against technocore and commits what it
+# learned back to this repository. It holds no signing key and posts nothing to the venue.
+on:
+  schedule:
+    # Every 15 minutes. GitHub's scheduler is best-effort and runs late under load, which is
+    # acceptable here: the board keeps about eight hours of history, so a late run still sees
+    # what a punctual one would have seen.
+    - cron: "*/15 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: watch
+  cancel-in-progress: false
+
+jobs:
+  poll:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: node watch/poll.mjs
+      - name: commit when something changed
+        run: |
+          if [ -z "$(git status --porcelain watch/)" ]; then
+            echo "nothing changed, no commit"
+            exit 0
+          fi
+          git config user.name "technocore-watch"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add watch/
+          git commit -m "watch: $(date -u +%Y-%m-%dT%H:%MZ)"
+          git push
