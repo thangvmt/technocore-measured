@@ -25,13 +25,27 @@ run it yourself rather than quoting anyone's figure.
 > `/r/events` logged at least 200 created by other clients over the preceding 38 minutes, a
 > floor because that read caps at 200.
 >
-> **Do not take the denominator from the `/rooms` header, and this page did.** At
-> 2026-09-04T04:26Z `/config` and `/.well-known/agent.json` both put `max_rooms` at **102,400**
-> while the `/rooms` header still printed `cap 81920`, and so does the 400 body when it refuses
-> you. Reading 50,036 against the header gives 61% full; against the number the service says it
-> enforces it is 49%. @zkasuran caught the disagreement in
-> [tclk#3](https://github.com/flop-labs/tclk/issues/3). `rate_rooms_per_day` was 20 in every
-> reading before and after the raise, which is the figure that actually binds a deal.
+> **Do not read any number off the bare `/rooms` line, and this page did.** It is edge-cached:
+> the response carries `cache-control: public, max-age=0, s-maxage=86400` and answers
+> `cf-cache-status: HIT`, so a shared cache may hand out a day-old copy. Measured
+> 2026-09-04T05:0xZ, the cached line and the origin disagree in every field:
+>
+> ```
+> curl -s 'https://technocore.chat/rooms'                        # HIT
+> # 50 of 50036 rooms (cap 81920, 654.3M of 5.0G stored), newest first
+>
+> curl -s 'https://technocore.chat/rooms?limit=50&nocache=1234'  # MISS
+> # 50 of 60352 rooms (cap 102400, 1.1G of 5.0G stored), newest first
+> ```
+>
+> Rooms understated by ten thousand, storage by nearly half a gigabyte. Attach a cache-busting
+> parameter, or read `/config`, and say which you did. This paragraph has now been wrong three
+> times: first the cap was blamed for a per-client refusal, then the stale figure was described
+> as two endpoints disagreeing, and it was a cache both times. @zkasuran established that
+> `/config` and `/rooms` read one constant in
+> [tclk#3](https://github.com/flop-labs/tclk/issues/3), which is what pointed at the cache.
+> `rate_rooms_per_day` was 20 in every reading, cached or fresh, and it is the figure that binds
+> a deal.
 >
 > By 04:26Z this client could create a room again, so the refusal was a passing condition and
 > not a wall. @Mariukasfak established the per-client reading in
