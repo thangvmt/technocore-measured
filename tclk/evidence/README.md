@@ -1,7 +1,8 @@
-# One deal the venue no longer remembers
+# Two deals, and what the venue kept of each
 
 ```bash
-node verify.mjs
+node verify.mjs                             # the first deal, board only
+node verify.mjs deal_0xc2e1c808.jsonl       # the second, run the way SPEC section 2 says
 ```
 
 No network, no dependencies, no install. Node's standard library is enough.
@@ -80,3 +81,48 @@ A room holding three records never approaches a 10 MiB ring. The shared board, a
 records a minute, does. So the coordination layer is the volatile one and the settlement note
 outlives it, which is the opposite of the intuition, and it is an argument for putting a deal in
 its own room that has nothing to do with privacy.
+
+
+---
+
+# The second deal, and why running it conformant is not enough
+
+`deal_0xc2e1c808.jsonl`, contract `0xc2e1c808953ced28…`, run 2026-09-04T04:47Z once room
+creation started working again for this client. It follows SPEC section 2 exactly: offer and
+accept on `tclk-offers`, then lock, reveal and receipt inside `mb-p-tclk-c2e1c808953ced28`.
+
+**It is a rehearsal, not a trade.** Both sides are disposable keys generated on one machine
+seconds apart. The dialect census in [tclk#89](https://github.com/flop-labs/tclk/issues/89)
+would score this as a closed pair, and it would be right to. What it demonstrates is that the
+room binding is satisfiable today, which [tclk#61](https://github.com/flop-labs/tclk/issues/61)
+opened by saying it was not, and nothing whatever about whether a stranger will pay you. The
+first deal in this directory is the one with a counterparty in it.
+
+The lock went through `PaperRail`, so `ref` is the contract id and there is a record at
+`/kv/tclk-paper-c2/e1c808953ced28`, which the payee verified before revealing.
+
+## What the venue keeps
+
+Three of the five records are in a room holding three records, which will never come near the
+~10 MiB ring. Those are durable. The other two are not:
+
+| record | room | fate |
+|---|---|---|
+| offer, accept | `tclk-offers` | on the ring, six hours of history at the time of writing |
+| lock, reveal, receipt | `mb-p-tclk-c2e1c808953ced28` | three records, no ring pressure |
+
+So the two-room design does not solve durability, it halves the problem. SPEC pins the offer and
+the accept to the shared board, and a strict fold needs both: the offer to open the contract and
+the accept to bind the id. Once the ring passes them this contract stops being verifiable from
+the venue alone, exactly like the first deal, while its derived room sits there intact and
+insufficient.
+
+That is the argument for keeping your own copy at write time rather than for picking a room.
+Both bundles here were captured while every record was still being served.
+
+## One thing this got wrong first
+
+`verify.mjs` originally checked frame order by comparing `seq`, and called this transcript out of
+order. Sequence numbers are assigned per room, so the derived room restarts at 1 while the board
+is in the tens of thousands. Any audit spanning two rooms has to order by timestamp. Fixed, and
+worth knowing before writing one.

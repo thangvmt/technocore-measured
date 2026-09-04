@@ -17,9 +17,9 @@
 import { createHash, createPublicKey, verify as nodeVerify } from "node:crypto";
 import { readFileSync } from "node:fs";
 
-const ROOM = "tclk-offers";
-const CONTRACT = "0xe497153a83fe444a51fd4e2ca21e34184626e84fa5b5e9565dc2a878b981510d";
-const OFFER_ID = "0x597c11a8d0ecd774cad48071e22b5a35d151a72a48db28c8d6f9b5fa9eab8d3b";
+// Each record carries the room it came from, so a bundle spanning the board and a derived deal
+// room verifies the same way as one that never left the board. The signature covers
+// `room|nonce|text`, so the room is part of what was signed and cannot be swapped after the fact.
 const BUNDLE = process.argv[2] ?? new URL("./deal_0xe497153a.jsonl", import.meta.url).pathname;
 
 const B58 = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz";
@@ -52,13 +52,13 @@ console.log(`\n  ${records.length} records, read from ${BUNDLE.split("/").pop()}
 
 let allOk = true;
 for (const m of records) {
-  const message = Buffer.from(`${ROOM}|${m.nonce}|${m.text}`, "utf8");
+  const message = Buffer.from(`${m.room ?? "tclk-offers"}|${m.nonce}|${m.text}`, "utf8");
   let ok = false;
   try { ok = nodeVerify(null, message, publicKeyFromDid(m.from), Buffer.from(m.sig, "base64url")); } catch { ok = false; }
   if (!ok) allOk = false;
   let label = "text";
   if (m.text.startsWith("tclk1 ")) { try { label = JSON.parse(m.text.slice(6)).type; } catch { label = "tclk1?"; } }
-  console.log(`  seq ${String(m.seq).padEnd(5)} ${label.padEnd(8)} ${ok ? "signature VERIFIED" : "signature FAILED  "}  by ${m.from.slice(8, 22)}…`);
+  console.log(`  seq ${String(m.seq).padEnd(6)} ${label.padEnd(8)} ${ok ? "signature VERIFIED" : "signature FAILED  "}  in ${(m.room ?? "tclk-offers").padEnd(27)} by ${m.from.slice(8, 20)}…`);
 }
 
 const frame = (t) => records.map((m) => { try { return m.text.startsWith("tclk1 ") ? JSON.parse(m.text.slice(6)) : null; } catch { return null; } })
@@ -70,18 +70,27 @@ const offer = frame("offer"), accept = frame("accept"), lock = frame("lock"), re
 const digest = "0x" + createHash("sha256").update(Buffer.from(reveal.secret.slice(2), "hex")).digest("hex");
 const opens = digest === accept.statement;
 
-const order = ["offer", "accept", "lock", "reveal", "receipt"].every((t, i, a) =>
-  i === 0 || records.find((m) => m.text.includes(`"type":"${t}"`))?.seq > records.find((m) => m.text.includes(`"type":"${a[i - 1]}"`))?.seq);
+// Order by timestamp, not by seq. Sequence numbers are assigned per room, so a derived deal
+// room starts again at 1 while the board is in the tens of thousands, and comparing the two
+// would call a correct transcript out of order. This check got that wrong at first.
+const when = (t) => Date.parse(records.find((m) => m.text.includes(`"type":"${t}"`))?.ts ?? "");
+const order = ["offer", "accept", "lock", "reveal", "receipt"]
+  .map(when).every((v, i, a) => i === 0 || !(v < a[i - 1]));
+const CONTRACT = accept.contract;
 const sameContract = [accept, lock, reveal, receipt].every((f) => f.contract === CONTRACT);
 const delivered = records.find((m) => !m.text.startsWith("tclk1 "))?.text.split(" | ").at(-1) ?? "";
+const rooms = [...new Set(records.map((m) => m.room ?? "tclk-offers"))];
 
-console.log(`\n  offer id matches            : ${offer.id === OFFER_ID}`);
+console.log(`\n  accept references the offer : ${accept.ref === offer.id}`);
 console.log(`  every frame names one contract: ${sameContract}`);
 console.log(`  frames are in protocol order : ${order}`);
 console.log(`  revealed secret opens the statement: ${opens}`);
 console.log(`  payer's receipt outcome     : ${receipt.outcome}`);
 console.log(`  every signature verified    : ${allOk}`);
-console.log(`\n  the work, ${[...delivered].length} characters against a limit of 280:`);
-console.log(`  ${delivered}`);
+console.log(`  rooms spanned              : ${rooms.join(", ")}`);
+if (delivered) {
+  console.log(`\n  the work, ${[...delivered].length} characters against a limit of 280:`);
+  console.log(`  ${delivered}`);
+}
 console.log(`\n  ${allOk && opens && sameContract ? "This deal is intact and checkable without the venue." : "SOMETHING DID NOT CHECK OUT."}\n`);
 process.exit(allOk && opens && sameContract ? 0 : 1);
