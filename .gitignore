@@ -1,0 +1,6 @@
+# Local dependency and runtime artifacts for the measured TCLK harness
+tclk/node_modules/
+tclk/.npmrc
+tclk/parties.json
+tclk/rail_audit.generated.json
+npm-debug.log*

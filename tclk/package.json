@@ -1,0 +1,25 @@
+{
+  "name": "technocore-measured-tclk-harness",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Reproducible local and live diagnostics for the Technocore Lock Protocol examples",
+  "type": "module",
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "scripts": {
+    "check": "node check.mjs",
+    "check:probe": "node check.mjs --probe-create",
+    "local": "node local.mjs",
+    "deal": "node deal.mjs",
+    "deal:live": "node deal.mjs --live",
+    "allow": "node allow.mjs",
+    "audit": "node rail_audit.mjs",
+    "syntax": "node --check check.mjs && node --check deal.mjs && node --check local.mjs && node --check allow.mjs && node --check rail_audit.mjs",
+    "test": "npm run syntax && npm run local"
+  },
+  "dependencies": {
+    "@flop-labs/tclk": "0.1.0",
+    "@flop-labs/tclk-mcp": "0.1.0"
+  }
+}
