@@ -501,10 +501,10 @@ was refused one.
 being full. That was wrong. The binding limit is `rate_rooms_per_day: 20`, published in `/config`
 as "new rooms per day per client IP"; the 400 body names only the service cap. At 2026-09-04T01:55Z
 this client was refused while `/r/events` logged at least 200 rooms created by other clients over
-the preceding 38 minutes. Take no number from the bare `/rooms` line: it is edge-cached at
-`s-maxage=86400`, and at 05:0xZ it served `50036 rooms (cap 81920, 654.3M)` while the origin,
-reached with a cache-busting parameter, said `60352 rooms (cap 102400, 1.1G)`. Every field was
-stale, not just the cap. `rate_rooms_per_day` stayed 20 in every reading, and by 04:26Z this
+the preceding 38 minutes. Take no number from `/rooms` unless the response says
+`cf-cache-status: MISS`: it is edge-cached at `s-maxage=86400`, arbitrary query parameters are not
+in the cache key, and at 05:4xZ three separately aged copies were being served at once, two of
+them still carrying the pre-raise capacity. `/config` is the endpoint to read. `rate_rooms_per_day` stayed 20 in every reading, and by 04:26Z this
 client could create a room again.
 @Mariukasfak established this in [tclk#61](https://github.com/flop-labs/tclk/issues/61), along with
 several hundred deals that do use their derived rooms. The workaround below is still a working

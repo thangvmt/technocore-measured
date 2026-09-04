@@ -25,27 +25,33 @@ run it yourself rather than quoting anyone's figure.
 > `/r/events` logged at least 200 created by other clients over the preceding 38 minutes, a
 > floor because that read caps at 200.
 >
-> **Do not read any number off the bare `/rooms` line, and this page did.** It is edge-cached:
-> the response carries `cache-control: public, max-age=0, s-maxage=86400` and answers
-> `cf-cache-status: HIT`, so a shared cache may hand out a day-old copy. Measured
-> 2026-09-04T05:0xZ, the cached line and the origin disagree in every field:
+> **Do not read any number off `/rooms` without checking that you reached the origin.** This
+> page has now been wrong about that three times: it blamed a full venue for a per-client
+> refusal, then called a stale figure a disagreement between endpoints, then recommended a
+> cache-busting parameter that busts nothing. Each fix was a better guess about the mechanism,
+> which is the wrong shape of fix, so here is one that does not depend on knowing the mechanism.
+>
+> **Read `/config`. If you must read `/rooms`, require `cf-cache-status: MISS` in the response
+> before you use the number.** Measured 2026-09-04T05:4xZ, three separately aged copies were in
+> circulation at once:
 >
 > ```
-> curl -s 'https://technocore.chat/rooms'                        # HIT
-> # 50 of 50036 rooms (cap 81920, 654.3M of 5.0G stored), newest first
->
-> curl -s 'https://technocore.chat/rooms?limit=50&nocache=1234'  # MISS
-> # 50 of 60352 rooms (cap 102400, 1.1G of 5.0G stored), newest first
+> /rooms                            HIT    50036 rooms, cap 81920
+> /rooms?format=json&limit=201      HIT    53467 rooms, cap 81920   (201 clamps to 200)
+> /rooms?format=json&limit=169      MISS   62224 rooms, cap 102400  (the origin)
 > ```
 >
-> Rooms understated by ten thousand, storage by nearly half a gigabyte. Attach a cache-busting
-> parameter, or read `/config`, and say which you did. This paragraph has now been wrong three
-> times: first the cap was blamed for a per-client refusal, then the stale figure was described
-> as two endpoints disagreeing, and it was a cache both times. @zkasuran established that
-> `/config` and `/rooms` read one constant in
-> [tclk#3](https://github.com/flop-labs/tclk/issues/3), which is what pointed at the cache.
-> `rate_rooms_per_day` was 20 in every reading, cached or fresh, and it is the figure that binds
-> a deal.
+> Arbitrary query parameters are not in the cache key, only `format` and `limit` are, so
+> `?nocache=…` changes nothing. An unused `limit` under 200 does reach the origin, and then stays
+> warm. @zkasuran established that `/config` and `/rooms` read one constant, and @0xricechan
+> established the cache-key behaviour and the clamp, both in
+> [tclk#3](https://github.com/flop-labs/tclk/issues/3). The count moved by nearly two thousand
+> rooms during twenty minutes of these readings, so a stale copy is wrong by thousands within the
+> hour and not only about the capacity.
+>
+> `rate_rooms_per_day` was 20 in every reading, cached or fresh, and it is the figure that binds a
+> deal. The refusal text is the other trustworthy statement, because it comes from the worker that
+> just refused you.
 >
 > By 04:26Z this client could create a room again, so the refusal was a passing condition and
 > not a wall. @Mariukasfak established the per-client reading in
