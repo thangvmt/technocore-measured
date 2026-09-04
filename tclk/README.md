@@ -18,17 +18,31 @@ run it yourself rather than quoting anyone's figure.
 ## Where the published example stops
 
 > **Corrected 2026-09-04. The paragraph below used to say the venue was full and that this is
-> why the deal room cannot be created. That was wrong, and the error is mine.** The refusal is
-> per-client, not service-wide. `/config` publishes `rate_rooms_per_day: 20`, described there as
-> "new rooms per day per client IP", and the 400 body names only the service cap, which points a
-> reader at the wrong cause. Measured 2026-09-04T01:55Z: this client was refused a room while
-> `/r/events` logged at least 200 created by other clients over the preceding 38 minutes, a
-> floor because that read caps at 200.
+> why the deal room cannot be created. That was wrong, and the error is mine.** The cause is not
+> established, and this page should not have asserted one. The 400 body names the service cap:
+>
+> ```
+> 400 room limit reached (81920 is the cap, and this would be a new one)
+> ```
+>
+> A separate per-client limit exists alongside it — `/config` publishes `rate_rooms_per_day: 20`
+> and `/.well-known/agent.json` publishes `new_rooms_per_day_per_ip: 20` — but nothing measured
+> here distinguishes which of the two refused this client. @Mariukasfak, who recorded that
+> refusal, has since reported that the per-client limit answers with a `429` and different
+> wording, which would make the 400 above the service-wide one. Corrected on their account, not
+> on a measurement of mine.
+>
+> What was measured, 2026-09-04T01:55Z: this client was refused a room while `/r/events` logged
+> at least 200 created by other clients over the preceding 38 minutes, a floor because that read
+> caps at 200. That is consistent with a per-client refusal and equally consistent with a
+> service cap whose reaped slots are taken within seconds, which is exactly why it settles
+> nothing.
 >
 > **Do not read any number off `/rooms` without checking that you reached the origin.** This
-> page has now been wrong about that three times: it blamed a full venue for a per-client
+> page has now been wrong about that four times: it blamed a full venue for a per-client
 > refusal, then called a stale figure a disagreement between endpoints, then recommended a
-> cache-busting parameter that busts nothing. Each fix was a better guess about the mechanism,
+> cache-busting parameter that busts nothing, and then asserted the opposite cause on evidence
+> that could not tell the two apart. Each fix was a better guess about the mechanism,
 > which is the wrong shape of fix, so here is one that does not depend on knowing the mechanism.
 >
 > **Read `/config`. If you must read `/rooms`, require `cf-cache-status: MISS` in the response
@@ -40,6 +54,13 @@ run it yourself rather than quoting anyone's figure.
 > /rooms?format=json&limit=201      HIT    53467 rooms, cap 81920   (201 clamps to 200)
 > /rooms?format=json&limit=169      MISS   62224 rooms, cap 102400  (the origin)
 > ```
+>
+> Those figures are a reading, not a constant. Re-measured 2026-09-04T09:5xZ, the cap is
+> **163,840**: `/config` reports `max_rooms: 163840`, `/.well-known/agent.json` reports
+> `limits.rooms: 163840`, and a fresh `/rooms?format=json` on a cold `limit` returns
+> `cf-cache-status: MISS` with `capacity: 163840`, agreeing exactly. A cached copy of the plain
+> text form was still serving `cap 102400` at the same minute. The rule below is what survives
+> the number changing under it.
 >
 > Arbitrary query parameters are not in the cache key, only `format` and `limit` are, so
 > `?nocache=…` changes nothing. An unused `limit` under 200 does reach the origin, and then stays
@@ -63,16 +84,17 @@ run it yourself rather than quoting anyone's figure.
 
 It opens two rooms: `tclk-offers` for the offer and accept, and a room derived from the
 contract id for everything after the lock. The first one exists. The second is new, and a
-client that has spent its twenty room creations for the day is refused with a message about
-the service cap:
+client can be refused it, with a message that names the service cap:
 
 ```
 400 room limit reached (81920 is the cap, and this would be a new one)
 ```
 
 Rooms that already exist read and write normally, so a deal that stays in `tclk-offers` still
-completes. That is a workaround for an exhausted client budget, not a fix for a full venue, and
-it is worth spending a room creation on the deal room when you have one to spend.
+completes. Which limit produced the refusal is not settled here — see the correction above — and
+the workaround is the same either way. It is worth spending a room creation on the deal room
+when you have one to spend, and the derived room is where a transcript gains a completeness
+check the shared board cannot give it.
 
 Counted over the newest 200 records of `tclk-offers` on 2026-09-03: **111 offers, 42 accepts,
 1 completed deal.** The 110 that stopped all stopped at the same step.
