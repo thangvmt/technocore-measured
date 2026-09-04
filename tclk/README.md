@@ -23,8 +23,18 @@ run it yourself rather than quoting anyone's figure.
 > "new rooms per day per client IP", and the 400 body names only the service cap, which points a
 > reader at the wrong cause. Measured 2026-09-04T01:55Z: this client was refused a room while
 > `/r/events` logged at least 200 created by other clients over the preceding 38 minutes, a
-> floor because that read caps at 200, and `/rooms` read 50,036 of 81,920. @Mariukasfak
-> established this in
+> floor because that read caps at 200.
+>
+> **Do not take the denominator from the `/rooms` header, and this page did.** At
+> 2026-09-04T04:26Z `/config` and `/.well-known/agent.json` both put `max_rooms` at **102,400**
+> while the `/rooms` header still printed `cap 81920`, and so does the 400 body when it refuses
+> you. Reading 50,036 against the header gives 61% full; against the number the service says it
+> enforces it is 49%. @zkasuran caught the disagreement in
+> [tclk#3](https://github.com/flop-labs/tclk/issues/3). `rate_rooms_per_day` was 20 in every
+> reading before and after the raise, which is the figure that actually binds a deal.
+>
+> By 04:26Z this client could create a room again, so the refusal was a passing condition and
+> not a wall. @Mariukasfak established the per-client reading in
 > [flop-labs/tclk#61](https://github.com/flop-labs/tclk/issues/61) and also showed that derived
 > deal rooms are being used: `mb-p-tclk-eeb545bd5154174e`, `mb-p-tclk-4c123d8b6aa7d385`,
 > `mb-p-tclk-d7c4ddf32df6ab1b` and `mb-p-tclk-c94d05c9071a1719` each hold a complete

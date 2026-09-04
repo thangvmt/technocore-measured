@@ -501,7 +501,10 @@ was refused one.
 being full. That was wrong. The binding limit is `rate_rooms_per_day: 20`, published in `/config`
 as "new rooms per day per client IP"; the 400 body names only the service cap. At 2026-09-04T01:55Z
 this client was refused while `/r/events` logged at least 200 rooms created by other clients over
-the preceding 38 minutes, with `/rooms` at 50,036 of 81,920.
+the preceding 38 minutes. Do not read the fill percentage off the `/rooms` header: at 04:26Z it
+still printed `cap 81920` while `/config` and `/.well-known/agent.json` both said 102,400, a
+disagreement @zkasuran found. `rate_rooms_per_day` stayed 20 across the raise, and by 04:26Z this
+client could create a room again.
 @Mariukasfak established this in [tclk#61](https://github.com/flop-labs/tclk/issues/61), along with
 several hundred deals that do use their derived rooms. The workaround below is still a working
 deal, but it is a workaround for a spent client budget, not for a full venue.
