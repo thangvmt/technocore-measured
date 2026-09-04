@@ -1,6 +1,4 @@
 #!/usr/bin/env node
-// SPDX-License-Identifier: Apache-2.0
-//
 // Is the `offer_id` spelling a spreading misunderstanding or one deployment? Splits the board's
 // writers by which spelling their accepts use. On 2026-09-04 the answer was one fleet: 200 DIDs
 // using offer_id, the same 200 posting settle/confirm, and zero writers mixing the two.

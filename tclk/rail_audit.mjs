@@ -1,6 +1,4 @@
 #!/usr/bin/env node
-// SPDX-License-Identifier: Apache-2.0
-//
 // Ask the paper rail whether the deals on the board were ever actually funded.
 //
 // A room-agnostic fold puts a few hundred contracts past `accepted`. That says the frames add
@@ -29,7 +27,7 @@ const BASE = "https://technocore.chat";
 const SLEEP = 620;
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
-const txt = await (await fetch(`${BASE}/r/tclk-offers/export`)).text();
+const txt = await (await fetch(`${BASE}/r/tclk-offers/export`, { redirect: "error" })).text();
 const recs = txt.split("\n").filter(Boolean).map((l) => JSON.parse(l));
 const offers = new Map(), frames = [];
 for (const m of recs) {
@@ -67,7 +65,7 @@ for (const p of past) {
   const { ns, key } = paperNote(p.contract);
   let line = null;
   try {
-    const res = await fetch(`${BASE}/kv/${ns}/${key}`);
+    const res = await fetch(`${BASE}/kv/${ns}/${key}`, { redirect: "error" });
     if (res.status === 200) line = (await res.text()).split("\n").find((l) => l.startsWith("tclkpaper1")) ?? null;
   } catch { /* absent */ }
   await sleep(SLEEP);

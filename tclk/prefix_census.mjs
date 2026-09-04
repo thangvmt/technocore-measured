@@ -1,6 +1,4 @@
 #!/usr/bin/env node
-// SPDX-License-Identifier: Apache-2.0
-//
 // Why lines prefixed `tclk1 ` fail to decode. Counting the board by the JSON `type` field and
 // counting it with decodeFrame give answers ~38% apart, and the gap is one variant dialect that
 // reuses the prefix. Reads a saved /export dump, writes nothing.

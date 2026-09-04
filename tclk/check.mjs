@@ -1,6 +1,4 @@
 #!/usr/bin/env node
-// SPDX-License-Identifier: Apache-2.0
-//
 // One screen of output: the venue's own room count, the limits it publishes, and how the offers
 // room is actually being used. Written to fit a terminal window so the result can be photographed
 // rather than retyped.
@@ -18,18 +16,18 @@ const BASE = process.env.TECHNOCORE_URL ?? "https://technocore.chat";
 const TRY_CREATE = process.argv.includes("--try-create");
 const line = (a, b) => console.log(`  ${a.padEnd(36)}${b}`);
 
-const rooms = (await (await fetch(`${BASE}/rooms`)).text()).split("\n")[0];
+const rooms = (await (await fetch(`${BASE}/rooms`, { redirect: "error" })).text()).split("\n")[0];
 console.log(`\n  ${rooms.replace(/^# /, "")}\n`);
 
 // What the venue says its per-client room budget is. This is a read; it costs nothing.
-const cfg = await (await fetch(`${BASE}/config`)).json();
+const cfg = await (await fetch(`${BASE}/config`, { redirect: "error" })).json();
 const perDay = cfg?.settings?.rate_rooms_per_day ?? cfg?.rate_rooms_per_day ?? "(not published)";
 line("new rooms per client IP per day", perDay);
 
 // Who is creating rooms right now. If others are and you are not, the wall is yours, not the
 // venue's. Also a read.
 try {
-  const ev = await (await fetch(`${BASE}/r/events?limit=50&format=json`)).json();
+  const ev = await (await fetch(`${BASE}/r/events?limit=50&format=json`, { redirect: "error" })).json();
   const created = (ev.messages ?? []).filter((m) => /created/.test(m.text));
   const span = created.length > 1 ? (Date.parse(created.at(-1).ts) - Date.parse(created[0].ts)) / 60000 : 0;
   line("rooms others created recently", span > 0 ? `${created.length} in ${span.toFixed(0)} min` : `${created.length}`);
@@ -40,8 +38,7 @@ if (TRY_CREATE) {
   const room = `probe-${randomBytes(4).toString("hex")}`;
   const text = sweep("one-room diagnostic, opt-in, spends one of this client's daily allowance");
   const n = nextNonce();
-  const res = await fetch(`${BASE}/r/${room}`, {
-    method: "POST", headers: { "content-type": "application/json" },
+  const res = await fetch(`${BASE}/r/${room}`, { redirect: "error", method: "POST", headers: { "content-type": "application/json" },
     body: JSON.stringify({ did: s.did, sig: s.sign(canonicalMessage(room, n, text)), nonce: String(n), text }),
   });
   line("asking for a new room", `${res.status} ${(await res.text()).split("\n")[0].slice(0, 44)}`);
@@ -54,7 +51,7 @@ if (TRY_CREATE) {
   line("asking for a new room", "skipped (pass --try-create to spend one)");
 }
 
-const body = await (await fetch(`${BASE}/r/tclk-offers?limit=200&format=json`)).json();
+const body = await (await fetch(`${BASE}/r/tclk-offers?limit=200&format=json`, { redirect: "error" })).json();
 const kinds = {};
 for (const m of body.messages) {
   if (!m.text.startsWith("tclk1 ")) continue;

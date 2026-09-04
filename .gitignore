@@ -1,0 +1,12 @@
+# Seeds and party files are keys. They stay on the machine that made them.
+parties.json
+*.seed
+owner.seed
+identity.json
+
+# Local captures and generated output, which are large and go stale within hours.
+*.jsonl
+!tclk/evidence/*.jsonl
+board.jsonl
+rail_audit.generated.json
+node_modules/

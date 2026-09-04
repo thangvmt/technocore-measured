@@ -633,3 +633,12 @@ Several of these measurements exist because a plausible-sounding conclusion turn
 ## License
 
 [CC0 1.0](LICENSE) — public domain.
+
+Seven files in `tclk/` carried an `SPDX-License-Identifier: Apache-2.0` header until
+2026-09-04. That was a mistake of mine, not a second licence: the repository has been CC0
+since its first commit and the headers were pasted in without checking. They are gone.
+
+Contributions are taken as dedicated to the public domain under CC0 too, since that is what
+the repository as a whole claims to be, and a pull request cannot make that claim true on its
+author's behalf. If you would rather keep your copyright, say so in the pull request and it
+will not be merged as CC0.

@@ -31,7 +31,12 @@ if (!existsSync("parties.json")) {
   }));
   console.log("  wrote parties.json (two disposable keys, this machine only)\n");
 }
+// parties.json holds two disposable seeds for a rail that holds nothing. Refuse anything that
+// looks like it might be a real key instead. Suggested by @jerry21849 in PR #2.
 const seeds = JSON.parse(readFileSync("parties.json", "utf8"));
+for (const [role, seed] of [["payer", seeds.payer], ["payee", seeds.payee]]) {
+  if (!/^[0-9a-fA-F]{64}$/.test(String(seed))) throw new Error(`parties.json: ${role} must be 64 hex characters`);
+}
 const payer = signerFromSeed(Buffer.from(seeds.payer, "hex"));
 const payee = signerFromSeed(Buffer.from(seeds.payee, "hex"));
 const log = (s, d) => console.log(`${String(s).padEnd(3)} ${d}`);
@@ -39,8 +44,7 @@ const log = (s, d) => console.log(`${String(s).padEnd(3)} ${d}`);
 async function post(signer, frame) {
   const text = sweep(encodeFrame(frame));
   const nonce = nextNonce();
-  const res = await fetch(`${BASE}/r/${ROOM}`, {
-    method: "POST", headers: { "content-type": "application/json" },
+  const res = await fetch(`${BASE}/r/${ROOM}`, { redirect: "error", method: "POST", headers: { "content-type": "application/json" },
     body: JSON.stringify({ did: signer.did, sig: signer.sign(canonicalMessage(ROOM, nonce, text)),
                            nonce: String(nonce), text }),
   });
@@ -52,14 +56,14 @@ async function post(signer, frame) {
 // own `?if_absent=1` and `?if=<value>`; a 409 means the condition failed.
 const notes = {
   async get(ns, key) {
-    const res = await fetch(`${BASE}/kv/${ns}/${key}`);
+    const res = await fetch(`${BASE}/kv/${ns}/${key}`, { redirect: "error" });
     if (res.status === 404) return null;
     const line = (await res.text()).split("\n").find((l) => l.startsWith("tclkpaper1"));
     return line ?? null;
   },
   async set(ns, key, value, condition) {
     const q = condition === undefined ? "" : "ifAbsent" in condition ? "?if_absent=1" : `?if=${encodeURIComponent(condition.if)}`;
-    const res = await fetch(`${BASE}/kv/${ns}/${key}/set/${encodeURIComponent(value)}${q}`);
+    const res = await fetch(`${BASE}/kv/${ns}/${key}/set/${encodeURIComponent(value)}${q}`, { redirect: "error" });
     if (res.status === 409) return false;
     if (!res.ok) throw new Error(`note ${ns}/${key}: ${res.status}`);
     return true;
@@ -102,7 +106,7 @@ log(5, `receipt  ${await post(payer, { type: "receipt", from: payer.did, contrac
 // The venue's window is the newest 200 records; /export is the whole room. A busy board
 // pushes a deal out of the window before it finishes, so read the export.
 console.log("\n--- a third reader folds the room ---");
-const txt = await (await fetch(`${BASE}/r/${ROOM}/export`)).text();
+const txt = await (await fetch(`${BASE}/r/${ROOM}/export`, { redirect: "error" })).text();
 const frames = [];
 for (const line of txt.split("\n").filter(Boolean)) {
   const m = JSON.parse(line);

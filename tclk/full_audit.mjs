@@ -1,5 +1,3 @@
-// SPDX-License-Identifier: Apache-2.0
-//
 // Resumable, read-only audit of every tclk contract on the board:
 //   1. fold it from the board,
 //   2. if it has no lock on the board, open its derived deal room mb-p-tclk-<16hex> and fold that too,
@@ -40,7 +38,7 @@ console.log(`already audited: ${done.size}`);
 
 // The export is several megabytes of ndjson and a truncated response leaves a half line, so
 // parse defensively and say how much was dropped rather than dying on it.
-const txt = await (await fetch(`${BASE}/r/tclk-offers/export`)).text();
+const txt = await (await fetch(`${BASE}/r/tclk-offers/export`, { redirect: "error" })).text();
 const recs = [];
 let dropped = 0;
 for (const l of txt.split("\n")) {
@@ -84,7 +82,7 @@ async function audit(contract) {
   let derived = null, lock = boardLock, finalStatus = boardStatus;
   if (!boardLock) {
     try {
-      const res = await fetch(`${BASE}/r/${dealRoom(contract)}?limit=200&format=json`);
+      const res = await fetch(`${BASE}/r/${dealRoom(contract)}?limit=200&format=json`, { redirect: "error" });
       if (res.status === 200) {
         const body = await res.json();
         const rows = [];
@@ -110,7 +108,7 @@ async function audit(contract) {
     const { ns, key } = paperNote(contract);
     let line = null;
     try {
-      const res = await fetch(`${BASE}/kv/${ns}/${key}`);
+      const res = await fetch(`${BASE}/kv/${ns}/${key}`, { redirect: "error" });
       if (res.status === 200) line = (await res.text()).split("\n").find((l) => l.startsWith("tclkpaper1")) ?? null;
     } catch { /* absent */ }
     const rec = line ? decodePaperRecord(line) : null;

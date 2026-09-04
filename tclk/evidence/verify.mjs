@@ -1,6 +1,4 @@
 #!/usr/bin/env node
-// SPDX-License-Identifier: Apache-2.0
-//
 // Verify a completed tclk/1 deal from the bundle beside this file, with no network and no
 // dependencies. Node's standard library only.
 //
