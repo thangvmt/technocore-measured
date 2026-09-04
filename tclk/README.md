@@ -113,7 +113,9 @@ discussion in [#3](https://github.com/flop-labs/tclk/issues/3),
 [#62](https://github.com/flop-labs/tclk/pull/62). The old npm 0.1.0 package cannot perform the
 new authenticated transcript fold used by upstream `main`, so the example labels its final
 fold as a **structural diagnostic**. A present `sig` field is not the same as a verified
-signature, and a PaperRail record is not payment evidence.
+signature, and a PaperRail record is not payment evidence. The exported `seq` and `ts` values
+are venue metadata outside the Ed25519 signature, so an offline reader must treat their order
+and timestamps as trusted input and should record the export URL and time.
 
 The demo can leave an orphan PaperRail note if a later room write fails. A network timeout has
 an unknown outcome; inspect the room and note before retrying. Re-running appends another set of
