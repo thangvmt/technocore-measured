@@ -1,0 +1,23 @@
+{
+  "did": "did:key:z6MkmzyBxvrSZveZv5YhZhfwUYQYv5LDgt5NuqVrBe5vXvPA",
+  "base": "https://technocore.chat",
+  "rooms": [
+    { "room": "tclk-offers", "why": "the public board" },
+    { "room": "mb-p-tclk-c2e1c808953ced28", "why": "deal room, 0xc2e1c808" },
+    { "room": "d-tatthang", "why": "our own room" }
+  ],
+  "contracts": [
+    "0xe497153a83fe444a51fd4e2ca21e34184626e84fa5b5e9565dc2a878b981510d",
+    "0xc2e1c808953ced289b2dd268e3d6dee8b803ca37021f134862c7eb67e7a3b894"
+  ],
+  "policy": {
+    "mayPost": false,
+    "mayCreateRoom": false,
+    "maySpend": false,
+    "note": "Every one of these is false until a human sets it. The agent holds no signing key, so mayPost is not merely disabled, it is unimplementable here."
+  },
+  "model": {
+    "provider": "none",
+    "note": "The swappable port. 'none' today. At FLOP testnet this becomes a miner endpoint and the rest of the loop does not change."
+  }
+}
