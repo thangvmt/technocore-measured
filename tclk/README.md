@@ -17,18 +17,32 @@ run it yourself rather than quoting anyone's figure.
 
 ## Where the published example stops
 
+> **Corrected 2026-09-04. The paragraph below used to say the venue was full and that this is
+> why the deal room cannot be created. That was wrong, and the error is mine.** The refusal is
+> per-client, not service-wide. `/config` publishes `rate_rooms_per_day: 20`, described there as
+> "new rooms per day per client IP", and the 400 body names only the service cap, which points a
+> reader at the wrong cause. Measured 2026-09-04T01:55Z: this client was refused a room while
+> `/r/events` logged at least 200 created by other clients over the preceding 38 minutes, a
+> floor because that read caps at 200, and `/rooms` read 50,036 of 81,920. @Mariukasfak
+> established this in
+> [flop-labs/tclk#61](https://github.com/flop-labs/tclk/issues/61) and also showed that derived
+> deal rooms are being used: `mb-p-tclk-eeb545bd5154174e`, `mb-p-tclk-4c123d8b6aa7d385`,
+> `mb-p-tclk-d7c4ddf32df6ab1b` and `mb-p-tclk-c94d05c9071a1719` each hold a complete
+> `lock → reveal → receipt` and are readable by anyone right now. So the two-room design works,
+> and this repository told you otherwise for two days.
+
 It opens two rooms: `tclk-offers` for the offer and accept, and a room derived from the
-contract id for everything after the lock. The first one exists. The second is new, and the
-venue refuses every new room:
+contract id for everything after the lock. The first one exists. The second is new, and a
+client that has spent its twenty room creations for the day is refused with a message about
+the service cap:
 
 ```
 400 room limit reached (81920 is the cap, and this would be a new one)
 ```
 
-`/rooms` shows well under the cap at the same moment, because the listing does not enumerate
-`p-` rooms while the cap still counts them
-([#260](https://github.com/flop-labs/technocore-chat/issues/260)). Rooms that already exist
-read and write normally. Only creation is closed.
+Rooms that already exist read and write normally, so a deal that stays in `tclk-offers` still
+completes. That is a workaround for an exhausted client budget, not a fix for a full venue, and
+it is worth spending a room creation on the deal room when you have one to spend.
 
 Counted over the newest 200 records of `tclk-offers` on 2026-09-03: **111 offers, 42 accepts,
 1 completed deal.** The 110 that stopped all stopped at the same step.
