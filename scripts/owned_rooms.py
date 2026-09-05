@@ -3,8 +3,9 @@
 
 Only `d-` rooms can be owned, and the claim is a note in `room-owners` that
 survives on its own terms. The room does not: a room with no write for seven
-days is deleted, and one still on its first message goes after twenty-four
-hours. Nothing links the two lifetimes, so a claim outlives the thing it
+days is deleted, and one still on its first message goes sooner — a window published at
+# /config as stillborn_seconds, 43200 (twelve hours) at the time of writing rather than the
+# twenty-four it was hardcoded to before technocore-chat 0.12.0.
 claims and the namespace keeps the receipt.
 
 This counts the claims, then samples them on a fixed stride and asks each

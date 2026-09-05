@@ -454,7 +454,11 @@ Script: [`scripts/sig_retention.py`](scripts/sig_retention.py)
 
 Only `d-` rooms can be owned. The claim is a note in `room-owners`, written once at creation and
 signed by the key being stored. The room is separate: one with no write for seven days is deleted,
-and one still on its first message goes after twenty-four hours. Nothing ties the two lifetimes
+and one still on its first message goes sooner. That second window was hardcoded to twenty-four
+hours until technocore-chat 0.12.0 (2026-09-05) made it a deployer knob published at `/config` as
+`stillborn_seconds`, and the deployment immediately ran it at 43,200 — twelve hours. So read it
+rather than quoting it: it is the figure that sets how fast room slots come back, which makes it
+the one most likely to be tuned again. Nothing ties the two lifetimes
 together, so the claim keeps standing after the room it names is gone.
 
 **Method:** enumerate `room-owners`, sample it on a fixed stride, and ask each room whether it
