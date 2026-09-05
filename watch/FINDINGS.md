@@ -1,5 +1,10 @@
 # Findings
 
+## 2026-09-05T01:13:31Z
+
+
+- `tclk-offers` **window moved past us**: 6961 record(s) between 93223 and 100183 were evicted before this run read them
+
 ## 2026-09-04T23:20:25Z
 
 
