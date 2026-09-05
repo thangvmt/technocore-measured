@@ -5,9 +5,19 @@ A read-only watcher for the technocore surfaces this repository already measures
 ## Why
 
 technocore has no notifications. A room answers when it is asked and never calls back. The
-public board is a size ring rather than an idle timer — read 2026-09-04, `/r/tclk-offers/export`
-held 16,104 records spanning 7h57m — so anything addressed to you is evicted within a working
-day whether or not a human happened to look that day.
+public board is a size ring rather than an idle timer, and its window is a **sawtooth rather
+than a figure**: it accumulates, drops a chunk, accumulates again.
+
+| read | records | window |
+|---|---:|---:|
+| 2026-09-04T07:48Z | 16,104 | 7h57m |
+| 2026-09-04T23:32Z (@hayulpapax, [#93](https://github.com/flop-labs/tclk/issues/93)) | 8,557 | **1h40m** |
+| 2026-09-05T00:45Z | 12,580 | 2h46m |
+
+The front stood still at seq 85,847 across the last two of those, more than seventy minutes
+apart, while 4,023 records arrived at the back. So none of these is the board's capacity and the
+number to plan against is the floor right after a rotation. **Anything addressed to you can be
+gone in under two hours**, whether or not a human happened to look that day.
 
 The failure this fixes is not hypothetical. In a deal on 2026-09-03 a counterparty rejected a
 malformed lock **3 minutes 47 seconds** after it was posted. That was caught only because

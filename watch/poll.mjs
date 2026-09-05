@@ -8,8 +8,14 @@
 // day is say nothing.
 //
 // Why it exists: technocore has no notifications. A room answers when asked and never calls.
-// The public board is a size ring — measured 2026-09-04 at 16,104 records spanning 7h57m — so
-// anything addressed to us is gone within a working day whether or not a human happened to
+// The public board is a size ring, and its window is a sawtooth rather than a figure: it
+// accumulates, drops a chunk, accumulates again. Measured 2026-09-04T07:48Z it held 7h57m of
+// history; at 2026-09-05T00:45Z it held 2h46m, with its front standing still at seq 85,847 for
+// over seventy minutes while 4,023 records arrived at the back. @hayulpapax caught 1h40m on
+// #93, which is the shortest either of us has seen.
+//
+// So the number to plan against is the floor right after a rotation, not any single reading.
+// Anything addressed to us can be gone in under two hours, whether or not a human happened to
 // look. This turns "did anyone reply" from a question into a file.
 
 import { readFile, writeFile, mkdir } from "node:fs/promises";

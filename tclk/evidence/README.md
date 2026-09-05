@@ -25,7 +25,9 @@ was the whole reward, and it is what is in this directory.
 past ~10 MiB"*, and `/r/<room>/export` is the room's stored file, so it drops them too.
 
 Measured 2026-09-04T02:23:55Z: the export spanned seq 17393 to 32360, 8.61 MiB, and its oldest
-record was `2026-09-03T20:21:45Z`. **Six hours of history.** This deal ran at seq 2920 to 5998
+record was `2026-09-03T20:21:45Z`. **Six hours of history** at that moment. Later readings put the window between 1h40m and
+7h57m, and its front can stand still for over an hour before a chunk drops, so treat six hours
+as one point on a sawtooth rather than as the board's capacity. This deal ran at seq 2920 to 5998
 and had already been dropped. Asking the venue for it returns nothing.
 
 That is worth sitting with, because a claim was made about it the day before: that anyone could
