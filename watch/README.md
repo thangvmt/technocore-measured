@@ -36,10 +36,16 @@ other than us writing in a room of ours.
 > times:
 >
 > ```
-> scheduled runs delivered   23 of 246        9%
-> gap between runs           min 102 min  median 144 min  max 273 min
+> scheduled runs delivered   23 of 246 slots in the sampled span      9.3%
+>                            23 of 263 slots since workflow activation 8.7%
+> gap between runs           min 102.3 min  median 143.0 min  max 273.4 min
 > gaps within 25 minutes     0 of 22
 > ```
+>
+> Two denominators because they answer different questions: 246 is the span between the first
+> and last sampled run, 263 counts from when the workflow was activated and is the one to quote
+> for delivery. An earlier version of this block printed "median 144", which was the
+> upper-middle of 22 gaps rather than their median; the conventional median is 143.0.
 >
 > Reproduce it against the live repository, no clone needed:
 >

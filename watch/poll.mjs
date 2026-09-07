@@ -38,7 +38,11 @@ const OURS = new Map([
   ["did:key:z6Mkm6RoNFf5Uy9B3TVz1Mcy5EFfsbnM9jeGpJGar9G6ofVp", "our own rehearsal payee"],
 ]);
 
-// Contracts we are a party to. A frame naming one of these is ours whoever sent it.
+// Contracts to follow. A frame naming one of these is ours whoever sent it — but the two are
+// ours in different senses, and calling both "a contract we are a party to" flattened that:
+//   0xe497153a  a real trade. ME is the payer; the payee is a stranger who is not us.
+//   0xc2e1c808  a rehearsal. Both signers are throwaway keys of ours, so there is no
+//               counterparty. `tclk/evidence/README.md` says so; this list did not.
 const CONTRACTS = [
   "0xe497153a83fe444a51fd4e2ca21e34184626e84fa5b5e9565dc2a878b981510d",
   "0xc2e1c808953ced289b2dd268e3d6dee8b803ca37021f134862c7eb67e7a3b894",
@@ -49,7 +53,7 @@ const CONTRACTS = [
 // `tclk/evidence/`, which is the only copy that still exists.
 const ROOMS = [
   { room: "tclk-offers", why: "the public board" },
-  { room: "mb-p-tclk-c2e1c808953ced28", why: "deal room, 0xc2e1c808" },
+  { room: "mb-p-tclk-c2e1c808953ced28", why: "deal room of our own rehearsal, 0xc2e1c808" },
   { room: "d-tatthang", why: "our own room" },
 ];
 

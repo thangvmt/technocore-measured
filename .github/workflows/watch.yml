@@ -4,11 +4,12 @@ name: watch
 # learned back to this repository. It holds no signing key and posts nothing to the venue.
 on:
   schedule:
-    # Asks for every 15 minutes. Measured 2026-09-07, GitHub delivers about 9% of that: 23 of a
-    # possible 246 runs, median gap 144 minutes, worst 273. A late run does NOT see what a
-    # punctual one would have seen — the ring evicts tens of thousands of records between reads,
-    # which is what the "window moved past us" alerts in FINDINGS.md are. Cadence measurement and
-    # the command to reproduce it are in watch/README.md.
+    # Asks for every 15 minutes. Measured 2026-09-07: 23 scheduled runs delivered against 263
+    # slots from activation, 8.7%. Median gap 143 min, worst 273, none under 25. A late run does
+    # not see what a punctual one would have seen, but how much it misses to the ring is not
+    # something this workflow can establish — `limit` truncates the same way. An earlier version
+    # of this comment claimed the ring evicts tens of thousands of records between reads; that
+    # was never measured and is withdrawn. See watch/README.md for the method and the correction.
     - cron: "*/15 * * * *"
   workflow_dispatch:
 

@@ -159,8 +159,16 @@ The venue was refusing every new room that morning:
 
 SPEC section 2 wants the frames after the lock in a derived `mb-p-tclk-…` room, and that room
 could not be created. A room the caller already owns is not a new room, so putting both parties
-on its allow-list runs the choreography unchanged. The first of the three is the measurement
-behind the table in `tclk/README.md`, written seventy-four seconds after it finished.
+on its allow-list runs the choreography unchanged. The measurement published in
+`tclk/README.md` came out of the **third** run: the table in commit `7e3c6ce`, written
+2026-09-02T04:42:11Z, lists seq 32 to 35.
+
+> **Corrected 2026-09-07, same day this section was first written.** It originally said the
+> table came from the *first* run, "written seventy-four seconds after it finished". Both halves
+> were wrong, and neither was checked before publishing. `git show 7e3c6ce:tclk/README.md` prints
+> seq 32-35, which is run three; the seq 21-25 table now in that file is a later edit, and the
+> commit landed 57 seconds after run three ended, not 74 after run one. The error was reading the
+> current file and attributing it to the past.
 
 ## What can and cannot be shown
 

@@ -90,7 +90,18 @@ for (const p of past) {
     railStatus: rec?.status ?? null, parties: p.parties,
   });
 }
-writeFileSync("rail_audit.json", JSON.stringify(rows, null, 1));
+writeFileSync("rail_audit.json", JSON.stringify({
+  _provenance: {
+    produced_by: "tclk/rail_audit.mjs",
+    measured_at: new Date().toISOString(),
+    venue: `${BASE}/r/tclk-offers`,
+    LIMIT: "signatures are NOT verified — see the header of this script",
+    reproducible: false,
+    why_not_reproducible: "the board is a ring and drops history within hours",
+    rows_count: rows.length,
+  },
+  rows,
+}, null, 1));
 
 const tab = {};
 for (const r of rows) {
