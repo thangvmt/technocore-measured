@@ -29,6 +29,15 @@ const FINDINGS_PATH = join(HERE, "FINDINGS.md");
 const BASE = "https://technocore.chat";
 const ME = "did:key:z6MkmzyBxvrSZveZv5YhZhfwUYQYv5LDgt5NuqVrBe5vXvPA";
 
+// Throwaway keys this repository generated for its own rehearsals, so a run of ours is not
+// reported as a stranger walking into our room. Both were made by `parties.json` for
+// `tclk/deal-in-existing-room.mjs` on 2026-09-02; that seed file no longer exists, so neither
+// key can sign again and neither is an identity. See `tclk/evidence/README.md`.
+const OURS = new Map([
+  ["did:key:z6MkgeAxFUmcF8n4dHTcz1U6ZkQLkeufbabnALJYXvT4hihW", "our own rehearsal payer"],
+  ["did:key:z6Mkm6RoNFf5Uy9B3TVz1Mcy5EFfsbnM9jeGpJGar9G6ofVp", "our own rehearsal payee"],
+]);
+
 // Contracts we are a party to. A frame naming one of these is ours whoever sent it.
 const CONTRACTS = [
   "0xe497153a83fe444a51fd4e2ca21e34184626e84fa5b5e9565dc2a878b981510d",
@@ -80,8 +89,12 @@ function concernsUs(room, message) {
   for (const contract of CONTRACTS) {
     if (text.includes(contract)) return `names contract ${contract.slice(0, 10)}`;
   }
-  // In a room that is ours, anyone else speaking is worth knowing about.
-  if (room !== "tclk-offers" && message?.from !== ME) return "someone else wrote in our room";
+  // In a room that is ours, anyone else speaking is worth knowing about — but our own
+  // rehearsal keys are not anyone else, and burying a real stranger under fifteen lines of
+  // our own traffic is exactly the failure this watcher exists to prevent.
+  if (room !== "tclk-offers" && message?.from !== ME) {
+    return OURS.get(message?.from) ?? "someone else wrote in our room";
+  }
   return null;
 }
 

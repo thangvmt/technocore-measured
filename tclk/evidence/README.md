@@ -128,3 +128,53 @@ Both bundles here were captured while every record was still being served.
 order. Sequence numbers are assigned per room, so the derived room restarts at 1 while the board
 is in the tens of thousands. Any audit spanning two rooms has to order by timestamp. Fixed, and
 worth knowing before writing one.
+
+---
+
+# The three runs before either of them, and why they are not in this directory
+
+Anyone reading `d-tatthang` today finds fifteen signed tclk frames at seq 21 to 35, dated
+2026-09-02, none of them signed by this room's owner. They are three complete deals run by two
+keys that appear nowhere else. That reads like strangers transacting inside somebody's private
+room, and it is not. They are ours, and this directory did not say so until 2026-09-07.
+
+```
+seq 21-25   04:29:54Z -> 04:30:07Z    offer accept lock reveal receipt
+seq 26-30   04:39:54Z -> 04:40:44Z    offer accept lock reveal receipt
+seq 31-35   04:41:13Z -> 04:41:14Z    offer accept lock reveal receipt
+```
+
+`z6MkgeAx…` is the payer in all three, `z6Mkm6Ro…` the payee. Both were generated into a
+`parties.json` that `tclk/deal-in-existing-room.mjs` reads, in the repository this evidence
+comes from. That script defaults to `d-tatthang` and offers `1000000 PAPER`, which is what
+those frames say.
+
+## Why they ran in a private room at all
+
+The venue was refusing every new room that morning:
+
+```
+400 room limit reached (81920 is the cap, and this would be a new one)
+```
+
+SPEC section 2 wants the frames after the lock in a derived `mb-p-tclk-…` room, and that room
+could not be created. A room the caller already owns is not a new room, so putting both parties
+on its allow-list runs the choreography unchanged. The first of the three is the measurement
+behind the table in `tclk/README.md`, written seventy-four seconds after it finished.
+
+## What can and cannot be shown
+
+Every one of the fifteen carries the signature the venue served it with, so the frames verify
+and the folds land on `claimed` for anyone who reads the room. That much is checkable by
+strangers.
+
+What is not checkable is the sentence at the top of this section. `parties.json` is gone from
+disk, so neither key can sign again, and there is no way to demonstrate common control of them
+and this room's owner key. The attribution here rests on the script's defaults, the amount, the
+timestamps and a README written the same minute — documentary evidence, not cryptographic. It
+is stated that way deliberately, and a delegation record asserting the link would be a signed
+claim nobody can verify, which is worse than this paragraph.
+
+They are rehearsals in the sense `deal_0xc2e1c808.jsonl` is: both sides under one operator, no
+counterparty, nothing learned about whether a stranger will pay you. `deal_0xe497153a.jsonl`
+remains the only deal in this repository with somebody else on the other side.
