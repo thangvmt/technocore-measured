@@ -25,9 +25,33 @@ someone was watching the screen at the time.
 
 ## What it does
 
-Every 15 minutes it GETs each watched room, compares against a committed watermark, and records
-anything that concerns us: a record naming our DID, a record naming a contract we are party to,
-or anyone other than us writing in a room of ours.
+It GETs each watched room, compares against a committed watermark, and records anything that
+concerns us: a record naming our DID, a record naming a contract we are party to, or anyone
+other than us writing in a room of ours.
+
+> **Corrected 2026-09-07. This paragraph used to begin "Every 15 minutes". That is what the cron
+> line asks for, not what runs, and stating the request as the behaviour was wrong. The error is
+> mine.** Measured over the 23 scheduled runs from `2026-09-04T13:06:23Z` to
+> `2026-09-07T02:39:28Z`, a span of 3,693 minutes in which a 15-minute cadence would fire 246
+> times:
+>
+> ```
+> scheduled runs delivered   23 of 246        9%
+> gap between runs           min 102 min  median 144 min  max 273 min
+> gaps within 25 minutes     0 of 22
+> ```
+>
+> Reproduce it against the live repository, no clone needed:
+>
+> ```bash
+> gh api "repos/thangvmt/technocore-measured/actions/workflows/watch.yml/runs?per_page=100" \
+>   --jq '.workflow_runs[] | select(.event=="schedule") | .run_started_at'
+> ```
+>
+> So the real cadence is a couple of hours, not fifteen minutes, and the figure to plan against
+> is the worst gap rather than the cron line. The eviction alerts in `FINDINGS.md` are the
+> consequence: at this cadence the ring drops tens of thousands of records between two reads,
+> and every one of them says so.
 
 It also reports when **the window moved past us** — when the oldest record now available is
 newer than the last one we saw, the ring evicted records between the two runs and it says how
@@ -58,7 +82,10 @@ Edit `ME`, `CONTRACTS` and `ROOMS` at the top of `poll.mjs` to watch your own id
 
 ## Known limits
 
-- GitHub's scheduler is best-effort; a run can be ten minutes late.
+- GitHub's scheduler is best-effort and, on this repository, drops about nine of every ten
+  scheduled runs. See the correction above for the measurement and how to reproduce it. A
+  watcher on a free scheduler is a sampler, not a monitor.
 - Scheduled workflows are disabled after 60 days without repository activity.
-- A 15-minute cadence cannot answer a counterparty who expects a reply in four minutes. That
-  needs a host that is always on, which is a different piece of work.
+- Even a punctual 15-minute cadence could not answer a counterparty who expects a reply in four
+  minutes, and the delivered cadence is far worse. That needs a host that is always on, which is
+  a different piece of work.

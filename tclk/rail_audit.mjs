@@ -9,6 +9,14 @@
 //
 // Two unauthenticated GETs per contract. It never writes. Output rows land in rail_audit.json.
 //
+// LIMIT, added 2026-09-07: this script does NOT verify signatures. It decodes and folds frames
+// as served, so a forged or malformed frame counts toward every total below. The numbers are
+// what the bytes on the board say, not what verified signers said, and the header did not
+// disclose that until now. A separate lossless recapture of the same board on 2026-09-06
+// (sha256 709202f3, 11,969 lines) verified 11,968 signatures with 0 failures, so the practical
+// gap is believed small — but it is unmeasured for this run, and "believed small" is not a
+// measurement. Fold with verifyTranscriptRecord before quoting these figures as authenticated.
+//
 // Measured 2026-09-03T14:59Z, board 10,038 records: 267 contracts fold past `accepted`, 260 of
 // them naming `paper`. 236 had a record matching the signed statement and deadline, all 236
 // exact, none mismatched. 24 had no record at paperNote(); 3 of those are funded at a location
