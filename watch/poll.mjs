@@ -57,13 +57,20 @@ async function readJson(path, fallback) {
   }
 }
 
-async function fetchRoom(room) {
-  const url = `${BASE}/r/${encodeURIComponent(room)}?format=json&limit=${LIMIT}`;
+// `since` is what makes a gap diagnosable. Without a cursor every reply is the newest LIMIT of
+// the whole room, so `count` is always LIMIT and a low first_seq says nothing. With one, a reply
+// holding fewer than LIMIT records is a reply the cap did not touch, and only then does a
+// first_seq above the cursor prove the room no longer holds what is missing. flop-labs/technocore-chat#384
+// documents the trap: `limit` truncates from the same end a ring drop does, and one reply cannot
+// tell you which. Nothing pages backwards past 200, so a wider gap stays undecidable by design.
+async function fetchRoom(room, since) {
+  const cursor = Number.isInteger(since) ? `&since=${since}` : "";
+  const url = `${BASE}/r/${encodeURIComponent(room)}?format=json&limit=${LIMIT}${cursor}`;
   const response = await fetch(url, { redirect: "error", headers: { accept: "application/json" } });
   if (!response.ok) throw new Error(`GET /r/${room} -> ${response.status}`);
   const body = await response.json();
   const messages = Array.isArray(body?.messages) ? body.messages : [];
-  return { messages, lastSeq: body?.last_seq ?? null, count: body?.count ?? null };
+  return { messages, lastSeq: body?.last_seq ?? null, count: body?.count ?? null, capped: messages.length >= LIMIT };
 }
 
 /** Does this record concern us? Kept deliberately narrow so a quiet run stays quiet. */
@@ -95,9 +102,10 @@ async function main() {
 
   for (const { room, why } of ROOMS) {
     await sleep(PACE_MS);
+    const seen = state[room]?.lastSeq ?? null;
     let view;
     try {
-      view = await fetchRoom(room);
+      view = await fetchRoom(room, seen);
     } catch (error) {
       // A room that is gone is itself information: the venue deletes one after seven days
       // without a write, and a settled deal stops writing by definition.
@@ -105,7 +113,6 @@ async function main() {
       continue;
     }
 
-    const seen = state[room]?.lastSeq ?? null;
     const seqs = view.messages.map((m) => m?.seq).filter((s) => Number.isInteger(s));
     if (seqs.length === 0) {
       chatter.push(`- \`${room}\` (${why}) is empty`);
@@ -125,8 +132,11 @@ async function main() {
 
     if (minSeq > seen + 1) {
       const missed = minSeq - seen - 1;
+      const span = `${missed} record(s) between ${seen + 1} and ${minSeq - 1}`;
       alerts.push(
-        `- \`${room}\` **window moved past us**: ${missed} record(s) between ${seen + 1} and ${minSeq - 1} were evicted before this run read them`,
+        view.capped
+          ? `- \`${room}\` **gap, cause undetermined**: ${span} were not read. The reply held the full ${LIMIT} it is allowed, so the cap alone explains the gap and a ring drop cannot be told apart from it. Nothing pages back past ${LIMIT} (flop-labs/technocore-chat#384), so this one stays undecided.`
+          : `- \`${room}\` **ring dropped records**: ${span} are gone. The reply held ${view.messages.length} of a possible ${LIMIT}, so the cap did not truncate it and the room no longer serves them.`,
       );
     }
 

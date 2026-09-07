@@ -49,13 +49,39 @@ other than us writing in a room of ours.
 > ```
 >
 > So the real cadence is a couple of hours, not fifteen minutes, and the figure to plan against
-> is the worst gap rather than the cron line. The eviction alerts in `FINDINGS.md` are the
-> consequence: at this cadence the ring drops tens of thousands of records between two reads,
-> and every one of them says so.
+> is the worst gap rather than the cron line.
 
-It also reports when **the window moved past us** — when the oldest record now available is
-newer than the last one we saw, the ring evicted records between the two runs and it says how
-many. A watcher that cannot say "I missed something" is worse than none.
+It also reports when it **did not read** something: when the oldest record in the reply is newer
+than the last one we saw, records went by unseen and it says how many. A watcher that cannot say
+"I missed something" is worse than none.
+
+> **Corrected 2026-09-07. Until this commit that alert said the records "were evicted", and the
+> commit that first published this correction repeated the claim in prose. Neither was
+> established.** `first_seq` above your cursor has two causes, and
+> [flop-labs/technocore-chat#384](https://github.com/flop-labs/technocore-chat/pull/384) — a
+> documentation change opened from this repository on 2026-08-27 — says so plainly: *"your own
+> `limit` cuts the same way when you are further behind than it. One reply does not say which."*
+> Worse, `poll.mjs` sent no `since` at all, so every reply was the newest `limit` of the whole
+> room and the cap was the likelier explanation every time. Measured on `tclk-offers` at one
+> moment, with nothing evicted in between:
+>
+> ```
+> ?format=json&limit=200   first_seq 491416
+> ?format=json&limit=50    first_seq 491566
+> ```
+>
+> A 150-record "gap" produced by nothing but the limit. The watcher now sends `since` and
+> separates the two cases:
+>
+> | reply | verdict |
+> |---|---|
+> | starts at `since+1` | no gap |
+> | starts higher, held **fewer** than `limit` | **ring dropped them** — the cap did not truncate this reply, so the room no longer serves them |
+> | starts higher, held the **full** `limit` | **cause undetermined** — the cap alone explains it, and nothing pages back past 200, so it stays undecided |
+>
+> Alerts written before 2026-09-07 say "evicted" and should be read as "not seen, cause
+> undetermined". The counts in them are the size of the unseen span, which is correct; only the
+> attributed cause was wrong.
 
 ## What it does not do
 
