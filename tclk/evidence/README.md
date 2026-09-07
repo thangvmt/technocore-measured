@@ -163,12 +163,21 @@ on its allow-list runs the choreography unchanged. The measurement published in
 `tclk/README.md` came out of the **third** run: the table in commit `7e3c6ce`, written
 2026-09-02T04:42:11Z, lists seq 32 to 35.
 
-> **Corrected 2026-09-07, same day this section was first written.** It originally said the
-> table came from the *first* run, "written seventy-four seconds after it finished". Both halves
-> were wrong, and neither was checked before publishing. `git show 7e3c6ce:tclk/README.md` prints
-> seq 32-35, which is run three; the seq 21-25 table now in that file is a later edit, and the
-> commit landed 57 seconds after run three ended, not 74 after run one. The error was reading the
-> current file and attributing it to the past.
+> **Corrected twice on 2026-09-07, the day this section was written.**
+>
+> The first version said the table came from the *first* run, "written seventy-four seconds after
+> it finished". `git show 7e3c6ce:tclk/README.md` prints seq 32-35, which is run three, and that
+> commit landed 57 seconds after run three ended.
+>
+> The correction then added a claim of its own: that "the seq 21-25 table now in that file is a
+> later edit". That is also wrong, and wrong in a way a reader of this repository can catch in one
+> command. There is no seq 21-25 table in this repository's `tclk/README.md`; that file now
+> documents a different deal measured 2026-09-03 inside `tclk-offers`, folding seq 3229-3232, and
+> `git log -S 'Measured 2026-09-02' -- tclk/README.md` returns nothing.
+>
+> The seq 21-25 table is real but lives in a **different file with the same path ending**, in a
+> private working repository. Reading that one and publishing claims about this one is the whole
+> error, both times: attributing to a public artifact what was only ever checked somewhere else.
 
 ## What can and cannot be shown
 
