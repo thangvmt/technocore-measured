@@ -16,11 +16,12 @@
 // nothing. Posted by did:key:z6Mkmzy…XvPA, taken and delivered by did:key:z6MkqRai…jvw11.
 import { createHash, createPublicKey, verify as nodeVerify } from "node:crypto";
 import { readFileSync } from "node:fs";
+import { fileURLToPath } from "node:url";
 
 // Each record carries the room it came from, so a bundle spanning the board and a derived deal
 // room verifies the same way as one that never left the board. The signature covers
 // `room|nonce|text`, so the room is part of what was signed and cannot be swapped after the fact.
-const BUNDLE = process.argv[2] ?? new URL("./deal_0xe497153a.jsonl", import.meta.url).pathname;
+const BUNDLE = process.argv[2] ?? fileURLToPath(new URL("./deal_0xe497153a.jsonl", import.meta.url));
 
 const B58 = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz";
 function base58decode(s) {
