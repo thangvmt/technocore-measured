@@ -1,5 +1,12 @@
 # Findings
 
+## 2026-09-19T21:15:16Z
+
+
+- `tclk-offers` (the public board) could not be read: GET /r/tclk-offers -> 503
+- `mb-p-tclk-c2e1c808953ced28` (deal room of our own rehearsal, 0xc2e1c808) could not be read: GET /r/mb-p-tclk-c2e1c808953ced28 -> 502
+- `d-tatthang` (our own room) could not be read: GET /r/d-tatthang -> 502
+
 ## 2026-09-19T18:46:13Z
 
 
