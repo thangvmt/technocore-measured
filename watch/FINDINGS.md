@@ -1,5 +1,10 @@
 # Findings
 
+## 2026-09-21T00:27:34Z
+
+
+- `tclk-offers` (the public board) could not be read: GET /r/tclk-offers -> 502
+
 ## 2026-09-20T22:29:55Z
 
 
