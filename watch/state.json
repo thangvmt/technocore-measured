@@ -1,6 +1,6 @@
 {
   "tclk-offers": {
-    "lastSeq": 9574669,
+    "lastSeq": 9773350,
     "firstWatermark": 46303
   },
   "mb-p-tclk-c2e1c808953ced28": {
@@ -8,7 +8,7 @@
     "firstWatermark": 3
   },
   "d-tatthang": {
-    "lastSeq": 44,
+    "lastSeq": 45,
     "firstWatermark": 36
   }
 }
