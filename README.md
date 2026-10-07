@@ -26,6 +26,7 @@ Every figure came from the live service, every script is in [`scripts/`](scripts
 - [Running a tclk/1 deal today](#running-a-tclk1-deal-today)
 - [A cursor that strands itself](#a-cursor-that-strands-itself)
 - [A reader that avoids all three](#a-reader-that-avoids-all-three)
+- [Close Call, read back from the referee](#close-call-read-back-from-the-referee)
 - [Running these yourself](#running-these-yourself)
 - [What this is not](#what-this-is-not)
 
@@ -594,6 +595,30 @@ of 278 records — records a naive reader drops without noticing.
 
 The gap is a count of absent sequence numbers, reported and never interpreted. It is not a claim that they were truncated: a ring drop or an ephemeral room's TTL produces identical arithmetic, and no reply separates them.
 
+## Close Call, read back from the referee
+
+**Question:** close-1 ("Close Call") ran on this server from 2026-09-25 12:00 to the lock at 2026-10-04 09:00. Its referee posted every five-minute sweep into rooms nobody else can write to. Read back in full, what do those posts say about who took part?
+
+**Method:** the four referee rooms that carry numbers (`d-close1-price`, `d-close1-state`, `d-close1-positions`, `d-close1-pnl`) are pulled through the paced exporter. Every post's sender is checked against the DID that signed the seed post, and every signature is checked when the `cryptography` package is installed. 2026-10-07: 10,227 posts, all from the referee, 0 bad signatures.
+
+| | |
+|---|---|
+| Owners registered | 1,233,946 after one day, 8,352,103 after four, **18,790,926** at the lock |
+| Keys holding a position at the lock | **8,865,012**, so 53% of registered keys held no position at the end |
+| "452k agentic traders" (posted 2026-09-26 20:30:33) | keys holding a position first passed 452,000 at sweep 389 (20:25) and stood at **455,161** at sweep 390 (20:30:26), while **2,066,533** owners were registered |
+| Largest group of identical scores in the public top 25 | **24 of 25**, in 527 sweeps, from sweep 16 (09-25 13:20) to sweep 633 (09-27 16:46), and never after |
+| The eventual 1st and 2nd | the same score in **708** sweeps, 1,120 to 1,980; first different at sweep 1,981 (10-02 09:07) |
+| Final standings (signed post, 10-04 17:33) | S = 234.69. 1st +1,576.92, 2nd +1,424.74, 3rd +1,337.55. Fees 1,695,366,972.51 POLF, and scores plus fees sum to zero |
+| Buy and hold at the lowest close | +523.7 before fees: all 10,000 POLF long at 223.01, held to S |
+
+The 452k figure counted keys holding a position. At that minute 2.07 million keys were registered and about 455,000 held a position, and the rules say "Nobody is verified" and "One operator may run many keys and hold several places", so neither number counts operators.
+
+For the first two and a half days the public board was mostly one score repeated: in 527 sweeps, 24 of the 25 listed keys carried the same score to the cent. That is what one strategy copied across many keys produces. After sweep 633 no score was shared by more than 23 keys. The eventual winners show the same pattern later and at the top: the 1st and 2nd carried one score for 708 sweeps, then split. FLOP Labs [described the pair](https://x.com/flop_labs/status/2107364967850856704) the same way on 2026-10-06.
+
+**Does not establish:** who operated which key, or how many operators there were. Nothing here covers keys that never reached the public top 25, because the board lists 25. The per-owner record (2.69 GB decompressed, [README](https://challenges.technocore.chat/close-1/final/README.txt)) is not read here; its hash is the one in the standings post. Zero scores are left out of the identical-score count, because every key starts at zero.
+
+Script: [`scripts/close1_census.py`](scripts/close1_census.py)
+
 ## Running these yourself
 
 No dependencies beyond the Python standard library.
@@ -614,13 +639,14 @@ python3 ceilings.py                     # ~4 minutes: it samples the room count 
 python3 faucet.py                       # the namespace the manual does not mention
 python3 sig_retention.py 50             # ~2 minutes: finds the line the deploy left
 python3 owned_rooms.py 80               # ~2 minutes: claims vs the rooms behind them
+python3 close1_census.py                # ~5 s: four room exports, signatures checked if cryptography is installed
 ```
 
 All of them only ever read. Pacing differs by script, so here it is exactly rather than as one claim:
 
 | Script | Request floor | On 429 |
 |---|---|---|
-| `read_horizon`, `duplication`, `identity_census`, `adjacency`, `ceilings`, `faucet`, `sig_retention`, `owned_rooms` | 0.6 s, enforced process-wide in `_common.get` — measured at ~94 req/min against a 600/min budget | waits the `Retry-After` |
+| `read_horizon`, `duplication`, `identity_census`, `adjacency`, `ceilings`, `faucet`, `sig_retention`, `owned_rooms`, `close1_census` | 0.6 s, enforced process-wide in `_common.get` — measured at ~94 req/min against a 600/min budget | waits the `Retry-After` |
 | `did_namespace_audit` | 0.6 s, its own (it ships standalone in an upstream issue) | waits the `Retry-After` |
 | `legacy_shard_overlap` | 0.6 s, its own, `--delay` refuses anything under 0.1 s | waits the `Retry-After` |
 | `safe_reader` | none — a library must not decide the caller's polling interval | waits the `Retry-After` |
@@ -631,7 +657,7 @@ Numbers will differ from the ones above — that is the point of publishing the 
 
 ## What this is not
 
-Not an airdrop guide. FLOP Labs has published no eligibility rules, the server implements no scoring, and nothing here should be read as a way to rank higher at anything.
+Not an airdrop guide. FLOP Labs published draft testnet and airdrop rules on 2026-10-05 ([testnet](https://flop.finance/testnet/), [airdrop](https://flop.finance/airdrop/)). They credit verified work on the FLOP testnet and count wallets under common control as one participant. The chat server itself implements no scoring, and nothing here should be read as a way to rank higher at anything.
 
 Several of these measurements exist because a plausible-sounding conclusion turned out to be wrong under a second test. If you find an error, open an issue with the method you used and it will be corrected in place.
 
