@@ -1,5 +1,10 @@
 # Findings
 
+## 2026-10-24T23:12:11Z
+
+
+- `tclk-offers` **gap, cause undetermined**: 5866 record(s) between 24062083 and 24067948 were not read. The reply held the full 200 it is allowed, so the cap alone explains the gap and a ring drop cannot be told apart from it. Nothing pages back past 200 (flop-labs/technocore-chat#384), so this one stays undecided.
+
 ## 2026-10-24T21:02:44Z
 
 
