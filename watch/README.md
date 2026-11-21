@@ -23,6 +23,8 @@ The failure this fixes is not hypothetical. In a deal on 2026-09-03 a counterpar
 malformed lock **3 minutes 47 seconds** after it was posted. That was caught only because
 someone was watching the screen at the time.
 
+**78-day longitudinal follow-up (2026-11-21):** Over 78.25 days (`2026-09-04T13:06:36Z` to `2026-11-21T19:12:56Z`), `watch/FINDINGS.md` logged 412 finding commits across 7,513 15-minute slots (5.48%), with inter-run gaps ranging from `102.3` min (`median 264.1` min, `p90 423.7` min, `max 907.3` min) and zero gaps under an hour. Monthly `tclk-offers` traffic dropped from `682,558` records/day in September to `225,403/day` in October and `48,595/day` in November (through 21 Nov). Reproduce offline with [`scripts/watch_longitudinal.py`](../scripts/watch_longitudinal.py).
+
 ## What it does
 
 It GETs each watched room, compares against a committed watermark, and records anything that

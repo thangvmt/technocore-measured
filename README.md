@@ -27,12 +27,16 @@ Every figure came from the live service, every script is in [`scripts/`](scripts
 - [A cursor that strands itself](#a-cursor-that-strands-itself)
 - [A reader that avoids all three](#a-reader-that-avoids-all-three)
 - [Close Call, read back from the referee](#close-call-read-back-from-the-referee)
+- [Seventy-eight days of `tclk-offers` and scheduled polling](#seventy-eight-days-of-tclk-offers-and-scheduled-polling)
+- [One hundred days later: live limits and horizons (2026-11-21)](#one-hundred-days-later-live-limits-and-horizons-2026-11-21)
 - [Running these yourself](#running-these-yourself)
 - [What this is not](#what-this-is-not)
 
 ## Community projects
 
-The service is three weeks old and there are already 140 repositories around it, most of them from the last few days. This is a filtered view, not a dump.
+The service opened on 2026-08-13 and saw an initial wave of ~140 repositories in its first three weeks. This is a filtered view, not a dump.
+
+**Directory audit (2026-11-21 UTC, [`scripts/directory_audit.py`](scripts/directory_audit.py)):** of the 66 community entries from the initial August–September wave, 65 still resolve (`undefinedquillharbor3417/technocore-client` returned HTTP 404 and was removed on 2026-11-21), 0 are archived, and only **3 of 66 (4.5%)** received commits on or after 2026-10-01 (`dizcorvus/flop-airdrop-skill`, `dharmanan/technocore-agent-console`, `Mariukasfak/flop-evidence-scout`). Active October–November projects meeting the same four filters are listed in [Still active in Oct–Nov 2026](#still-active-in-octnov-2026).
 
 **What is in here:** created on or after 2026-08-13 (the day `technocore-chat` was published, so a name collision with an older project cannot slip in), has a description, is not a fork, and has more than 5 KB of content. Anything that passed those four and is not listed below was cut for space, not for quality — the sections keep the twelve highest-signal entries each.
 
@@ -44,6 +48,9 @@ The service is three weeks old and there are already 140 repositories around it,
 - [llms.txt](https://technocore.chat/llms.txt) — The complete protocol reference; the prose there is the authority.
 - [skill.md](https://technocore.chat/skill.md) · [patterns.md](https://technocore.chat/patterns.md) · [auth.md](https://technocore.chat/auth.md) — Onboarding skill, worked patterns, the signed lane.
 - [agent.json](https://technocore.chat/.well-known/agent.json) — The limits this deployment actually enforces, machine-readable.
+- [config](https://technocore.chat/config) — Full environment-keyed server settings for the running deployment.
+- [flop-labs/tclk](https://github.com/flop-labs/tclk) · [flop-labs/yellowpaper](https://github.com/flop-labs/yellowpaper) · [flop-labs/network](https://github.com/flop-labs/network) — Signed HTLC/PTLC room coordination, FLOP specification, and running network feedback.
+- [docs.flop.network](https://docs.flop.network) · [flop.finance/testnet](https://flop.finance/testnet/) — Agent integration guides and published testnet rules.
 
 ### Getting started
 
@@ -117,7 +124,6 @@ Your `did:key` seed signs writes today and is the only thing that proves the ide
 - [oxz888/technocore-security-field-guide](https://github.com/oxz888/technocore-security-field-guide) — Independent reproducible security review and safe-use guide for FLOP Labs Technocore Chat.
 - [raheelnaziir/flop-technocore-did](https://github.com/raheelnaziir/flop-technocore-did) — Simple tutorial for creating an encrypted Ed25519 DID for flop, publishing signed Technocore messages.
 - [bdunn77/technocore-signed-client](https://github.com/bdunn77/technocore-signed-client) — Security-focused companion client for persistent Ed25519 identities and signed Technocore operations.
-- [undefinedquillharbor3417/technocore-client](https://github.com/undefinedquillharbor3417/technocore-client) — Zero-dependency, gap-safe Python client for technocore.chat (did:key signing, backlog-safe polling).
 
 ### Guides by language
 
@@ -130,6 +136,24 @@ Your `did:key` seed signs writes today and is the only thing that proves the ide
 - [zengjingsi/technocore-did-starter](https://github.com/zengjingsi/technocore-did-starter) — Technocore DID starter - encrypted Ed25519 identity, signed messages, and a Chinese contribution guide for the…
 - [klopp78/technocore-flop-did-guide](https://github.com/klopp78/technocore-flop-did-guide) — Chinese Technocore DID guide and FLOP contribution proof with a reusable menu script.
 - [mehmetkr-31/technocore-turkce-rehber](https://github.com/mehmetkr-31/technocore-turkce-rehber) — Technocore (Flop Labs) icin Turkce rehber: kendi makinende sifreli Ed25519 DID olustur, imzali mesaj gonder.…
+
+### Still active in Oct–Nov 2026
+
+Verified against the GitHub API on 2026-11-21 UTC: non-fork, description present, > 5 KB content, created on or after 2026-08-13, and pushed on or after 2026-10-15. Already listed in the sections above and still active: `dizcorvus/flop-airdrop-skill` (2026-10-21), `dharmanan/technocore-agent-console` (2026-11-16), and `Mariukasfak/flop-evidence-scout` (2026-11-21). Newly tracked active repositories:
+
+- [Makabeez/flop-pc-miner](https://github.com/Makabeez/flop-pc-miner) — Windows + NVIDIA devnet miner launcher using one WSL distro and official images (pushed 2026-11-21).
+- [wattsap-dev/technocore-scan](https://github.com/wattsap-dev/technocore-scan) — Read-only stdlib+openssl analyzer and reproducibility notes documenting three API/spec discrepancies (pushed 2026-11-21).
+- [maho0638/reddragon-technocore](https://github.com/maho0638/reddragon-technocore) — Independent FLOP observatory tracking Yellow Paper drift, testnet readiness, and DID/TCLK tools (pushed 2026-11-16).
+- [thanhphuc85/technocore-crypto-agent](https://github.com/thanhphuc85/technocore-crypto-agent) — Python SDK + 24/7 Ed25519 agent for technocore.chat messages and KV notes (pushed 2026-11-21).
+- [kamils333/flop-watch](https://github.com/kamils333/flop-watch) — Hourly GitHub Actions monitor for Flop Labs repositories and `flop.finance` pages (pushed 2026-11-21).
+- [erkancamli/technocore-pulse](https://github.com/erkancamli/technocore-pulse) — Signed measuring agent reporting technocore.chat throughput and distinct-line ratios (pushed 2026-11-21).
+- [Asadlee24/technocore-pulse](https://github.com/Asadlee24/technocore-pulse) — Community observability layer for Technocore probe experiments (pushed 2026-11-09).
+- [zannyzette/technocore-did-gameplay](https://github.com/zannyzette/technocore-did-gameplay) — Encrypted agent identity, signed messages, and contribution workflow (pushed 2026-11-11).
+- [mztacat/Flop-Setup-Validator-and-GPU-Miner](https://github.com/mztacat/Flop-Setup-Validator-and-GPU-Miner) — Step-by-step CPU validator and GPU miner setup guide (pushed 2026-11-10).
+
+*Removed on 2026-11-21 audit:* `undefinedquillharbor3417/technocore-client` (HTTP 404).
+
+*Maintainer's related tools and records (disclosed separately from the community filter):* [FLOP Wallet & Channel Doctor](https://flop-doctor.vercel.app/) (browser-only read-only devnet wallet/channel checker, deployed 2026-11-11; live decoder covers specs `1014014-1014020`) and [thangvmt/flop-contributions](https://github.com/thangvmt/flop-contributions) (4 KB dated link index, outside the 5 KB repo filter).
 
 ### Other curated lists
 
@@ -619,6 +643,51 @@ For the first two and a half days the public board was mostly one score repeated
 
 Script: [`scripts/close1_census.py`](scripts/close1_census.py)
 
+## Seventy-eight days of `tclk-offers` and scheduled polling
+
+`watch/FINDINGS.md` has logged every non-empty read of `tclk-offers` since `2026-09-04T13:06:36Z`. Analyzing those 78.25 days offline measures both how GitHub's `*/15` scheduler behaves in practice and how `tclk-offers` volume shifted from September to November.
+
+**Method:** parse every UTC heading and `between <s1> and <s2>` span in `watch/FINDINGS.md`, compute inter-run gaps and `*/15` slot coverage, and compute monthly sequence throughput between the first and last finding in each calendar month. Measured offline through `2026-11-21T19:12:56Z`.
+
+| Metric | Value | Notes |
+|---|---|---|
+| Finding runs committed | **412** across 7,513 15-min slots (**5.48%**) | vs. 8.7% during the first 3 days (2026-09-07) |
+| Inter-run gap (`min / median / p90 / max`) | **102.3 / 264.1 / 423.7 / 907.3 min** | `0` of 411 gaps under 60 minutes |
+| Span verdict labels | **387** undetermined, **23** pre-2026-09-07 `evicted` label, **2** other | See `watch/README.md` for the 2026-09-07 label fix |
+
+| Month (UTC) | Finding runs | Observed span | `tclk-offers` seq range | New records | Rate |
+|---|---:|---:|---|---:|---:|
+| 2026-09 | 168 | 26.42 days | `46,457 -> 18,080,129` | `+18,033,672` | **682,558 / day** |
+| 2026-10 | 164 | 30.86 days | `18,080,330 -> 25,036,439` | `+6,956,109` | **225,403 / day** |
+| 2026-11 (to 21 Nov) | 78 | 20.73 days | `25,036,640 -> 26,043,793` | `+1,007,153` | **48,595 / day** |
+
+Daily `tclk-offers` traffic in the sampled 20-day November window is **14.0x lower** than September (`682,558 -> 48,595` records/day), while median scheduled-cron latency widened from `143.0` to `264.1` minutes.
+
+**Does not establish:** raw GitHub Actions trigger attempts (quiet runs make no commit, and manual `workflow_dispatch` runs share heading format with cron runs), nor whether skipped records in `undetermined` gaps were evicted or merely exceeded `limit=200`.
+
+Script: [`scripts/watch_longitudinal.py`](scripts/watch_longitudinal.py)
+
+## One hundred days later: live limits and horizons (2026-11-21)
+
+Checking `/config`, `/rooms`, `/kv/did`, `/r/lobby`, and `/r/tclk-offers` 100 days after launch (`2026-11-21T20:23:59Z`) shows how the two raised ceilings and room horizons evolved since `2026-08-31` (`v0.11.1`).
+
+**Method:** one read-only pass via `_common.get` across `/config`, `/rooms`, `/kv/did`, and `limit=200` tails on `/r/lobby` and `/r/tclk-offers`; tail span (`last_ts - first_ts`) measures instantaneous throughput and implied 200-record horizon with zero sleep window.
+
+| Surface | 2026-08-31 (`v0.11.1`) | 2026-11-21 20:23Z (`v0.14.5`) | Change |
+|---|---:|---:|---|
+| `max_rooms` | `81,920` | **`300,000`** | Raised 3.7x |
+| Rooms stored | `43,939` (`53.6%`) | **`53,490`** (`17.8%`) | `+21.7%` count; `401.6 MB -> 1.4G / 5.0G` |
+| `max_notes_per_ns` | `131,072` | **`300,000`** | Raised 2.3x (`max_notes_total = 16,777,216`) |
+| `did/` notes | `103,203` (`78.7%`) | **`81,837`** (`27.3%`) | `-20.7%` below peak |
+| `/r/lobby` 200-msg horizon | `~9 s` (`2026-08-26`) | **`~6.9 s`** (`1,742.5 msg/min`) | `200/200` signed, `200` unique DIDs (`seq 166,449,894..166,450,093`) |
+| `/r/tclk-offers` 200-msg horizon | — | **`~939.5 s`** (`12.77 msg/min`) | `200/200` signed, `38` unique DIDs (`seq 26,044,684..26,044,883`) |
+
+Notes in `did/` dropped from `103,203` to `81,837` while total room storage more than tripled to `1.4G` (`5.0G` cap), leaving both raised `300,000` ceilings well below saturation (`17.8%` rooms, `27.3%` `did/`). Meanwhile `/config` now enforces `dupe_filter_seconds = 120` (`dupe_max_copies = 5`, `dupe_min_length = 16`), and all `200/200` sampled tail messages in both `/r/lobby` and `/r/tclk-offers` carried Ed25519 signatures.
+
+**Does not establish:** sustained 24-hour message rates from a single `limit=200` slice (notice `/r/tclk-offers` sampled `12.77 msg/min` = `~18.4k/day` at 20:24Z vs. its November average of `48,595/day`), or whether `did/` shrank due to expiry, deletion, or migration.
+
+Script: [`scripts/live_snapshot.py`](scripts/live_snapshot.py)
+
 ## Running these yourself
 
 No dependencies beyond the Python standard library.
@@ -640,6 +709,10 @@ python3 faucet.py                       # the namespace the manual does not ment
 python3 sig_retention.py 50             # ~2 minutes: finds the line the deploy left
 python3 owned_rooms.py 80               # ~2 minutes: claims vs the rooms behind them
 python3 close1_census.py                # ~5 s: four room exports, signatures checked if cryptography is installed
+
+python3 watch_longitudinal.py           # offline: 78-day summary of ../watch/FINDINGS.md
+python3 live_snapshot.py                # read-only Day-100 snapshot of v0.14.5 limits, counts, and tails
+python3 directory_audit.py              # checks GitHub repo liveness/activity for ## Community projects
 ```
 
 All of them only ever read. Pacing differs by script, so here it is exactly rather than as one claim:
@@ -650,6 +723,9 @@ All of them only ever read. Pacing differs by script, so here it is exactly rath
 | `did_namespace_audit` | 0.6 s, its own (it ships standalone in an upstream issue) | waits the `Retry-After` |
 | `legacy_shard_overlap` | 0.6 s, its own, `--delay` refuses anything under 0.1 s | waits the `Retry-After` |
 | `safe_reader` | none — a library must not decide the caller's polling interval | waits the `Retry-After` |
+| `live_snapshot` | 0.6 s via `_common.get` | waits the `Retry-After` |
+| `watch_longitudinal` | offline — reads `watch/FINDINGS.md` only | n/a |
+| `directory_audit` | GitHub API (`0.25s` with token, `0.7s` unauthenticated) | n/a (does not hit technocore.chat) |
 
 A per-call `sleep()` does not bound a client, because it ignores the time the request itself took; `_common` measures from the start of the previous request instead. None of them writes to the service, and none of them wants your private key.
 
@@ -657,7 +733,7 @@ Numbers will differ from the ones above — that is the point of publishing the 
 
 ## What this is not
 
-Not an airdrop guide. FLOP Labs published draft testnet and airdrop rules on 2026-10-05 ([testnet](https://flop.finance/testnet/), [airdrop](https://flop.finance/airdrop/)). They credit verified work on the FLOP testnet and count wallets under common control as one participant. The chat server itself implements no scoring, and nothing here should be read as a way to rank higher at anything.
+Not an airdrop guide. FLOP Labs published draft testnet and airdrop rules on 2026-10-05 ([testnet](https://flop.finance/testnet/), [airdrop](https://flop.finance/airdrop/)). They credit verified work on the FLOP testnet and count wallets under common control as one participant. The chat server itself implements no scoring, and nothing here should be read as a way to rank higher at anything. FLOP's updated [tokenomics FAQ](https://docs.flop.network/docs/tokenomics-and-supply) (updated 2026-11-18) confirms that *"Creating DIDs or posting in TechnoCore rooms does not by itself earn anything"*, with the public FLOP testnet targeted for 2026-11-24 ([flop.finance/testnet](https://flop.finance/testnet/)).
 
 Several of these measurements exist because a plausible-sounding conclusion turned out to be wrong under a second test. If you find an error, open an issue with the method you used and it will be corrected in place.
 
